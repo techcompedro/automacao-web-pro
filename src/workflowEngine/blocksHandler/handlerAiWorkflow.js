@@ -15,7 +15,7 @@ async function aiWorkflow(block, { refData }) {
   const aipowerToken = this.engine.workflow.settings?.aipowerToken;
 
   if (!aipowerToken) {
-    throw new Error('AI Power token is not set');
+    throw new Error('O token do AI Power não foi configurado');
   }
 
   const inputForAPI = {};
@@ -44,7 +44,7 @@ async function aiWorkflow(block, { refData }) {
     const { success, msg } = runResponse;
 
     if (!success) {
-      throw new Error(msg || 'AI workflow execution failed');
+      throw new Error(msg || 'Falha na execução do fluxo com IA');
     }
 
     if (assignVariable) {
@@ -63,7 +63,7 @@ async function aiWorkflow(block, { refData }) {
       replacedValue: replacedValueList,
     };
   } catch (error) {
-    console.error('AI workflow execution failed:', error);
+    console.error('Falha na execução do fluxo com IA:', error);
     throw new Error(error.message);
   }
 }

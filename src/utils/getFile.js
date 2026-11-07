@@ -31,7 +31,7 @@ function getLocalFile(path, options) {
     const isFile = /\.(.*)/.test(path);
 
     if (!isFile) {
-      reject(new Error(`"${path}" is invalid file path.`));
+      reject(new Error(`"${path}" é um caminho de arquivo inválido.`));
       return;
     }
 
@@ -58,7 +58,10 @@ function getLocalFile(path, options) {
       };
       xhr.onerror = function () {
         reject(
-          new Error(xhr.statusText || `Can't find a file with "${path}" path`)
+          new Error(
+            xhr.statusText ||
+              `Não foi possível encontrar um arquivo no caminho "${path}"`
+          )
         );
       };
       xhr.open('GET', fileUrl);

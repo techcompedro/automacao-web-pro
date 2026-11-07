@@ -12,8 +12,8 @@
         color=""
         style="padding: 0"
       >
-        <ui-tab value="table"> Table </ui-tab>
-        <ui-tab value="raw"> Raw </ui-tab>
+        <ui-tab value="table"> Tabela </ui-tab>
+        <ui-tab value="raw"> Dados brutos </ui-tab>
       </ui-tabs>
       <div class="grow"></div>
       <ui-input

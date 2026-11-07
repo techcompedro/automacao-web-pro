@@ -64,7 +64,7 @@
             <template #header>
               <v-remixicon name="riTeamLine" />
               <span class="ml-4 flex-1 text-left capitalize">
-                Team Workflows
+                Fluxos da equipe
               </span>
             </template>
             <ui-list class="space-y-1">
@@ -286,38 +286,35 @@
             class="absolute top-4 right-4 cursor-pointer"
             @click="workflowStore.isFirstTime = false"
           />
-          <p>Create your first workflow by recording your actions:</p>
+          <p>Crie seu primeiro fluxo gravando suas ações:</p>
           <ol class="list-inside list-decimal">
-            <li>Open your browser and go to your destination URL</li>
+            <li>Abra o navegador e acesse o endereço desejado</li>
+            <li>Clique em "Gravar fluxo" e execute sua tarefa repetitiva</li>
             <li>
-              Click the "Record workflow" button, and do your simple repetitive
-              task
-            </li>
-            <li>
-              Need more help? Join
+              Precisa de ajuda? Participe da
               <a
                 href="https://discord.gg/C6khwwTE84"
                 target="_blank"
                 rel="noreferer"
-                >the community</a
-              >, or email us at
+                >comunidade do projeto original</a
+              >, ou envie um e-mail para
               <a href="mailto:support@automa.site" target="_blank"
                 >support@automa.site</a
               >
             </li>
           </ol>
           <p class="mt-4">
-            Learn more about recording in
+            Saiba mais sobre a gravação na
             <a
               href="https://docs.extension.automa.site/guide/quick-start.html#recording-actions"
               target="_blank"
-              >the documentation</a
+              >documentação</a
             >
           </p>
         </ui-card>
       </div>
     </div>
-    <ui-modal v-model="addWorkflowModal.show" title="Workflow">
+    <ui-modal v-model="addWorkflowModal.show" title="Fluxo">
       <ui-input
         v-model="addWorkflowModal.name"
         :placeholder="t('common.name')"

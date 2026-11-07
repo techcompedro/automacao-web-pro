@@ -9,7 +9,7 @@
     <ui-select
       :model-value="data.type"
       class="mt-4 w-full"
-      label="Type"
+      label="Tipo"
       @change="updateData({ type: $event })"
     >
       <option v-for="type in windowType" :key="type" :value="type">
@@ -19,7 +19,7 @@
     <ui-input
       :model-value="data.url"
       class="mt-2 w-full"
-      label="URL (optional)"
+      label="URL (opcional)"
       placeholder="https://example.com"
       @change="updateData({ url: $event })"
     />

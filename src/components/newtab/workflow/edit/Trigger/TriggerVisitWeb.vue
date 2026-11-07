@@ -18,7 +18,7 @@
       class="ml-6"
       @change="$emit('update', { supportSPA: $event })"
     >
-      Support SPA website
+      Compatível com sites SPA
     </ui-checkbox>
   </div>
 </template>

@@ -48,13 +48,13 @@
       rel="noopener"
       class="ml-1 inline-block text-sm leading-tight"
     >
-      Automa doesn't have access to the spreadsheet.
+      O Web Flow não tem acesso à planilha.
       <a
         href="https://docs.extension.automa.site/blocks/google-sheets.html#access-to-spreadsheet"
         target="_blank"
         rel="noopener"
       >
-        Click here to read more.
+        Clique aqui para saber mais.
         <v-remixicon name="riInformationLine" size="18" class="inline" />
       </a>
     </a>
@@ -87,7 +87,7 @@
           <span class="text-red-500 text-sm">{{
             t(
               'workflow.blocks.google-sheets.range.required',
-              'Range is required'
+              'O intervalo é obrigatório'
             )
           }}</span>
         </template>
@@ -224,7 +224,7 @@
     />
     <ui-modal
       v-model="customDataState.showModal"
-      title="Custom data"
+      title="Dados personalizados"
       content-class="max-w-xl"
     >
       <shared-codemirror
@@ -295,7 +295,7 @@ const state = shallowReactive({
 const checkPermission = debounce(async (value) => {
   try {
     if (!value.trim()) {
-      toast.error('Spreadsheet id is empty');
+      toast.error('O ID da planilha está vazio');
       return;
     }
 
@@ -305,7 +305,7 @@ const checkPermission = debounce(async (value) => {
       value.startsWith('www.') ||
       value.includes('docs.google.com')
     ) {
-      toast.error('Spreadsheet id is invalid');
+      toast.error('O ID da planilha é inválido');
       return;
     }
 
@@ -338,8 +338,8 @@ async function previewData() {
     if (!props.data.spreadsheetId.trim()) {
       toast.error(
         props.googleDrive
-          ? 'No spreadsheet is selected'
-          : 'Spreadsheet id is empty'
+          ? 'Nenhuma planilha selecionada'
+          : 'O ID da planilha está vazio'
       );
       previewDataState.status = 'idle';
       return;
@@ -349,13 +349,13 @@ async function previewData() {
       props.data.spreadsheetId.includes('http') ||
       props.data.spreadsheetId.includes('spreadsheets')
     ) {
-      toast.error('Spreadsheet Id is invalid, please check it');
+      toast.error('O ID da planilha é inválido; confira o valor informado');
       previewDataState.status = 'idle';
       return;
     }
 
     if (!props.data.range) {
-      toast.error('Spreadsheet range is empty');
+      toast.error('O intervalo da planilha está vazio');
       previewDataState.status = 'idle';
       return;
     }

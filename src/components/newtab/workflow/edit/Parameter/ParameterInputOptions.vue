@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <label class="flex items-center">
       <ui-switch v-model="options.useMask" />
-      <span class="ml-2"> Use input masking </span>
+      <span class="ml-2"> Usar máscara de entrada </span>
     </label>
     <v-remixicon
       v-tooltip="{ content: maskInfo, allowHTML: true }"
@@ -12,11 +12,11 @@
     />
     <label v-if="false" class="ml-4 flex items-center">
       <ui-switch v-model="options.unmaskValue" />
-      <span class="ml-2">Return unmask value</span>
+      <span class="ml-2">Retornar valor sem máscara</span>
     </label>
   </div>
   <div v-if="options.useMask" class="mt-2">
-    <p>Masks</p>
+    <p>Máscaras</p>
     <div class="space-y-2">
       <div
         v-for="(mask, index) in options.masks"
@@ -28,7 +28,7 @@
           placeholder="aaa-aaa-aaa"
         />
         <ui-checkbox v-model="mask.isRegex" class="ml-4">
-          Is RegEx
+          É uma expressão regular
         </ui-checkbox>
         <div class="grow" />
         <v-remixicon
@@ -39,7 +39,7 @@
       </div>
     </div>
     <template v-if="false">
-      <p>Custom tokens</p>
+      <p>Tokens personalizados</p>
       <div class="grid grid-cols-2 gap-4">
         <div
           v-for="(token, index) in options.customTokens"
@@ -48,7 +48,7 @@
         >
           <ui-input
             v-model="token.symbol"
-            placeholder="Symbol"
+            placeholder="Símbolo"
             style="width: 120px"
           />
           <ui-input
@@ -63,7 +63,7 @@
           />
         </div>
       </div>
-      <ui-button class="mt-4" @click="addToken"> Add token </ui-button>
+      <ui-button class="mt-4" @click="addToken"> Adicionar token </ui-button>
     </template>
   </div>
 </template>

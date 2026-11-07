@@ -31,7 +31,7 @@
             <ui-input
               v-model="filtersBuilder.workflowQuery"
               autofocus
-              placeholder="Search..."
+              placeholder="Pesquisar..."
               class="w-full"
               prepend-icon="riSearch2Line"
             />
@@ -40,7 +40,7 @@
                 class="cursor-pointer text-sm text-gray-600 underline dark:text-gray-300"
                 @click="filtersBuilder.workflowId = ''"
               >
-                Clear
+                Limpar
               </span>
             </div>
           </div>

@@ -81,7 +81,7 @@
           <ui-input
             v-model="items.value"
             :title="items.value"
-            placeholder="Value"
+            placeholder="Valor"
             type="text"
             class="col-span-3"
           />
@@ -104,25 +104,25 @@
       <ui-tab-panel value="response" class="mt-2">
         <ui-select
           :model-value="data.responseType"
-          label="Response type"
+          label="Tipo de resposta"
           class="w-full"
           @change="updateData({ responseType: $event })"
         >
           <option value="json">JSON</option>
-          <option value="text">Text</option>
+          <option value="text">Texto</option>
           <option value="base64">Base64</option>
         </ui-select>
         <ui-input
           v-if="data.responseType === 'json'"
           :model-value="data.dataPath"
           placeholder="path.to.data"
-          label="Data path"
+          label="Caminho dos dados"
           class="mt-2 w-full"
           @change="updateData({ dataPath: $event })"
         />
         <insert-workflow-data
           :data="data"
-          :columns="[{ name: '[Assign columns]', id: '$assignColumns' }]"
+          :columns="[{ name: '[Atribuir colunas]', id: '$assignColumns' }]"
           variables
           @update="updateData"
         />

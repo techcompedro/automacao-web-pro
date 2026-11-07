@@ -2,9 +2,9 @@
   <template v-if="!workflow.connectedTable">
     <ui-popover class="mb-4">
       <template #trigger>
-        <ui-button> Connect to a storage table </ui-button>
+        <ui-button> Conectar a uma tabela de armazenamento </ui-button>
       </template>
-      <p>Select a table</p>
+      <p>Selecionar uma tabela</p>
       <ui-list class="mt-2 max-h-80 w-64 space-y-1 overflow-auto">
         <p v-if="state.tableList.length === 0">
           {{ t('message.noData') }}
@@ -39,18 +39,18 @@
     class="mb-4 flex items-center rounded-md bg-green-200 py-2 px-4 text-black dark:bg-green-300"
   >
     <p class="mr-1">
-      This workflow is connected to the
+      Este fluxo está conectado a
       <router-link
         :to="`/storage/tables/${state.connectedTable.id}`"
         class="underline"
       >
         {{ state.connectedTable.name }}
       </router-link>
-      table
+      tabela
     </p>
     <v-remixicon
       name="riLinkUnlinkM"
-      title="Disconnect table"
+      title="Desconectar tabela"
       class="cursor-pointer"
       @click="disconnectTable"
     />

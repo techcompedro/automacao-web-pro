@@ -108,14 +108,17 @@ function validateBeforeClose() {
         errors.push(
           t(
             'workflow.blocks.google-sheets.spreadsheetId.required',
-            'Spreadsheet ID is required'
+            'O ID da planilha é obrigatório'
           )
         );
       }
 
       if (!range) {
         errors.push(
-          t('workflow.blocks.google-sheets.range.required', 'Range is required')
+          t(
+            'workflow.blocks.google-sheets.range.required',
+            'O intervalo é obrigatório'
+          )
         );
       }
 

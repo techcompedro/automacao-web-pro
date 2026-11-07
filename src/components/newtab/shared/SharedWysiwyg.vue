@@ -11,7 +11,7 @@
             level: 1,
           }),
         }"
-        title="Heading 1"
+        title="Título 1"
         class="editor-menu-btn hoverable"
         @click="editor.commands.toggleHeading({ level: 1 })"
       >
@@ -23,7 +23,7 @@
             level: 2,
           }),
         }"
-        title="Heading 2"
+        title="Título 2"
         class="editor-menu-btn hoverable"
         @click="editor.commands.toggleHeading({ level: 2 })"
       >
@@ -53,14 +53,14 @@
         :class="{
           'bg-box-transparent text-primary': editor.isActive('blockquote'),
         }"
-        title="Blockquote"
+        title="Citação"
         class="editor-menu-btn hoverable"
         @click="editor.commands.toggleBlockquote()"
       >
         <v-remixicon name="riDoubleQuotesL" />
       </button>
       <button
-        title="Insert image"
+        title="Inserir imagem"
         class="editor-menu-btn hoverable"
         @click="insertImage(editor)"
       >
@@ -78,7 +78,7 @@
       </button>
       <button
         v-show="editor.isActive('link')"
-        title="Remove link"
+        title="Remover link"
         class="editor-menu-btn hoverable"
         @click="editor.commands.unsetLink()"
       >
@@ -125,11 +125,11 @@ const emit = defineEmits(['update:modelValue', 'count', 'change']);
 
 const editor = shallowRef(null);
 const menuItems = [
-  { id: 'bold', name: 'Bold', icon: 'riBold', action: 'toggleBold' },
-  { id: 'italic', name: 'Italic', icon: 'riItalic', action: 'toggleItalic' },
+  { id: 'bold', name: 'Negrito', icon: 'riBold', action: 'toggleBold' },
+  { id: 'italic', name: 'Itálico', icon: 'riItalic', action: 'toggleItalic' },
   {
     id: 'strike',
-    name: 'Strikethrough',
+    name: 'Tachado',
     icon: 'riStrikethrough2',
     action: 'toggleStrike',
   },

@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Automa",
+  "name": "Web Flow",
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "91.1.0"
@@ -23,14 +23,14 @@
         "default": "Alt+A",
         "mac": "Alt+A"
       },
-      "description": "Open the dashboard"
+      "description": "Abrir o painel"
     },
     "element-picker": {
       "suggested_key": {
         "default": "Alt+P",
         "mac": "Alt+P"
       },
-      "description": "Open element picker"
+      "description": "Abrir o seletor de elementos"
     }
   },
   "content_scripts": [
@@ -47,7 +47,13 @@
       "all_frames": false
     }
   ],
-  "optional_permissions": ["clipboardRead", "clipboardWrite", "downloads", "notifications", "cookies"],
+  "optional_permissions": [
+    "clipboardRead",
+    "clipboardWrite",
+    "downloads",
+    "notifications",
+    "cookies"
+  ],
   "permissions": [
     "tabs",
     "proxy",
@@ -65,5 +71,7 @@
     "/locales/*",
     "elementSelector.bundle.js"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-inline' https:; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-inline' https:; object-src 'self'",
+  "short_name": "Web Flow",
+  "description": "Automatize o navegador com fluxos visuais: preencha formulários, extraia dados e agende tarefas."
 }

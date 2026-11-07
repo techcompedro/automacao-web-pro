@@ -77,7 +77,7 @@
         </p>
         <span
           v-if="showTextToCopy"
-          :title="showTextToCopy.name + ' (click to copy)'"
+          :title="showTextToCopy.name + ' (clique para copiar)'"
           class="bg-box-transparent text-overflow absolute bottom-0 right-0 rounded-sm rounded-br-lg py-px px-1 text-xs text-gray-600 dark:text-gray-200"
           style="max-width: 40%; cursor: pointer"
           @click.stop="insertToClipboard(showTextToCopy.value)"
@@ -165,14 +165,14 @@ const state = shallowReactive({
 const showTextToCopy = computed(() => {
   if (loopBlocks.includes(block.details.id) && props.data.loopId) {
     return {
-      name: 'Loop id',
+      name: 'ID do laço',
       value: props.data.loopId,
     };
   }
 
   if (block.details.id === 'google-sheets' && props.data.refKey) {
     return {
-      name: 'Reference key',
+      name: 'Chave de referência',
       value: props.data.refKey,
     };
   }

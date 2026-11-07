@@ -52,7 +52,7 @@ export const getAPWorkflowDetail = async (flowUuid, token) => {
       status: response.status,
       data: errorData,
     });
-    throw new Error(`HTTP error! status: ${response.status}`);
+    throw new Error(`Erro HTTP! Código: ${response.status}`);
   }
 
   return response.json();
@@ -117,7 +117,7 @@ export const getAPFlowList = async (params, token) => {
       status: response.status,
       data: errorData,
     });
-    throw new Error(`HTTP error! status: ${response.status}`);
+    throw new Error(`Erro HTTP! Código: ${response.status}`);
   }
 
   return response.json();
@@ -163,7 +163,7 @@ export const getAPFlowStatus = async (runRecordId, token) => {
       status: response.status,
       data: errorData,
     });
-    throw new Error(`HTTP error! status: ${response.status}`);
+    throw new Error(`Erro HTTP! Código: ${response.status}`);
   }
 
   return response.json();
@@ -217,7 +217,7 @@ export const postRunAPWorkflow = async ({ flowUuid, input }, token) => {
       status: response.status,
       data: errorData,
     });
-    throw new Error(`HTTP error! status: ${response.status}`);
+    throw new Error(`Erro HTTP! Código: ${response.status}`);
   }
 
   return response.json();
@@ -264,7 +264,7 @@ export const postUploadFile = async (file, token) => {
       status: response.status,
       data: errorData,
     });
-    throw new Error(`HTTP error! status: ${response.status}`);
+    throw new Error(`Erro HTTP! Código: ${response.status}`);
   }
 
   return response.json();

@@ -1,4 +1,4 @@
-import locale from '../locales/en/newtab.json';
+import locale from '../locales/pt-BR/newtab.json';
 
 export default function ({ message, ...data }) {
   const normalize = (value) => value.join('');

@@ -30,7 +30,7 @@
           :model-value="workflow.icon.startsWith('http') ? workflow.icon : ''"
           type="url"
           placeholder="http://example.com/img.png"
-          label="Icon URL"
+          label="URL do ícone"
           @change="updateWorkflowIcon"
         />
       </div>
@@ -106,7 +106,7 @@ const shortcut = useShortcut('action:search', () => {
 });
 
 const pinnedCategory = {
-  name: 'Pinned blocks',
+  name: 'Blocos fixados',
   color: 'bg-accent',
 };
 const icons = [

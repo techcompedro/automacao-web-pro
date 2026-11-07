@@ -12,11 +12,11 @@
         <ui-input
           v-model="state.name"
           class="-mt-1 w-full"
-          label="Table name"
-          placeholder="My table"
+          label="Nome da tabela"
+          placeholder="Minha tabela"
         />
         <div class="mt-4 flex items-center">
-          <p class="flex-1">Columns</p>
+          <p class="flex-1">Colunas</p>
           <ui-button icon :title="t('common.add')" @click="addColumn">
             <v-remixicon name="riAddLine" />
           </ui-button>

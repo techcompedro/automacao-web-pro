@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-2 gap-2">
-    <ui-input v-model="defaultParams.data" label="Data" />
-    <ui-input v-model="defaultParams.inputType" label="Input type" />
+    <ui-input v-model="defaultParams.data" label="Dados" />
+    <ui-input v-model="defaultParams.inputType" label="Tipo de entrada" />
   </div>
 </template>
 <script setup>

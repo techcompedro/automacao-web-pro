@@ -1,32 +1,31 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Relatar problema
+about: Informe um erro para ajudar a melhorar o Web Flow
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Descrição do problema**
+Descreva o erro de forma clara.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Como reproduzir**
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+1. Acesse...
+2. Clique em...
+3. Observe...
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Resultado esperado**
+Explique o que deveria acontecer.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. Windows]
- - Browser: [e.g. Google Chrome]
- - Extension Version: [e.g. v0.12.0]
+**Capturas de tela**
+Se necessário, anexe imagens sem dados pessoais ou credenciais.
 
-**Additional context**
-Add any other context about the problem here.
+**Ambiente**
+
+- Sistema operacional:
+- Navegador e versão:
+- Versão do Web Flow:
+
+**Informações adicionais**
+Inclua os detalhes relevantes e, se possível, um fluxo mínimo para reproduzir o erro.

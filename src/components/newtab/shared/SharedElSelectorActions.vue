@@ -57,7 +57,7 @@ function verifySelector() {
     .then((result) => {
       if (!result.notFound) return;
 
-      toast.error('Element not found');
+      toast.error('Elemento não encontrado');
     });
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="global-data">
-    <p class="text-right" title="Characters limit">
+    <p class="text-right" title="Limite de caracteres">
       {{ globalData.length }}/{{ maxLength.toLocaleString() }}
     </p>
     <shared-codemirror

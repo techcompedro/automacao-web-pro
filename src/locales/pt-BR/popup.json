@@ -5,14 +5,14 @@
   },
   "home": {
     "record": {
-      "title": "Gravar Workflow",
+      "title": "Gravar Fluxo",
       "button": "Gravar",
-      "name": "Nome do Workflow",
+      "name": "Nome do Fluxo",
       "selectBlock": "Selecione um bloco para iniciar",
       "anotherBlock": "Não é possível iniciar a partir deste bloco",
       "tabs": {
-        "new": "Novo Workflow",
-        "existing": "Workflow existente"
+        "new": "Novo Fluxo",
+        "existing": "Fluxo existente"
       }
     },
     "elementSelector": {
@@ -20,11 +20,11 @@
       "noAccess": "Não tem acesso a este site"
     },
     "workflow": {
-      "new": "Novo Workflow",
-      "rename": "Renomear Workflow",
-      "delete": "Excluir Workflow",
+      "new": "Novo Fluxo",
+      "rename": "Renomear Fluxo",
+      "delete": "Excluir Fluxo",
       "type": {
-        "host": "Host",
+        "host": "Hospedado",
         "local": "Local"
       }
     }

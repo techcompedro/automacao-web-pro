@@ -58,7 +58,7 @@
       <ui-input
         v-model="actionModal.data.name"
         :label="t('common.name')"
-        placeholder="Untitled"
+        placeholder="Sem título"
         autofocus
         class="w-full"
       />

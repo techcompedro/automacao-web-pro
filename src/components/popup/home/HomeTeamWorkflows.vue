@@ -22,8 +22,8 @@
           </span>
         </div>
       </div>
-      <p v-if="workflow.isDisabled" class="text-sm text-gray-600">Disabled</p>
-      <button v-else title="Execute" @click="executeWorkflow(workflow)">
+      <p v-if="workflow.isDisabled" class="text-sm text-gray-600">Desativado</p>
+      <button v-else title="Executar" @click="executeWorkflow(workflow)">
         <v-remixicon name="riPlayLine" />
       </button>
     </ui-card>

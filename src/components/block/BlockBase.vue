@@ -10,7 +10,7 @@
     >
       <div class="pointer-events-none">
         <p
-          title="Block id (click to copy)"
+          title="ID do bloco (clique para copiar)"
           class="block-menu pointer-events-auto text-overflow inline-block px-1 dark:text-gray-300"
           style="max-width: 96px; margin-bottom: 0"
           @click="insertToClipboard"
@@ -21,7 +21,7 @@
       <div class="block-menu inline-flex items-center dark:text-gray-300">
         <button
           v-if="!blockData.details?.disableDelete"
-          title="Delete block"
+          title="Excluir bloco"
           @click.stop="$emit('delete')"
         >
           <v-remixicon size="20" name="riDeleteBin7Line" />
@@ -46,7 +46,7 @@
         </button>
         <button
           v-if="blockData.details?.id !== 'trigger'"
-          title="Enable/Disable block"
+          title="Ativar/desativar bloco"
           @click.stop="$emit('update', { disableBlock: !data.disableBlock })"
         >
           <v-remixicon
@@ -54,12 +54,12 @@
             :name="data.disableBlock ? 'riToggleLine' : 'riToggleFill'"
           />
         </button>
-        <button title="Run workflow from here" @click.stop="runWorkflow">
+        <button title="Executar fluxo a partir daqui" @click.stop="runWorkflow">
           <v-remixicon size="20" name="riPlayLine" />
         </button>
         <button
           v-if="!blockData.details?.disableEdit"
-          title="Edit block"
+          title="Editar bloco"
           @click="$emit('edit')"
         >
           <v-remixicon size="20" name="riPencilLine" />
@@ -74,7 +74,7 @@
         :class="{ 'text-red-500 dark:text-red-400': data.$breakpoint }"
         class="absolute left-0 top-0"
         name="riRecordCircleFill"
-        title="Set as breakpoint"
+        title="Definir ponto de interrupção"
         size="20"
         @click="$emit('update', { $breakpoint: !data.$breakpoint })"
       />

@@ -549,7 +549,7 @@ class WorkflowWorker {
           );
           return result;
         }
-        error.message = 'Could not establish connection to the active tab';
+        error.message = 'Não foi possível estabelecer conexão com a aba ativa';
       } else if (error.message?.startsWith('No tab')) {
         error.message = 'active-tab-removed';
       }

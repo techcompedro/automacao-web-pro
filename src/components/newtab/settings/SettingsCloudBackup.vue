@@ -81,14 +81,14 @@
           <div v-else class="invisible ml-4 group-hover:visible">
             <button
               v-if="workflow.hasLocalCopy"
-              title="Sync cloud backup to local"
+              title="Sincronizar cópia da nuvem com este dispositivo"
               @click="syncCloudToLocal(workflow)"
             >
               <v-remixicon name="riRefreshLine" />
             </button>
             <button
               v-else
-              title="Add to local"
+              title="Adicionar ao dispositivo"
               @click="syncCloudToLocal(workflow)"
             >
               <v-remixicon name="riDownloadCloud2Line" />
@@ -97,7 +97,7 @@
               v-if="!backupState.deleting"
               :aria-label="t('settings.backupWorkflows.cloud.delete')"
               class="ml-4"
-              title="Delete backup"
+              title="Excluir cópia de segurança"
               @click="deleteBackup(workflow.id)"
             >
               <v-remixicon name="riDeleteBin7Line" />
@@ -130,7 +130,7 @@
             >
               <v-remixicon
                 name="riRefreshLine"
-                title="Sync local workflow to cloud backup"
+                title="Sincronizar fluxo local com a cópia na nuvem"
               />
             </button>
             <button
@@ -139,7 +139,7 @@
                 state.selectedWorkflows.length <= workflowLimit
               "
               class="invisible ml-4 group-hover:visible"
-              title="Backup workflow"
+              title="Criar cópia do fluxo"
               @click="backupWorkflowsToCloud(workflow.id)"
             >
               <v-remixicon name="riUploadCloud2Line" />
@@ -236,7 +236,7 @@ async function syncCloudToLocal(workflow) {
     }
   } catch (error) {
     console.error(error);
-    toast.error('Something went wrong');
+    toast.error('Algo deu errado');
   } finally {
     backupState.workflowId = '';
     backupState.loading = false;
@@ -375,7 +375,7 @@ async function updateCloudBackup(workflow) {
     }
   } catch (error) {
     console.error(error);
-    toast.error('Something went wrong!');
+    toast.error('Algo deu errado!');
   } finally {
     backupState.workflowId = '';
     backupState.loading = false;

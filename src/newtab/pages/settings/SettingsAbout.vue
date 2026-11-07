@@ -3,12 +3,13 @@
     <div class="bg-box-transparent mb-2 inline-block rounded-full p-3">
       <img src="@/assets/svg/logo.svg" class="w-14" />
     </div>
-    <p class="text-2xl font-semibold">Automa</p>
-    <p class="mb-2 mt-1">Version: {{ extensionVersion }}</p>
+    <p class="text-2xl font-semibold">Web Flow</p>
+    <p class="mb-2 mt-1">Versão: {{ extensionVersion }}</p>
     <p class="text-gray-600 dark:text-gray-200">
-      Automa is a chrome extension for browser automation. From auto-fill forms,
-      doing a repetitive task, taking a screenshot, to scraping data of the
-      website, it's up to you what you want to do with this extension.
+      O Web Flow é uma extensão para automatizar o navegador com blocos visuais.
+      Preencha formulários, repita tarefas, capture telas, extraia dados e
+      agende seus fluxos. Projeto derivado do Automa, com identidade própria e
+      interface em português do Brasil.
     </p>
     <div class="mt-4 space-x-2">
       <a
@@ -23,10 +24,10 @@
       </a>
     </div>
     <div class="my-8 border-b dark:border-gray-700"></div>
-    <h2 class="text-xl font-semibold">Contributors</h2>
+    <h2 class="text-xl font-semibold">Colaboradores</h2>
     <p class="mt-1 text-gray-600 dark:text-gray-200">
-      Thanks to everyone who has submitted issues, made suggestions, and
-      generally helped make this a better project.
+      Agradecemos a todos que relataram problemas, sugeriram melhorias e
+      contribuíram com o projeto original Automa e com o Web Flow.
     </p>
     <div class="mt-4 mb-12 grid grid-cols-7 gap-2">
       <a
@@ -61,12 +62,12 @@ const extensionVersion = browser.runtime.getManifest().version;
 const links = [
   ...communities,
   {
-    name: 'Website',
+    name: 'Site',
     icon: 'riGlobalLine',
     url: 'https://extension.automa.site',
   },
   {
-    name: 'Documentation',
+    name: 'Documentação',
     icon: 'riBook3Line',
     url: 'https://docs.extension.automa.site',
   },

@@ -7,14 +7,14 @@
   </label>
   <div v-if="packageState.settings.asBlock" class="mt-6 flex space-x-6 pb-8">
     <div class="flex-1">
-      <p class="font-semibold">Block inputs</p>
+      <p class="font-semibold">Entradas do bloco</p>
       <div class="mt-4">
         <div
           v-if="packageState.inputs.length > 0"
           class="grid grid-cols-12 gap-x-4"
         >
-          <div class="col-span-5 pl-1 text-sm">Input name</div>
-          <div class="col-span-6 pl-1 text-sm">Block</div>
+          <div class="col-span-5 pl-1 text-sm">Nome da entrada</div>
+          <div class="col-span-6 pl-1 text-sm">Bloco</div>
         </div>
         <draggable
           v-model="packageState.inputs"
@@ -38,7 +38,7 @@
               />
               <div class="col-span-6 flex items-center">
                 <ui-button
-                  v-tooltip="'Go to block'"
+                  v-tooltip="'Ir para o bloco'"
                   class="mr-2"
                   icon
                   @click="$emit('goBlock', element.blockId)"
@@ -66,14 +66,14 @@
     </div>
     <hr class="border-r" />
     <div class="flex-1">
-      <p class="font-semibold">Block outputs</p>
+      <p class="font-semibold">Saídas do bloco</p>
       <div class="mt-4">
         <div
           v-if="packageState.outputs.length > 0"
           class="grid grid-cols-12 gap-x-4"
         >
-          <div class="col-span-5 pl-1 text-sm">Output name</div>
-          <div class="col-span-6 pl-1 text-sm">Block</div>
+          <div class="col-span-5 pl-1 text-sm">Nome da saída</div>
+          <div class="col-span-6 pl-1 text-sm">Bloco</div>
         </div>
         <draggable
           v-model="packageState.outputs"
@@ -97,7 +97,7 @@
               />
               <div class="col-span-6 flex items-center">
                 <ui-button
-                  v-tooltip="'Go to block'"
+                  v-tooltip="'Ir para o bloco'"
                   class="mr-2"
                   icon
                   @click="$emit('goBlock', element.blockId)"
@@ -179,7 +179,7 @@ function getBlockIOName(type, data) {
 
   const node = props.editor.getNode.value(data.blockId);
   if (!node) {
-    name = 'Block not found';
+    name = 'Bloco não encontrado';
   } else {
     const nodeName = getNodeName(node);
     const handleType = type === 'outputs' ? 'source' : 'target';

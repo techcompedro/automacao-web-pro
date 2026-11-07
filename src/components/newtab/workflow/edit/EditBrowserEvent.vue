@@ -39,12 +39,12 @@
         @change="updateData({ tabLoadedUrl: $event })"
       >
         <template #label>
-          <span>Match pattern</span>
+          <span>Padrão de correspondência</span>
           <a
             href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns#examples"
             target="_blank"
             rel="noopener"
-            title="Examples"
+            title="Exemplos"
           >
             <v-remixicon
               class="ml-1 inline-block"
@@ -66,9 +66,9 @@
       <ui-input
         :model-value="data.tabUrl"
         type="url"
-        label="Filter"
+        label="Filtrar"
         class="mt-1 w-full"
-        placeholder="URL or Regex"
+        placeholder="URL ou expressão regular"
         @change="updateData({ tabUrl: $event })"
       />
       <ui-checkbox
@@ -96,13 +96,13 @@ const { t } = useI18n();
 
 const browserEvents = {
   Tab: [
-    { id: 'tab:close', name: 'Tab closed' },
-    { id: 'tab:loaded', name: 'Tab loaded' },
-    { id: 'tab:create', name: 'Tab created' },
+    { id: 'tab:close', name: 'Aba fechada' },
+    { id: 'tab:loaded', name: 'Aba carregada' },
+    { id: 'tab:create', name: 'Aba criada' },
   ],
   Window: [
-    { id: 'window:create', name: 'Window created' },
-    { id: 'window:close', name: 'Window closed' },
+    { id: 'window:create', name: 'Janela criada' },
+    { id: 'window:close', name: 'Janela fechada' },
   ],
 };
 

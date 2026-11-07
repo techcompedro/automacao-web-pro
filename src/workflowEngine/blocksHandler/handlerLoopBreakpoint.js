@@ -11,7 +11,9 @@ async function loopBreakpoint(block, { prevBlockData }) {
         ? true
         : currentLoop.index < currentLoop.data.length - 1;
   } else {
-    throw new Error(`Can't find a loop with "${block.data.loopId}" loop id`);
+    throw new Error(
+      `Não foi possível encontrar o laço com ID "${block.data.loopId}"`
+    );
   }
 
   const notReachMaxLoop =

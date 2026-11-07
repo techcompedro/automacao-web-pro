@@ -4,8 +4,8 @@
     "communities": "社区"
   },
   "welcome": {
-    "title": "欢迎使用 Automa! 🎉",
-    "text": "从阅读文档或浏览 Automa 市场中的工作流开始.",
+    "title": "欢迎使用 Web Flow! 🎉",
+    "text": "从阅读文档或浏览 Web Flow 市场中的工作流开始.",
     "marketplace": "市场"
   },
   "packages": {
@@ -82,7 +82,7 @@
     }
   },
   "updateMessage": {
-    "text1": "Automa 已更新为 v{version},",
+    "text1": "Web Flow 已更新为 v{version},",
     "text2": "看看有什么新东西."
   },
   "workflows": {
@@ -214,7 +214,7 @@
         }
       }
     },
-      "previewMode": {
+    "previewMode": {
       "title": "预览模式",
       "description": "正处于预览模式，你所做的修改不会被保存下来"
     },
@@ -352,7 +352,7 @@
       "notification": {
         "title": "工作流通知",
         "description": "执行后显示工作流状态（成功或失败）",
-        "noPermission": "Automa 需要 \"notifications\" 权限才能正常工作"
+        "noPermission": "Web Flow 需要 \"notifications\" 权限才能正常工作"
       },
       "publicId": {
         "title": "工作流公开 Id",
@@ -369,7 +369,7 @@
       },
       "autocomplete": {
         "title": "自动完成",
-        "description": "在输入块中启用自动完成（如果造成 Automa 不稳定请禁用）"
+        "description": "在输入块中启用自动完成（如果造成 Web Flow 不稳定请禁用）"
       },
       "clearCache": {
         "title": "清理缓存",
@@ -462,7 +462,7 @@
       "active-tab-removed": "工作流活动标签页已删除",
       "empty-spreadsheet-range": "电子表格范围为空",
       "stop-timeout": "工作流程因超时而停止",
-      "no-file-access": "Automa 无权访问该文件",
+      "no-file-access": "Web Flow 无权访问该文件",
       "no-workflow": "找不到含 \"{workflowId}\" ID 的工作流",
       "no-match-tab": "找不到含 \"{pattern}\" 参数的标签页",
       "no-clipboard-acces": "无权访问剪贴板",

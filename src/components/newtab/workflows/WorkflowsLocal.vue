@@ -75,7 +75,7 @@
       />
     </div>
   </template>
-  <ui-modal v-model="renameState.show" title="Workflow">
+  <ui-modal v-model="renameState.show" title="Fluxo">
     <ui-input
       v-model="renameState.name"
       :placeholder="t('common.name')"
@@ -313,7 +313,7 @@ function deleteSelectedWorkflows({ target, key }) {
       title: t('workflow.delete'),
       okVariant: 'danger',
       body: t('message.delete', {
-        name: `${state.selectedWorkflows.length} workflows`,
+        name: `${state.selectedWorkflows.length} fluxos`,
       }),
       onConfirm: async () => {
         await workflowStore.delete(state.selectedWorkflows);
@@ -369,7 +369,7 @@ function togglePinWorkflow(workflow) {
 const menu = [
   {
     id: 'copy-id',
-    name: 'Copy workflow id',
+    name: 'Copiar ID do fluxo',
     icon: 'riFileCopyLine',
     action: (workflow) => {
       navigator.clipboard.writeText(workflow.id).catch((error) => {

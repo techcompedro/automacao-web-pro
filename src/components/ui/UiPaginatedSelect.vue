@@ -62,19 +62,19 @@
           {{ option[optionLabelKey] }}
         </li>
         <li v-if="isLoading" class="px-4 py-2 text-center text-gray-500">
-          Loading...
+          Carregando...
         </li>
         <li
           v-if="!haveMore && !isLoading && options.length > 0"
           class="px-4 py-2 text-center text-sm text-gray-500"
         >
-          No more results
+          Não há mais resultados
         </li>
         <li
           v-if="!isLoading && options.length === 0"
           class="px-4 py-2 text-center text-gray-500"
         >
-          No results found
+          Nenhum resultado encontrado
         </li>
       </ul>
       <div
@@ -110,7 +110,7 @@ const props = defineProps({
   },
   placeholder: {
     type: String,
-    default: 'Select an option',
+    default: 'Selecione uma opção',
   },
   searchPlaceholder: {
     type: String,
@@ -210,7 +210,7 @@ const fetchOptions = async (isNewSearch) => {
       page.value += 1;
     }
   } catch (error) {
-    console.error('Failed to load options:', error);
+    console.error('Não foi possível carregar as opções:', error);
     if (currentRequestToken === fetchRequestToken.value) {
       haveMore.value = false;
     }

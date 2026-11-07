@@ -23,7 +23,7 @@
         />
       </div>
       <div class="flex items-center px-4 pt-4">
-        <p class="text-lg font-semibold">Automa</p>
+        <p class="text-lg font-semibold">Web Flow</p>
         <div class="grow"></div>
         <button
           class="hoverable mr-2 rounded-md p-1 transition"
@@ -62,7 +62,7 @@
           class="mt-4 w-full"
           @click="saveSelector"
         >
-          Select Element
+          Selecionar elemento
         </ui-button>
         <selector-elements-detail
           v-if="
@@ -86,55 +86,53 @@
           "
           class="mt-4"
         >
-          <p class="mb-4 font-semibold">Selector settings</p>
+          <p class="mb-4 font-semibold">Configurações do seletor</p>
           <ul class="space-y-4">
             <li>
               <label class="flex items-center space-x-2">
                 <ui-switch v-model="selectorSettings.idName" />
-                <p>Include element id</p>
+                <p>Incluir ID do elemento</p>
               </label>
             </li>
             <li>
               <label class="flex items-center space-x-2">
                 <ui-switch v-model="selectorSettings.tagName" />
-                <p>Include tag name</p>
+                <p>Incluir nome da tag</p>
               </label>
             </li>
             <li>
               <label class="flex items-center space-x-2">
                 <ui-switch v-model="selectorSettings.className" />
-                <p>Include class name</p>
+                <p>Incluir nome da classe</p>
               </label>
             </li>
             <li>
               <label class="flex items-center space-x-2">
                 <ui-switch v-model="selectorSettings.attr" />
-                <p>Include attributes</p>
+                <p>Incluir atributos</p>
               </label>
               <template v-if="selectorSettings.attr">
                 <label
                   class="ml-1 mt-2 block text-sm text-gray-600"
                   for="automa-attribute-names"
                 >
-                  Attribute names
+                  Nomes dos atributos
                 </label>
                 <ui-textarea
                   id="automa-attribute-names"
                   v-model="selectorSettings.attrNames"
-                  label="Attribute name"
+                  label="Nome do atributo"
                   placeholder="data-testid, aria-label, type"
                 />
-                <span class="text-sm">
-                  Use commas to separate the attribute
-                </span>
+                <span class="text-sm"> Separe os atributos por vírgulas </span>
               </template>
             </li>
           </ul>
         </div>
         <p class="mt-1 text-sm text-gray-600">
-          Click or press
-          <kbd class="bg-box-transparent rounded-md p-1">Space</kbd> to select
-          an element
+          Clique ou pressione
+          <kbd class="bg-box-transparent rounded-md p-1">Espaço</kbd> para
+          selecionar um elemento
         </p>
       </div>
     </div>

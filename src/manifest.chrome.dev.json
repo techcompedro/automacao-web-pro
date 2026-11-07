@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Automa-Dev",
+  "name": "Web Flow — Desenvolvimento",
   "minimum_chrome_version": "116",
   "action": {
     "default_popup": "popup.html",
@@ -19,14 +19,14 @@
         "default": "Alt+A",
         "mac": "Alt+A"
       },
-      "description": "Open the dashboard"
+      "description": "Abrir o painel"
     },
     "element-picker": {
       "suggested_key": {
         "default": "Alt+P",
         "mac": "Alt+P"
       },
-      "description": "Open element picker"
+      "description": "Abrir o seletor de elementos"
     }
   },
   "host_permissions": ["<all_urls>"],
@@ -77,13 +77,12 @@
         "elementSelector.bundle.js",
         "/Inter-roman-latin.var.woff2"
       ],
-      "matches": [
-        "*://*/*",
-        "file://*/*"
-      ]
+      "matches": ["*://*/*", "file://*/*"]
     }
   ],
   "sandbox": {
     "pages": ["/sandbox.html"]
-  }
+  },
+  "short_name": "Web Flow",
+  "description": "Automatize o navegador com fluxos visuais: preencha formulários, extraia dados e agende tarefas."
 }

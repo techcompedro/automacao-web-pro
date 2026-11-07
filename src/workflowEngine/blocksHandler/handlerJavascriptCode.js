@@ -154,7 +154,7 @@ async function executeInWebpage(args, target, worker) {
               return new Promise((resolve, reject) => {
                 const validType = ['text', 'json', 'base64'];
                 if (!type || !validType.includes(type)) {
-                  reject(new Error('The "type" must be "text" or "json"'));
+                  reject(new Error('O parâmetro "type" deve ser "text" ou "json"'));
                   return;
                 }
                 const eventName = \\\`__automa-fetch-response-\\\${id}__\\\`;
@@ -389,7 +389,9 @@ export async function javascriptCode({ outputs, data, ...block }, { refData }) {
         }
 
         if (!customNextBlockId)
-          throw new Error(`Can't find block with "${inputNextBlockId}" id`);
+          throw new Error(
+            `Não foi possível encontrar o bloco com ID "${inputNextBlockId}"`
+          );
 
         nextBlockId = customNextBlockId;
       }

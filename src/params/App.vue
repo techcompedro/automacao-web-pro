@@ -7,11 +7,11 @@
       <span class="bg-box-transparent rounded-full p-1 dark:bg-none">
         <img src="@/assets/svg/logo.svg" class="w-10" />
       </span>
-      <p class="ml-4 text-lg font-semibold">Automa</p>
+      <p class="ml-4 text-lg font-semibold">Web Flow</p>
     </nav>
     <div class="scroll flex-1 overflow-auto px-4 pb-4">
       <p class="my-4 text-gray-600 dark:text-gray-200">
-        Input these workflows parameters before it runs.
+        Preencha os parâmetros do fluxo antes da execução.
       </p>
       <ui-expand
         v-for="(workflow, index) in sortedWorkflows"
@@ -27,7 +27,7 @@
             :src="workflow.data.icon"
             class="overflow-hidden rounded-lg"
             style="height: 40px; width: 40px"
-            alt="Can not display"
+            alt="Não é possível exibir"
           />
           <span v-else class="bg-box-transparent rounded-lg p-2">
             <v-remixicon :name="workflow.data.icon" />
@@ -44,7 +44,7 @@
           </div>
         </template>
         <p v-if="workflow.type === 'block'" class="px-4 pb-2">
-          By Parameter Prompt block
+          Pelo bloco de solicitação de parâmetros
         </p>
         <div class="px-4 pb-4">
           <ul class="space-y-4 divide-y">
@@ -77,7 +77,7 @@
               />
               <p
                 v-if="param.description"
-                title="Description"
+                title="Descrição"
                 class="ml-1 text-sm leading-tight"
               >
                 {{ param.description }}
@@ -92,19 +92,19 @@
                 class="mr-4"
                 @click="cancelParamBlock(index, workflow, 'Canceled')"
               >
-                Cancel
+                Cancelar
               </ui-button>
               <ui-button
                 :disabled="!isValidParams(workflow.params)"
                 variant="accent"
                 @click="continueWorkflow(index, workflow)"
               >
-                Continue
+                Continuar
               </ui-button>
             </template>
             <template v-else>
               <ui-button class="mr-4" @click="deleteWorkflow(index)">
-                Cancel
+                Cancelar
               </ui-button>
               <ui-button
                 :disabled="!isValidParams(workflow.params)"
@@ -112,7 +112,7 @@
                 @click="runWorkflow(index, workflow)"
               >
                 <v-remixicon name="riPlayLine" class="mr-2 -ml-1" />
-                Run
+                Executar
               </ui-button>
             </template>
           </div>
@@ -136,17 +136,17 @@ import browser from 'webextension-polyfill';
 const paramsList = {
   string: {
     id: 'string',
-    name: 'Input (string)',
+    name: 'Entrada (texto)',
     valueComp: ParameterInputValue,
   },
   json: {
     id: 'json',
-    name: 'Input (JSON)',
+    name: 'Entrada (JSON)',
     valueComp: ParameterJsonValue,
   },
   checkbox: {
     id: 'checkbox',
-    name: 'Checkbox',
+    name: 'Caixa de seleção',
     valueComp: ParameterCheckboxValue,
     data: {
       required: false,

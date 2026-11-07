@@ -68,7 +68,7 @@
           <v-remixicon name="riShareLine" />
         </button>
       </template>
-      <p class="font-semibold">Share the workflow</p>
+      <p class="font-semibold">Compartilhar o fluxo</p>
       <ui-list class="mt-2 w-56 space-y-1">
         <ui-list-item
           v-close-popover
@@ -76,7 +76,7 @@
           @click="shareWorkflowWithTeam"
         >
           <v-remixicon name="riTeamLine" class="-ml-1 mr-2" />
-          With your team
+          Com sua equipe
         </ui-list-item>
         <ui-list-item
           v-close-popover
@@ -84,7 +84,7 @@
           @click="shareWorkflow()"
         >
           <v-remixicon name="riGroupLine" class="-ml-1 mr-2" />
-          With the community
+          Com a comunidade
         </ui-list-item>
       </ui-list>
     </ui-popover>
@@ -181,7 +181,7 @@
           @click="copyWorkflowId"
         >
           <v-remixicon name="riFileCopyLine" class="mr-2 -ml-1" />
-          Copy workflow Id
+          Copiar ID do fluxo
         </ui-list-item>
         <ui-list-item
           v-if="isTeam && canEdit"
@@ -221,7 +221,7 @@
           @click="deleteFromTeam"
         >
           <v-remixicon name="riDeleteBin7Line" class="mr-2 -ml-1" />
-          <span>Delete from team</span>
+          <span>Excluir da equipe</span>
         </ui-list-item>
       </ui-list>
     </ui-popover>
@@ -248,7 +248,7 @@
     </ui-button>
     <ui-button
       v-else-if="!canEdit"
-      v-tooltip.group="'Sync workflow'"
+      v-tooltip.group="'Sincronizar fluxo'"
       :loading="state.loadingSync"
       variant="accent"
       @click="syncWorkflow"
@@ -260,7 +260,7 @@
     </ui-button>
     <template v-else>
       <ui-button
-        v-tooltip="`Save workflow (${shortcuts['editor:save'].readable})`"
+        v-tooltip="`Salvar fluxo (${shortcuts['editor:save'].readable})`"
         class="mr-2"
         icon
         @click="saveWorkflow"
@@ -279,12 +279,12 @@
         <v-remixicon name="riSaveLine" />
       </ui-button>
       <ui-button
-        v-tooltip="'Publish workflow update'"
+        v-tooltip="'Publicar atualização do fluxo'"
         :loading="state.isPublishing"
         variant="accent"
         @click="publishWorkflow"
       >
-        Publish
+        Publicar
       </ui-button>
     </template>
   </ui-card>
@@ -296,7 +296,7 @@
       @close="state.showEditDescription = false"
     />
   </ui-modal>
-  <ui-modal v-model="renameState.showModal" title="Rename">
+  <ui-modal v-model="renameState.showModal" title="Renomear">
     <ui-input
       v-model="renameState.name"
       :placeholder="t('common.name')"
@@ -599,9 +599,9 @@ function shareWorkflow(disabled = false) {
 function deleteFromTeam() {
   dialog.confirm({
     async: true,
-    title: 'Delete workflow from team',
+    title: 'Excluir fluxo da equipe',
     okVariant: 'danger',
-    body: `Are you sure want to delete the "${props.workflow.name}" workflow from this team?`,
+    body: `Deseja excluir o fluxo "${props.workflow.name}" desta equipe?`,
     onConfirm: async () => {
       try {
         const response = await fetchApi(
@@ -618,7 +618,7 @@ function deleteFromTeam() {
 
         return true;
       } catch (error) {
-        toast.error('Something went wrong');
+        toast.error('Algo deu errado');
         console.error(error);
         return false;
       }
@@ -672,7 +672,7 @@ async function publishWorkflow() {
     }
   } catch (error) {
     console.error(error);
-    toast.error('Something went wrong');
+    toast.error('Algo deu errado');
   } finally {
     state.isPublishing = false;
   }
@@ -701,7 +701,7 @@ function deleteWorkflow() {
     title: props.isPackage ? t('common.delete') : t('workflow.delete'),
     okVariant: 'danger',
     body: props.isPackage
-      ? `Are you sure want to delete "${props.workflow.name}" package?`
+      ? `Deseja excluir o pacote "${props.workflow.name}"?`
       : t('message.delete', { name: props.workflow.name }),
     onConfirm: async () => {
       if (props.isPackage) {
@@ -776,9 +776,9 @@ async function syncWorkflow() {
 
   if (props.canEdit) {
     dialog.confirm({
-      title: 'Sync workflow',
+      title: 'Sincronizar fluxo',
       okText: 'Sync',
-      body: 'This action will overwrite the current workflow with the one that stored in cloud',
+      body: 'Esta ação substituirá o fluxo atual pela versão salva na nuvem',
       onConfirm: () => {
         fetchSyncWorkflow();
         toast('Syncing workflow...', { timeout: false, id: 'sync' });

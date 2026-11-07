@@ -1,5 +1,5 @@
 <template>
-  <p>Hello :)</p>
+  <p>Olá :)</p>
 </template>
 <script setup>
 import { onMounted } from 'vue';

@@ -61,7 +61,7 @@
       />
       <ui-select
         :model-value="data.extraRowDataColumn"
-        placeholder="Select column"
+        placeholder="Selecionar coluna"
         class="mt-1 w-full"
         @change="updateData({ extraRowDataColumn: $event })"
       >

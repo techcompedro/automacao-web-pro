@@ -3,10 +3,10 @@
     {{ t('settings.language.reloadPage') }}
   </p>
   <div class="mb-8 rounded-lg border border-gray-200 p-4 dark:border-gray-800">
-    <p class="mb-2 font-semibold capitalize">Automa</p>
+    <p class="mb-2 font-semibold capitalize">Web Flow</p>
     <ui-list>
       <ui-list-item class="group">
-        <p class="flex-1">Shortcut</p>
+        <p class="flex-1">Atalho</p>
         <template v-if="recording.id === 'automa:shortcut'">
           <kbd v-for="key in recording.keys" :key="key">
             {{ getReadableShortcut(key) }}
@@ -27,7 +27,7 @@
         </template>
         <template v-else>
           <button
-            v-tooltip="'Remove shortcut'"
+            v-tooltip="'Remover atalho'"
             class="invisible mr-4 group-hover:visible"
             @click="removeShortcut('automa:shortcut')"
           >

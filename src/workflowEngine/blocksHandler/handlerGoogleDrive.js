@@ -20,7 +20,7 @@ export async function googleDrive({ id, data }, { refData }) {
   const { sessionToken } = await BrowserAPIService.storage.local.get(
     'sessionToken'
   );
-  if (!sessionToken) throw new Error("You haven't connect Google Drive");
+  if (!sessionToken) throw new Error('Você ainda não conectou o Google Drive');
 
   await validateOauthToken();
 
@@ -34,7 +34,9 @@ export async function googleDrive({ id, data }, { refData }) {
         state: 'complete',
       });
       if (!downloadItem || !downloadItem.filename)
-        throw new Error(`Can't find download item with "${item.path}" id`);
+        throw new Error(
+          `Não foi possível encontrar o download com ID "${item.path}"`
+        );
 
       path = downloadItem.filename;
     }

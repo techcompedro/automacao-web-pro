@@ -14,7 +14,7 @@
             :src="workflow.icon"
             class="overflow-hidden rounded-lg"
             style="height: 40px; width: 40px"
-            alt="Can not display"
+            alt="Não é possível exibir"
           />
           <span v-else class="bg-box-transparent inline-block rounded-lg p-2">
             <v-remixicon :name="workflow.icon" />

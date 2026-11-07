@@ -158,9 +158,7 @@ const workflowStates = computed(() =>
 
 useHead({
   title: () =>
-    workflow.value?.name
-      ? `${workflow.value.name} workflow`
-      : 'Hosted workflow',
+    workflow.value?.name ? `${workflow.value.name} — fluxo` : 'Hosted workflow',
 });
 
 function openLogs() {

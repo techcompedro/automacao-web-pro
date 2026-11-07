@@ -22,7 +22,7 @@
           {{ workflow.name }}
         </option>
       </optgroup>
-      <optgroup v-if="route.params.teamId" label="Team">
+      <optgroup v-if="route.params.teamId" label="Equipe">
         <option
           v-for="workflow in teamWorkflows"
           :key="workflow.id"
@@ -82,7 +82,7 @@
     </template>
     <ui-modal
       v-model="state.showGlobalData"
-      title="Global data"
+      title="Dados globais"
       content-class="max-w-xl"
     >
       <p>{{ t('workflow.blocks.execute-workflow.overwriteNote') }}</p>

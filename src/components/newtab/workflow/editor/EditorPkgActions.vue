@@ -16,7 +16,7 @@
       </template>
       <div class="w-64">
         <div class="flex items-center">
-          <p class="flex-1">Share package</p>
+          <p class="flex-1">Compartilhar pacote</p>
           <ui-spinner
             v-if="state.isSharing || state.isLoadData"
             color="text-accent"
@@ -146,8 +146,8 @@ function deletePackage() {
   dialog.confirm({
     okVariant: 'danger',
     okText: 'Delete',
-    title: 'Delete package',
-    body: `Are you sure want to delete the "${props.data.name}" package?`,
+    title: 'Excluir pacote',
+    body: `Deseja excluir o pacote "${props.data.name}"?`,
     onConfirm: () => {
       packageStore.delete(props.data.id);
       router.replace('/packages');
@@ -224,7 +224,7 @@ async function toggleSharePackage() {
     }
   } catch (error) {
     console.error(error);
-    toast.error('Something went wrong');
+    toast.error('Algo deu errado');
   } finally {
     state.isSharing = false;
   }
@@ -259,7 +259,7 @@ async function updateSharedPackage() {
     if (!response.ok) throw new Error(result.message);
   } catch (error) {
     console.error(error);
-    toast.error('Something went wrong!');
+    toast.error('Algo deu errado!');
   } finally {
     state.isUpdating = false;
   }

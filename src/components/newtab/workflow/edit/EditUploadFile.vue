@@ -23,7 +23,7 @@
           <edit-autocomplete class="mr-2">
             <ui-input
               v-model="filePaths[index]"
-              placeholder="URL/File path/base64"
+              placeholder="URL/caminho do arquivo/base64"
               autocomplete="off"
               class="w-full"
             />

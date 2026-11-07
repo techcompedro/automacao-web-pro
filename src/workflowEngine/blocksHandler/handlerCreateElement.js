@@ -57,7 +57,7 @@ async function handleCreateElement(block, { refData }) {
   const preloadScriptsPromise = await Promise.allSettled(
     data.preloadScripts.map((item) => {
       if (!item.src.startsWith('http'))
-        return Promise.reject(new Error('Invalid URL'));
+        return Promise.reject(new Error('URL inválida'));
 
       return fetch(item.src)
         .then((response) => response.text())

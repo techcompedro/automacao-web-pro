@@ -29,7 +29,7 @@
             </p>
             <span
               class="hoverable rounded-full p-0.5 text-gray-600 dark:text-gray-300"
-              title="Close tab"
+              title="Fechar aba"
               @click.stop="closeTab(index, tab)"
             >
               <v-remixicon name="riCloseLine" size="20" />
@@ -83,7 +83,7 @@ function addTab(detail = {}) {
   state.tabs.push({
     id: tabId,
     path: '/',
-    name: 'Workflows',
+    name: 'Fluxos',
     ...detail,
   });
   state.activeTab = tabId;
@@ -93,7 +93,7 @@ function closeTab(index, tab) {
     state.tabs[0] = {
       path: '/',
       id: nanoid(),
-      name: 'Workflows',
+      name: 'Fluxos',
     };
   } else {
     state.tabs.splice(index, 1);
@@ -106,7 +106,7 @@ function closeTab(index, tab) {
 function getTabTitle() {
   if (route.name === 'workflows') return 'Workflows';
 
-  return `${document.title}`.replace(' - Automa', '');
+  return `${document.title}`.replace(' - Web Flow', '');
 }
 
 watch(

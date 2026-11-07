@@ -19,7 +19,7 @@
       class="mt-2"
       @change="updateData({ runBeforeLoad: $event })"
     >
-      Run before page loaded
+      Executar antes de carregar a página
     </ui-checkbox>
     <ui-button
       variant="accent"
@@ -65,7 +65,7 @@
         <ui-tab-panel value="javascript" class="h-full">
           <div class="mb-4">
             <span class="text-sm text-gray-500 dark:text-gray-300">
-              Available functions
+              Funções disponíveis
             </span>
             <div class="flex items-center space-x-2">
               <a
@@ -96,8 +96,8 @@
               :key="index"
               class="flex items-center space-x-2"
             >
-              <ui-select v-model="item.type" placeholder="Type">
-                <option value="style">Style</option>
+              <ui-select v-model="item.type" placeholder="Tipo">
+                <option value="style">Estilo</option>
                 <option value="script">Script</option>
               </ui-select>
               <ui-input
@@ -116,7 +116,7 @@
             </li>
           </ul>
           <ui-button class="mt-4" @click="addPreloadScript">
-            Add script
+            Adicionar script
           </ui-button>
         </ui-tab-panel>
       </ui-tab-panels>

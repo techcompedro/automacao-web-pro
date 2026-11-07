@@ -84,7 +84,7 @@
           </button>
           <ui-tab value="editor">{{ t('common.editor') }}</ui-tab>
           <template v-if="isPackage">
-            <ui-tab value="package-details"> Details </ui-tab>
+            <ui-tab value="package-details"> Detalhes </ui-tab>
             <ui-tab value="package-settings">
               {{ t('common.settings') }}
             </ui-tab>
@@ -102,7 +102,7 @@
         </ui-tabs>
         <ui-card v-if="isTeamWorkflow" padding="p-1 ml-4 pointer-events-auto">
           <ui-input
-            v-tooltip="'Workflow URL'"
+            v-tooltip="'URL do fluxo'"
             prepend-icon="riLinkM"
             :model-value="`https://extension.automa.site/teams/${teamId}/workflows/${workflow.id}`"
             readonly
@@ -749,7 +749,7 @@ async function executeFromBlock(blockId) {
 }
 function startRecording({ nodeId, handleId }) {
   if (state.dataChanged) {
-    alert('Make sure to save the workflow before starting recording');
+    alert('Salve o fluxo antes de iniciar a gravação');
     return;
   }
 
@@ -795,7 +795,7 @@ function addPackageIO({ type, handleId, nodeId }) {
     (io) => io.blockId === nodeId && handleId === io.handleId
   );
   if (itemExist) {
-    toast.error(`You already add this as an ${type.slice(0, -1)}`);
+    toast.error(`Este item já foi adicionado (${type.slice(0, -1)})`);
     return;
   }
 
@@ -1479,7 +1479,9 @@ async function pasteCopiedElements(position) {
     permissions: ['clipboardRead'],
   });
   if (!permission) {
-    toast.error('Automa require clipboard permission to paste blocks');
+    toast.error(
+      'O Web Flow precisa de permissão para a área de transferência para colar blocos'
+    );
     return;
   }
 
@@ -1588,7 +1590,7 @@ function onBeforeLeave() {
 
 useHead({
   title: () =>
-    `${workflow.value?.name} ${isPackage ? 'package' : 'workflow'}` || 'Automa',
+    `${workflow.value?.name} ${isPackage ? 'pacote' : 'fluxo'}` || 'Web Flow',
 });
 const shortcut = useShortcut([
   getShortcut('editor:toggle-sidebar', toggleSidebar),

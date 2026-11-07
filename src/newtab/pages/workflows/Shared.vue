@@ -42,7 +42,7 @@
       <ui-card padding="p-1 ml-4">
         <router-link
           v-if="state.hasLocalCopy"
-          v-tooltip.group="'Go to local version'"
+          v-tooltip.group="'Ir para a versão local'"
           :to="`/workflows/${workflowId}`"
           class="hoverable block rounded-lg p-2"
         >
@@ -207,9 +207,7 @@ const workflow = computed(() => sharedWorkflowStore.getById(route.params.id));
 
 useHead({
   title: () =>
-    workflow.value?.name
-      ? `${workflow.value.name} workflow`
-      : 'Shared workflow',
+    workflow.value?.name ? `${workflow.value.name} — fluxo` : 'Shared workflow',
 });
 
 const changingKeys = new Set();

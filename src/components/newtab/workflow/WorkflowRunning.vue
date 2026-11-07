@@ -18,7 +18,7 @@
           v-if="item.state.tabId"
           icon
           class="mr-2"
-          title="Open tab"
+          title="Abrir aba"
           @click="openTab(item.state.tabId)"
         >
           <v-remixicon name="riExternalLinkLine" />

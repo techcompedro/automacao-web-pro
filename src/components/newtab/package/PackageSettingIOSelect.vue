@@ -2,14 +2,14 @@
   <ui-popover>
     <template #trigger>
       <ui-button class="w-full">
-        Select block {{ props.data.blockId }}
+        Selecionar bloco {{ props.data.blockId }}
       </ui-button>
     </template>
     <div class="w-64">
       <ui-input
         v-if="state.selectType === 'nodes'"
         v-model="state.query"
-        placeholder="Search..."
+        placeholder="Pesquisar..."
         class="mb-4 w-full"
       />
       <template v-else>
@@ -19,14 +19,14 @@
         >
           <v-remixicon
             name="riArrowLeftSLine"
-            title="Go back"
+            title="Voltar"
             class="mr-1 -ml-1"
           />
           <span class="text-overflow flex-1">
             {{ getBlockName(selectedNode) }}
           </span>
         </div>
-        <p class="mt-2 mb-4">Select {{ type }}</p>
+        <p class="mt-2 mb-4">Selecionar {{ type }}</p>
       </template>
       <ui-list class="space-y-1">
         <ui-list-item

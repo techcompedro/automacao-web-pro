@@ -16,7 +16,7 @@
       <span
         class="relative flex cursor-pointer items-center justify-center rounded-full bg-red-400"
         style="height: 24px; width: 24px"
-        title="Stop recording"
+        title="Parar gravação"
         @click="stopRecording"
       >
         <v-remixicon
@@ -29,7 +29,7 @@
           style="height: 80%; width: 80%; animation-duration: 1.3s"
         ></span>
       </span>
-      <p class="ml-2 font-semibold">Automa</p>
+      <p class="ml-2 font-semibold">Web Flow</p>
       <div class="grow"></div>
       <v-remixicon name="mdiDragHorizontal" />
     </div>
@@ -39,23 +39,23 @@
           class="bg-input w-full rounded-lg px-4 py-2 transition"
           @click="startSelecting()"
         >
-          Select element
+          Selecionar elemento
         </button>
         <button
           class="bg-input mt-2 w-full rounded-lg px-4 py-2 transition"
           @click="startSelecting(true)"
         >
-          Select list element
+          Selecionar elemento da lista
         </button>
       </template>
       <div v-else-if="selectState.status === 'selecting'" class="leading-tight">
         <p v-if="selectState.selectedElements.length === 0">
-          Select an element by clicking on it
+          Clique em um elemento para selecioná-lo
         </p>
         <template v-else>
           <template v-if="selectState.list && !selectState.listId">
             <label for="list-id" class="ml-1" style="font-size: 14px">
-              Element list id
+              ID da lista de elementos
             </label>
             <input
               id="list-id"
@@ -69,7 +69,7 @@
               class="mt-2 w-full rounded-lg bg-accent px-4 py-2 text-white"
               @click="saveElementListId"
             >
-              Save
+              Salvar
             </button>
           </template>
           <template v-else>
@@ -96,7 +96,7 @@
               v-model="addBlockState.activeBlock"
               class="bg-input mt-2 w-full rounded-lg px-4 py-2"
             >
-              <option value="" disabled selected>Select what to do</option>
+              <option value="" disabled selected>Selecione uma ação</option>
               <option
                 v-for="block in addBlockState.blocks"
                 :key="block"
@@ -117,7 +117,7 @@
                 v-model="addBlockState.activeAttr"
                 class="bg-input mt-2 block w-full rounded-lg px-4 py-2"
               >
-                <option value="" selected disabled>Select attribute</option>
+                <option value="" selected disabled>Selecionar atributo</option>
                 <option
                   v-for="(value, name) in addBlockState.attributes"
                   :key="name"
@@ -130,26 +130,26 @@
                 for="variable-name"
                 class="ml-2 mt-2 text-sm text-gray-600"
               >
-                Assign to variable
+                Atribuir à variável
               </label>
               <input
                 id="variable-name"
                 v-model="addBlockState.varName"
-                placeholder="Variable name"
+                placeholder="Nome da variável"
                 class="bg-input w-full rounded-lg px-4 py-2"
               />
               <label
                 for="select-column"
                 class="ml-2 mt-2 text-sm text-gray-600"
               >
-                Insert to table
+                Inserir na tabela
               </label>
               <select
                 id="select-column"
                 v-model="addBlockState.column"
                 class="bg-input block w-full rounded-lg px-4 py-2"
               >
-                <option value="" selected>Select column [none]</option>
+                <option value="" selected>Selecionar coluna [nenhuma]</option>
                 <option
                   v-for="column in addBlockState.workflowColumns"
                   :key="column.id"
@@ -169,13 +169,13 @@
               class="mt-4 block w-full rounded-lg bg-accent px-4 py-2 text-white"
               @click="addFlowItem"
             >
-              Save
+              Salvar
             </button>
           </template>
         </template>
         <p class="mt-4" style="font-size: 14px">
-          Press <kbd class="bg-box-transparent rounded-md p-1">Esc</kbd> to
-          cancel
+          Pressione
+          <kbd class="bg-box-transparent rounded-md p-1">Esc</kbd> para cancelar
         </p>
       </div>
     </div>

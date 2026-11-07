@@ -2,9 +2,9 @@ import { ref, onMounted } from 'vue';
 import browser from 'webextension-polyfill';
 
 const themes = [
-  { name: 'Light', id: 'light' },
-  { name: 'Dark', id: 'dark' },
-  { name: 'System', id: 'system' },
+  { name: 'Claro', id: 'light' },
+  { name: 'Escuro', id: 'dark' },
+  { name: 'Sistema', id: 'system' },
 ];
 const isPreferDark = () =>
   window.matchMedia('(prefers-color-scheme: dark)').matches;

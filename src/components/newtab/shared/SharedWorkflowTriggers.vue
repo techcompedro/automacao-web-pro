@@ -30,7 +30,7 @@
     <ui-popover class="mt-4">
       <template #trigger>
         <ui-button>
-          Add trigger
+          Adicionar gatilho
           <hr class="h-4 border-r" />
           <v-remixicon
             name="riArrowLeftSLine"

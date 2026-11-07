@@ -2,7 +2,9 @@
   <div class="logs-table scroll overflow-x-auto">
     <transition-expand>
       <div v-if="state.selected.length > 0" class="border-x border-t px-4 py-2">
-        <ui-button @click="stopSelectedWorkflow"> Stop selected </ui-button>
+        <ui-button @click="stopSelectedWorkflow">
+          Parar selecionados
+        </ui-button>
       </div>
     </transition-expand>
     <table class="w-full">
@@ -41,7 +43,7 @@
                 countDuration(item.state?.startedTimestamp, Date.now())
               }}</span>
             </td>
-            <td title="Executing block" class="text-overflow">
+            <td title="Bloco em execução" class="text-overflow">
               <ui-spinner color="text-accent" size="20" />
               <span class="text-overflow ml-3 inline-block align-middle">
                 {{

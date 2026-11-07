@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Web Flow</title>
+  <desc id="desc">Três nós conectados por um fluxo em forma de W, em verde e azul sobre fundo escuro.</desc>
+  <defs>
+    <linearGradient id="flow" x1="24" y1="32" x2="104" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="#0F172A"/>
+  <path d="M25 38L43 88L64 52L85 88L103 38" stroke="url(#flow)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="25" cy="38" r="8" fill="#38BDF8"/>
+  <circle cx="64" cy="52" r="8" fill="#A7F3D0"/>
+  <circle cx="103" cy="38" r="8" fill="#34D399"/>
+</svg>

@@ -30,7 +30,7 @@
     />
   </div>
   <ui-checkbox v-model="defaultParams.repeat" class="mt-4">
-    Repeat
+    Repetir
   </ui-checkbox>
 </template>
 <script setup>

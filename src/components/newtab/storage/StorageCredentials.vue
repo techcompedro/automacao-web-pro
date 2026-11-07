@@ -35,7 +35,7 @@
     </template>
   </ui-table>
   <ui-modal v-model="addState.show" :title="t('credential.add')">
-    <ui-input v-model="addState.name" placeholder="Name" class="w-full" />
+    <ui-input v-model="addState.name" placeholder="Nome" class="w-full" />
     <ui-textarea
       v-model="addState.value"
       placeholder="value"
@@ -122,7 +122,7 @@ function saveCredential() {
   );
 
   if (duplicateName) {
-    toast.error(`You alread add "${trimmedName}" credential`);
+    toast.error(`A credencial "${trimmedName}" já foi adicionada`);
     return;
   }
 

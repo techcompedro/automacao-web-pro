@@ -8,8 +8,9 @@ import 'dayjs/locale/it';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/tr';
 import 'dayjs/locale/es';
-import 'dayjs/locale/pt'
+import 'dayjs/locale/pt-br';
 
 dayjs.extend(relativeTime);
+dayjs.locale('pt-br');
 
 export default dayjs;

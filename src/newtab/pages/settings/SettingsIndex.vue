@@ -43,7 +43,7 @@
       </ui-select>
       <a
         class="ml-1 block text-gray-600 dark:text-gray-200"
-        href="https://github.com/AutomaApp/automa/wiki/Help-Translate"
+        href="https://github.com/techcompedro/automacao-web-pro/issues"
         target="_blank"
         rel="noopener"
       >
@@ -55,12 +55,12 @@
     </p>
   </div>
   <div id="delete-logs" class="mt-12">
-    <p class="mb-1 font-semibold">Workflow Logs</p>
+    <p class="mb-1 font-semibold">Registros dos fluxos</p>
     <div class="flex items-center">
       <ui-select
         :model-value="settings.deleteLogAfter"
         :label="t('settings.deleteLog.title')"
-        placeholder="Delete after"
+        placeholder="Excluir após"
         class="w-80"
         @change="
           updateSetting(
@@ -82,7 +82,7 @@
         :model-value="settings.logsLimit"
         class="ml-4"
         type="number"
-        label="Logs limit"
+        label="Limite de registros"
         min="10"
         @change="updateSetting('logsLimit', +$event <= 0 ? 1000 : +$event)"
       />

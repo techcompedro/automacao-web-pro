@@ -98,16 +98,16 @@
             class="text-sm"
             @click="addDataToInsert"
           >
-            Add item
+            Adicionar item
           </ui-button>
         </div>
         <transition-expand>
           <table v-if="state.insertData" class="mt-2 w-full">
             <thead>
               <tr class="text-left text-sm">
-                <th>Type</th>
-                <th>Name</th>
-                <th>Value</th>
+                <th>Tipo</th>
+                <th>Nome</th>
+                <th>Valor</th>
                 <th></th>
               </tr>
             </thead>
@@ -127,7 +127,7 @@
                   <ui-select
                     v-if="item.type === 'table'"
                     v-model="item.name"
-                    placeholder="Select column"
+                    placeholder="Selecionar coluna"
                     class="mt-1 w-full"
                   >
                     <option
@@ -141,11 +141,11 @@
                   <ui-input
                     v-else
                     v-model="item.name"
-                    placeholder="Variable name"
+                    placeholder="Nome da variável"
                   />
                 </td>
                 <td>
-                  <ui-input v-model="item.value" placeholder="EMPTY" />
+                  <ui-input v-model="item.value" placeholder="VAZIO" />
                 </td>
                 <td>
                   <v-remixicon

@@ -313,7 +313,7 @@ function fallbackCopyTextToClipboard(text) {
   try {
     document.execCommand('copy');
   } catch (err) {
-    console.error('Fallback: Oops, unable to copy', err);
+    console.error('Não foi possível copiar', err);
   }
 
   document.body.removeChild(textArea);

@@ -48,7 +48,7 @@
           class="mt-2 inline-block underline"
           target="_blank"
         >
-          See all available properties
+          Ver todas as propriedades disponíveis
         </a>
       </template>
       <template v-else>
@@ -72,7 +72,7 @@
         <ui-input
           v-if="data.type === 'set'"
           :model-value="data.value"
-          label="Value (optional)"
+          label="Valor (opcional)"
           class="mt-2 w-full"
           placeholder="value"
           @change="updateData({ value: $event })"
@@ -80,7 +80,7 @@
         <ui-input
           :model-value="data.path"
           class="mt-2 w-full"
-          label="Path (optional)"
+          label="Caminho (opcional)"
           placeholder="/"
           @change="updateData({ path: $event })"
         />
@@ -88,7 +88,7 @@
           v-if="isGetOrSet"
           :model-value="data.domain"
           class="mt-2 w-full"
-          label="Domain (optional)"
+          label="Domínio (opcional)"
           placeholder=".example.com"
           @change="updateData({ domain: $event })"
         />
@@ -96,7 +96,7 @@
           v-if="data.type === 'set'"
           :model-value="data.sameSite"
           class="mt-2 w-full"
-          label="sameSite (optional)"
+          label="sameSite (opcional)"
           placeholder="lax"
           @change="updateData({ sameSite: $event })"
         />
@@ -104,7 +104,7 @@
           v-if="data.type === 'set'"
           :model-value="data.expirationDate"
           class="mt-2 w-full"
-          label="expirationDate (seconds) (optional)"
+          label="expirationDate (segundos; opcional)"
           placeholder="3600"
           @change="updateData({ expirationDate: $event })"
         />
@@ -134,7 +134,7 @@
     </template>
     <template v-else>
       <p class="mt-4">
-        This block requires "Cookies" permission to work properly
+        Este bloco precisa da permissão de cookies para funcionar corretamente
       </p>
       <ui-button variant="accent" class="mt-2" @click="permission.request">
         {{ t('workflow.blocks.clipboard.grantPermission') }}

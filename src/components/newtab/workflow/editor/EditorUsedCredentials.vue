@@ -24,7 +24,7 @@
           >
             <div class="mr-2 flex-1">
               <p
-                title="Jump to block"
+                title="Ir para o bloco"
                 class="cursor-pointer text-sm text-gray-600 dark:text-gray-200"
                 @click="jumpToBlock(item.nodeId)"
               >
@@ -39,7 +39,7 @@
             <v-remixicon
               name="riArrowGoForwardLine"
               size="18"
-              title="Jump to block"
+              title="Ir para o bloco"
               class="invisible cursor-pointer text-gray-600 group-hover:visible dark:text-gray-200"
               @click="jumpToBlock(item.nodeId)"
             />

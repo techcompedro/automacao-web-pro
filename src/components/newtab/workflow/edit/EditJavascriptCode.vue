@@ -58,7 +58,7 @@
         class="mt-2"
         @change="updateData({ runBeforeLoad: $event })"
       >
-        Run before page loaded
+        Executar antes de carregar a página
       </ui-checkbox>
     </template>
     <ui-modal v-model="state.showCodeModal" content-class="max-w-4xl">
@@ -93,7 +93,7 @@
                 <span
                   class="cursor-pointer select-none underline"
                   @click="modifyWhiteSpace"
-                  >wrap line</span
+                  >quebrar linhas</span
                 >
               </span>
             </p>

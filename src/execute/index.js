@@ -29,7 +29,7 @@ function writeResult(text) {
   try {
     const { workflowId, variables } = getWorkflowDetail();
     if (!workflowId) {
-      writeResult('Invalid path');
+      writeResult('Caminho inválido');
       return;
     }
 
@@ -41,7 +41,7 @@ function writeResult(text) {
     }
 
     if (!workflow) {
-      writeResult('Workflow not found');
+      writeResult('Fluxo não encontrado');
       return;
     }
 

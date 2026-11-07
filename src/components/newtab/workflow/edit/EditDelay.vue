@@ -2,7 +2,7 @@
   <div class="space-y-2">
     <ui-input
       :model-value="data.time"
-      label="Delay time (millisecond)"
+      label="Tempo de espera (milissegundos)"
       class="w-full"
       type="text"
       @change="updateData({ time: $event })"

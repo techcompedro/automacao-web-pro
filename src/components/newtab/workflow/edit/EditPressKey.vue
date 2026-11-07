@@ -11,8 +11,8 @@
         :model-value="data.selector"
         class="mr-2 flex-1"
         autocomplete="off"
-        label="Target element (Optional)"
-        placeholder="CSS Selector or XPath"
+        label="Elemento de destino (opcional)"
+        placeholder="Seletor CSS ou XPath"
         @change="updateData({ selector: $event })"
       />
       <shared-el-selector-actions

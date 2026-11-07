@@ -147,7 +147,7 @@ async function messageListener({ data, source }) {
           {
             result: {
               $isError: true,
-              message: 'Block id is empty',
+              message: 'O ID do bloco está vazio',
               data: {},
             },
             type: 'automa:block-execute-result',
@@ -348,9 +348,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const isAutomaWorkflow = /.+\.automa\.json$/.test(link);
   if (!isAutomaWorkflow) return;
 
-  const accept = window.confirm(
-    'Do you want to add this workflow into Automa?'
-  );
+  const accept = window.confirm('Deseja adicionar este fluxo ao Web Flow?');
   if (!accept) return;
   const workflow = JSON.parse(document.documentElement.innerText);
 
@@ -375,5 +373,5 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   await browser.storage.local.set({ workflows: workflowsStorage });
 
-  alert('Workflow installed');
+  alert('Fluxo instalado');
 });

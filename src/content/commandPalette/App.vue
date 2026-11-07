@@ -23,7 +23,7 @@
             :placeholder="
               paramsState.active
                 ? paramsState.workflow.name
-                : 'Search workflows...'
+                : 'Pesquisar fluxos...'
             "
             @input="onInput"
             @keydown="onInputKeydown"
@@ -71,7 +71,7 @@
                 />
                 <p
                   v-if="param.description"
-                  title="Description"
+                  title="Descrição"
                   class="ml-1 text-sm"
                 >
                   {{ param.description }}
@@ -84,7 +84,7 @@
               v-if="state.query && workflows.length === 0"
               class="text-center text-gray-600"
             >
-              Can't find workflows
+              Nenhum fluxo encontrado
             </p>
             <ui-list v-else class="space-y-1">
               <ui-list-item
@@ -104,7 +104,7 @@
                     :src="workflow.icon"
                     class="overflow-hidden rounded-lg"
                     style="height: 26px; width: 26px"
-                    alt="Can not display"
+                    alt="Não é possível exibir"
                   />
                   <v-remixicon
                     v-else
@@ -138,13 +138,13 @@
               {{ paramsState.workflow.description }}
             </p>
             <p>
-              Press
+              Pressione
               <span
                 class="bg-box-transparent ml-1 inline-block rounded-md border-2 border-gray-300 p-1 text-center text-xs font-semibold text-gray-600"
               >
                 Escape
               </span>
-              to cancel
+              para cancelar
             </p>
           </div>
         </div>
@@ -153,7 +153,7 @@
           class="inline-flex cursor-pointer items-center text-gray-600"
           @click="openDashboard"
         >
-          Open dashboard
+          Abrir painel
           <v-remixicon
             name="riExternalLinkLine"
             class="ml-1 inline-block"
@@ -166,7 +166,7 @@
           variant="accent"
           @click="executeWorkflowWithParams"
         >
-          Execute
+          Executar
         </ui-button>
       </div>
     </ui-card>
@@ -195,12 +195,12 @@ import browser from 'webextension-polyfill';
 const paramsList = {
   string: {
     id: 'string',
-    name: 'Input (string)',
+    name: 'Entrada (texto)',
     valueComp: ParameterInputValue,
   },
   json: {
     id: 'json',
-    name: 'Input (JSON)',
+    name: 'Entrada (JSON)',
     valueComp: ParameterJsonValue,
   },
 };

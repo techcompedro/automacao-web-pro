@@ -55,8 +55,8 @@
           </ui-autocomplete>
           <div class="mt-2 flex items-center">
             <ui-select v-model="property.order" class="flex-1">
-              <option value="asc">Ascending</option>
-              <option value="desc">Descending</option>
+              <option value="asc">Crescente</option>
+              <option value="desc">Decrescente</option>
             </ui-select>
             <ui-button class="ml-2" icon @click="properties.splice(index, 1)">
               <v-remixicon name="riDeleteBin7Line" />

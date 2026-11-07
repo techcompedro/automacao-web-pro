@@ -5,13 +5,15 @@ export async function increaseVariable({ id, data }) {
   const variableExist = objectPath.has(refVariables, data.variableName);
 
   if (!variableExist) {
-    throw new Error(`Cant find "${data.variableName}" variable`);
+    throw new Error(
+      `Não foi possível encontrar a variável "${data.variableName}"`
+    );
   }
 
   const currentVar = +objectPath.get(refVariables, data.variableName);
   if (Number.isNaN(currentVar)) {
     throw new Error(
-      `The "${data.variableName}" variable value is not a number`
+      `O valor da variável "${data.variableName}" não é um número`
     );
   }
 

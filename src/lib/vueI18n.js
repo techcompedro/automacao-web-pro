@@ -5,7 +5,8 @@ import dayjs from './dayjs';
 
 const i18n = createI18n({
   legacy: false,
-  fallbackLocale: 'en',
+  locale: 'pt-BR',
+  fallbackLocale: 'pt-BR',
 });
 
 export function setI18nLanguage(locale) {
@@ -39,8 +40,8 @@ export async function loadLocaleMessages(locale, location) {
     }
   };
 
-  if (locale !== 'en' && !i18n.global.availableLocales.includes('en')) {
-    await loadLocaleMessages('en', location);
+  if (locale !== 'pt-BR' && !i18n.global.availableLocales.includes('pt-BR')) {
+    await loadLocaleMessages('pt-BR', location);
   }
 
   dayjs.locale(locale);

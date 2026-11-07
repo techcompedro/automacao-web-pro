@@ -11,8 +11,8 @@
         {{ dayjs(workflow.createdAt).fromNow() }}
       </p>
     </div>
-    <p v-if="workflow.isDisabled">Disabled</p>
-    <button v-else title="Execute" @click="$emit('execute', workflow)">
+    <p v-if="workflow.isDisabled">Desativado</p>
+    <button v-else title="Executar" @click="$emit('execute', workflow)">
       <v-remixicon name="riPlayLine" />
     </button>
     <v-remixicon

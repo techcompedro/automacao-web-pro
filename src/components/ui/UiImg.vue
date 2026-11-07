@@ -7,7 +7,9 @@
         ></div>
       </slot>
       <slot v-else-if="state.error" name="error">
-        <p class="text-lighter text-center">Failed to load image</p>
+        <p class="text-lighter text-center">
+          Não foi possível carregar a imagem
+        </p>
       </slot>
       <div
         v-else

@@ -31,7 +31,9 @@
             <v-remixicon name="riInformationLine" size="18" />
           </a>
           <span
-            :title="`${pinned.includes(block.id) ? 'Unpin' : 'Pin'} block`"
+            :title="`${
+              pinned.includes(block.id) ? 'Desafixar' : 'Fixar'
+            } block`"
             class="ml-1 cursor-pointer"
             @click="$emit('pin', block)"
           >

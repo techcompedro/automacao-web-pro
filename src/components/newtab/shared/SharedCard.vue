@@ -10,7 +10,7 @@
           :src="data.icon"
           class="overflow-hidden rounded-lg"
           style="height: 40px; width: 40px"
-          alt="Can not display"
+          alt="Não é possível exibir"
         />
         <span v-else class="bg-box-transparent rounded-lg p-2">
           <v-remixicon :name="data.icon || icon" />
@@ -20,7 +20,7 @@
           v-if="data.isDisabled"
           class="text-sm text-gray-600 dark:text-gray-200"
         >
-          Disabled
+          Desativado
         </span>
         <button
           v-else-if="!disabled"

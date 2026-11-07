@@ -45,7 +45,7 @@
           :model-value="data.elementSelector"
           :label="t('workflow.blocks.base.selector')"
           autocomplete="off"
-          placeholder="CSS Selector or XPath"
+          placeholder="Seletor CSS ou XPath"
           class="mr-2 flex-1"
           @change="updateData({ elementSelector: $event })"
         />
@@ -138,7 +138,7 @@
     </template>
     <ui-modal
       v-model="state.showDataModal"
-      title="Data"
+      title="Dados"
       content-class="max-w-3xl"
     >
       <div class="mb-4 flex items-center">

@@ -11,7 +11,7 @@
   <ui-select
     v-model.number="defaultParams.button"
     class="mt-2 w-full"
-    label="Button"
+    label="Botão"
   >
     <option v-for="button in buttons" :key="button.id" :value="button.id">
       {{ button.name }}
@@ -57,9 +57,9 @@ const props = defineProps({
 const emit = defineEmits(['update']);
 
 const buttons = [
-  { id: 0, name: 'Left click' },
-  { id: 1, name: 'Middle click' },
-  { id: 2, name: 'Right click' },
+  { id: 0, name: 'Clique esquerdo' },
+  { id: 1, name: 'Clique do meio' },
+  { id: 2, name: 'Clique direito' },
 ];
 const posGroups = [
   ['clientX', 'clientY'],

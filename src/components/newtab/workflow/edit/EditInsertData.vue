@@ -11,11 +11,11 @@
       variant="accent"
       @click="showModal = !showModal"
     >
-      Insert data ({{ dataList.length }})
+      Inserir dados ({{ dataList.length }})
     </ui-button>
     <ui-modal
       v-model="showModal"
-      title="Insert data"
+      title="Inserir dados"
       padding="p-0"
       content-class="max-w-3xl insert-data-modal"
     >
@@ -75,7 +75,9 @@
                   v-model="item.filePath"
                   class="w-full"
                   :placeholder="
-                    isFirefox ? 'File URL' : 'File absolute path/File URL'
+                    isFirefox
+                      ? 'URL do arquivo'
+                      : 'Caminho absoluto/URL do arquivo'
                   "
                 />
               </edit-autocomplete>
@@ -87,13 +89,13 @@
               >
                 <ui-input
                   v-model="item.xlsSheet"
-                  label="Sheet (optional)"
+                  label="Aba (opcional)"
                   class="ml-2"
                   placeholder="Sheet1"
                 />
                 <ui-input
                   v-model="item.xlsRange"
-                  label="Range (optional)"
+                  label="Intervalo (opcional)"
                   class="ml-2"
                   placeholder="A1:C10"
                 />
@@ -111,7 +113,7 @@
               <ui-button
                 v-tooltip="
                   hasFileAccess
-                    ? 'Import file'
+                    ? 'Importar arquivo'
                     : 'Don\'t have access, click to learn more'
                 "
                 :class="{ 'text-primary': item.isFile }"
@@ -122,11 +124,11 @@
               </ui-button>
               <template v-if="hasFileAccess && item.isFile">
                 <ui-button class="ml-2" @click="previewData(index, item)">
-                  Preview data
+                  Pré-visualizar dados
                 </ui-button>
                 <ui-button
                   v-if="previewState.itemId === index"
-                  v-tooltip="'Clear preview'"
+                  v-tooltip="'Limpar prévia'"
                   class="ml-2"
                   icon
                   @click="clearPreview"
@@ -136,18 +138,18 @@
                 <div class="grow" />
                 <ui-select
                   :model-value="item.action || item.csvAction"
-                  placeholder="File Action"
+                  placeholder="Ação de arquivo"
                   @change="item.action = $event"
                 >
-                  <option value="default">Default</option>
-                  <option value="base64">Read as base64</option>
+                  <option value="default">Padrão</option>
+                  <option value="base64">Ler como base64</option>
                   <optgroup
                     v-if="/.(csv|xlsx?)$/.test(item.filePath)"
-                    label="CSV/Excel File"
+                    label="Arquivo CSV/Excel"
                   >
-                    <option value="json">Read as JSON</option>
+                    <option value="json">Ler como JSON</option>
                     <option value="json-header">
-                      Read as JSON with headers
+                      Ler como JSON com cabeçalhos
                     </option>
                   </optgroup>
                 </ui-select>

@@ -15,7 +15,7 @@
     />
     <ui-select
       :model-value="data.method"
-      label="Method"
+      label="Método"
       class="mt-2 w-full"
       @change="updateData({ method: $event })"
     >
@@ -26,8 +26,8 @@
     <ui-input
       v-if="data.method === 'replace'"
       :model-value="data.replaceVal"
-      label="Replace with"
-      placeholder="(empty)"
+      label="Substituir por"
+      placeholder="(vazio)"
       class="mt-2 w-full"
       @change="updateData({ replaceVal: $event })"
     />
@@ -46,7 +46,7 @@
           <input
             id="var-expression"
             :value="data.expression"
-            placeholder="Expression"
+            placeholder="Expressão"
             class="w-11/12 bg-transparent py-2 px-1 focus:ring-0"
             @input="updateData({ expression: $event.target.value })"
           />
@@ -55,11 +55,11 @@
       </div>
       <ui-popover>
         <template #trigger>
-          <button class="bg-input rounded-lg p-2" title="Flags">
+          <button class="bg-input rounded-lg p-2" title="Modificadores">
             {{ data.flag.length === 0 ? 'flags' : data.flag.join('') }}
           </button>
         </template>
-        <p>Flags</p>
+        <p>Modificadores</p>
         <ul class="mt-2 space-y-1">
           <li v-for="flag in flags" :key="flag.id">
             <ui-checkbox
@@ -86,8 +86,8 @@ const props = defineProps({
 const emit = defineEmits(['update:data']);
 
 const methods = [
-  { id: 'match', name: 'Match value' },
-  { id: 'replace', name: 'Replace value' },
+  { id: 'match', name: 'Comparar valor' },
+  { id: 'replace', name: 'Substituir valor' },
 ];
 const flags = [
   { id: 'g', name: 'global' },

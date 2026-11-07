@@ -4,9 +4,10 @@
       {{ t('welcome.title') }}
     </h1>
     <p>
-      Get started by reading the documentation or browsing workflows in the
-      Automa Marketplace. <br />
-      To learn how to use Automa, watch the tutorials on our YouTube Channel.
+      Comece lendo a documentação ou explorando os fluxos na galeria do Automa
+      (projeto original). <br />
+      Para aprender os recursos herdados do Automa, consulte os tutoriais do
+      projeto original.
     </p>
     <div class="mt-8 flex items-center space-x-2">
       <a
@@ -52,7 +53,7 @@ const communities = [
   {
     name: 'GitHub',
     icon: 'riGithubFill',
-    url: 'https://github.com/AutomaApp/automa',
+    url: 'https://github.com/techcompedro/automacao-web-pro',
   },
   {
     name: 'Twitter',

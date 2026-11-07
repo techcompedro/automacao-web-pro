@@ -1,10 +1,10 @@
 {
-  "name": "automa",
+  "name": "web-flow",
   "version": "1.30.00",
-  "description": "An extension for automating your browser by connecting blocks",
+  "description": "Extensão para automatizar o navegador conectando blocos visuais, em português do Brasil",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AutomaApp/automa.git"
+    "url": "https://github.com/techcompedro/automacao-web-pro.git"
   },
   "scripts": {
     "build": "node utils/build.js",

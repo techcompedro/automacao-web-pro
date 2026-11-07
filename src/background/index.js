@@ -330,7 +330,9 @@ message.on(
           typeof callback === 'function' ? callback.toString() : callback;
 
         if (!callbackString) {
-          throw new Error('Callback is missing or invalid');
+          throw new Error(
+            'A função de retorno não foi informada ou é inválida'
+          );
         }
 
         // 直接执行回调函数的字符串表示，不再通过额外的包装函数
@@ -360,7 +362,7 @@ message.on(
 
         if (!jsCodeResult || !jsCodeResult.result) {
           console.error('无法获取JavaScript代码，结果为空');
-          throw new Error('Unable to get JavaScript code');
+          throw new Error('Não foi possível obter o código JavaScript');
         }
 
         if (
@@ -379,7 +381,9 @@ message.on(
         // 确保我们获取到的是字符串类型的JavaScript代码
         if (typeof jsCodeResult.result.value !== 'string') {
           console.error('回调函数返回的不是JavaScript代码字符串');
-          throw new Error('Callback did not return JavaScript code string');
+          throw new Error(
+            'A função de retorno não retornou um texto com código JavaScript'
+          );
         }
 
         const jsCode = jsCodeResult.result.value;
@@ -415,7 +419,8 @@ message.on(
             execResult.result.description || execResult.exceptionDetails
           );
           throw new Error(
-            execResult.result.description || 'Error executing JavaScript code'
+            execResult.result.description ||
+              'Erro ao executar código JavaScript'
           );
         }
 
@@ -471,7 +476,7 @@ function automaFetchClient(id, { type, resource }) {
   return new Promise((resolve, reject) => {
     const validType = ['text', 'json', 'base64'];
     if (!type || !validType.includes(type)) {
-      reject(new Error('The "type" must be "text" or "json"'));
+      reject(new Error('O parâmetro "type" deve ser "text" ou "json"'));
       return;
     }
 

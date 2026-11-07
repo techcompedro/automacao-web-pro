@@ -37,13 +37,13 @@
             :model-value="params.bubbles"
             @change="updateParams({ ...params, bubbles: $event })"
           >
-            Bubbles
+            Propagar evento
           </ui-checkbox>
           <ui-checkbox
             :model-value="params.cancelable"
             @change="updateParams({ ...params, cancelable: $event })"
           >
-            Cancelable
+            Permitir cancelamento
           </ui-checkbox>
         </div>
         <component

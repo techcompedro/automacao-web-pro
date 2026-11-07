@@ -113,17 +113,17 @@ const menuItems = {
   },
   startRecording: {
     id: 'startRecording',
-    name: 'Record from here',
+    name: 'Gravar a partir daqui',
     event: () => emit('recording', ctxData),
   },
   setAsInput: {
     id: 'setAsInput',
-    name: 'Set as block input',
+    name: 'Definir como entrada do bloco',
     event: () => emit('packageIo', { type: 'inputs', ...ctxData }),
   },
   setAsOutput: {
     id: 'setAsOutput',
-    name: 'Set as block output',
+    name: 'Definir como saída do bloco',
     event: () => emit('packageIo', { type: 'outputs', ...ctxData }),
   },
 };

@@ -48,7 +48,7 @@ class BackgroundOffscreen {
         chrome.offscreen.Reason.CLIPBOARD,
         chrome.offscreen.Reason.IFRAME_SCRIPTING,
       ],
-      justification: 'For running the workflow',
+      justification: 'Para executar o fluxo',
     });
 
     await sleep(500);

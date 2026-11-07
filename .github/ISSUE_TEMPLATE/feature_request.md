@@ -1,20 +1,19 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Sugerir melhoria
+about: Proponha um recurso ou uma melhoria para o Web Flow
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Qual problema você quer resolver?**
+Descreva a situação e sua necessidade.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Solução desejada**
+Explique o comportamento esperado.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Alternativas consideradas**
+Conte quais outras soluções você avaliou.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Informações adicionais**
+Inclua exemplos ou capturas de tela que ajudem a entender sua proposta.

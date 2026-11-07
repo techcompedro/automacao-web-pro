@@ -24,7 +24,7 @@ export function useHasPermissions(permissions) {
         });
 
         if (typeof needReload === 'boolean' && needReload) {
-          alert('Automa needs to reload to make this feature work');
+          alert('O Web Flow precisa ser recarregado para ativar este recurso');
 
           if (isMV2) {
             browser.runtime.getBackgroundPage().then((background) => {

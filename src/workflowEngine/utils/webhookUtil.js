@@ -13,7 +13,7 @@ const renderContent = async (content, contentType) => {
   }
   if (contentType === 'form-data') {
     if (!Array.isArray(renderedJson) || !Array.isArray(renderedJson[0])) {
-      throw new Error('The body must be 2D Array');
+      throw new Error('O corpo precisa ser uma lista bidimensional');
     }
 
     const formData = new FormData();
@@ -32,7 +32,7 @@ const renderContent = async (content, contentType) => {
           filename = path.split('/').pop();
         }
 
-        if (!formContent) throw new Error('File not found');
+        if (!formContent) throw new Error('Arquivo não encontrado');
       } else {
         let base64Str = '';
 

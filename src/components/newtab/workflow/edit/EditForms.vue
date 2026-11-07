@@ -50,15 +50,15 @@
       <template v-if="data.type === 'select'">
         <ui-select
           :model-value="data.selectOptionBy"
-          label="Select an option by"
+          label="Selecionar uma opção por"
           class="w-full"
           @change="updateData({ selectOptionBy: $event })"
         >
-          <option value="value">The value</option>
-          <optgroup label="The position">
-            <option value="first-option">First option</option>
-            <option value="last-option">Last option</option>
-            <option value="custom-position">Custom</option>
+          <option value="value">O valor</option>
+          <optgroup label="A posição">
+            <option value="first-option">Primeira opção</option>
+            <option value="last-option">Última opção</option>
+            <option value="custom-position">Personalizado</option>
           </optgroup>
         </ui-select>
         <div v-if="data.selectOptionBy === 'value'" class="mt-2">
@@ -80,7 +80,7 @@
         <ui-input
           v-else-if="data.selectOptionBy === 'custom-position'"
           :model-value="data.optionPosition"
-          label="Option position"
+          label="Posição da opção"
           placeholder="0"
           class="mt-2 w-full"
           @change="updateData({ optionPosition: $event })"

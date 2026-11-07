@@ -13,7 +13,9 @@
         <template #trigger>
           <button>/{{ regexExp.join('') || 'flags' }}</button>
         </template>
-        <p class="mb-2 text-gray-600 dark:text-gray-200">Expression flags</p>
+        <p class="mb-2 text-gray-600 dark:text-gray-200">
+          Modificadores da expressão
+        </p>
         <div class="space-y-1">
           <div v-for="item in exps" :key="item.id">
             <ui-checkbox
@@ -33,7 +35,7 @@
           :title="t('workflow.blocks.get-text.prefixText.title')"
           :label="t('workflow.blocks.get-text.prefixText.placeholder')"
           autocomplete="off"
-          placeholder="Text"
+          placeholder="Texto"
           class="w-full"
           @change="updateData({ prefixText: $event })"
         />
@@ -44,7 +46,7 @@
           :title="t('workflow.blocks.get-text.suffixText.title')"
           :label="t('workflow.blocks.get-text.suffixText.placeholder')"
           autocomplete="off"
-          placeholder="Text"
+          placeholder="Texto"
           class="w-full"
           @change="updateData({ suffixText: $event })"
         />
@@ -62,7 +64,7 @@
       class="mt-2"
       @change="updateData({ useTextContent: $event })"
     >
-      Use <code>textContent</code>
+      Usar <code>textContent</code>
     </ui-checkbox>
     <hr />
     <insert-workflow-data

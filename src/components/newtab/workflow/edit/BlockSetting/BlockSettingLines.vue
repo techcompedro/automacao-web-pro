@@ -13,7 +13,7 @@
       <ui-input
         :model-value="activeEdge.label"
         :label="t('workflow.blocks.base.settings.line.label')"
-        placeholder="A label"
+        placeholder="Um rótulo"
         class="w-full"
         @change="updateActiveEdge('label', $event)"
       />

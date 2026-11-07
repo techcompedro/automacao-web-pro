@@ -32,14 +32,14 @@
       <div class="grow" />
       <v-remixicon
         v-if="state.isInstalled"
-        title="Update package"
+        title="Atualizar pacote"
         name="riRefreshLine"
         class="cursor-pointer"
         @click="updatePackage"
       />
       <v-remixicon
         v-else
-        title="Install package"
+        title="Instalar pacote"
         name="riDownloadLine"
         class="cursor-pointer"
         @click="installPackage"
@@ -81,11 +81,11 @@
       v-if="data.author"
       class="mt-1 flex items-center text-sm text-gray-600 dark:text-gray-200"
     >
-      <p>By {{ data.author }}</p>
+      <p>Por {{ data.author }}</p>
       <a
         :href="`https://extension.automa.site/packages/${data.id}`"
         target="_blank"
-        title="Open package page"
+        title="Abrir página do pacote"
         class="ml-2"
       >
         <v-remixicon size="18" name="riExternalLinkLine" />

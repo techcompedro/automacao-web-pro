@@ -1,102 +1,93 @@
-<img src="src/assets/images/icon-128.png" width="64"/>
+<img src="src/assets/svg/web-flow.svg" width="88" alt="Logo do Web Flow" />
 
-# Automa
-<p>
-  <img alt="Automa latest version" src="https://img.shields.io/github/package-json/v/AutomaApp/automa" />
-  <a href="https://twitter.com/AutomaApp">
-    <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/AutomaApp?style=social" />
-  </a>
-  <a href="https://discord.gg/C6khwwTE84">
-    <img alt="Chat with us on Discord" src="https://img.shields.io/discord/942211415517835354?label=join%20discord&logo=Discord&logoColor=white" />
-  </a>
-</p>
+# Web Flow
 
-An extension for automating your browser by connecting blocks. <br />
-Auto-fill forms, do a repetitive task, take a screenshot, or scrape website data — the choice is yours. You can even schedule when the automation will execute!
+Extensão de automação visual para navegadores, com interface em português do Brasil. Conecte blocos para preencher formulários, repetir tarefas, extrair dados, capturar telas e agendar execuções.
 
-## Downloads
-<table cellspacing="0" cellpadding="0">
-  <tr>
-    <td valign="center">
-      <a align="center" href="https://chrome.google.com/webstore/detail/automa/infppggnoaenmfagbfknfkancpbljcca">
-        <img src="https://user-images.githubusercontent.com/22908993/166417152-f870bfbd-1770-4c28-b69d-a7303aebc9a6.png" alt="Chrome web store" />
-        <p align="center">Chrome Web Store</p>
-      </a>
-    </td>
-    <td valign="center">
-      <a href="https://addons.mozilla.org/en-US/firefox/addon/automa/">
-        <img src="https://user-images.githubusercontent.com/22908993/166417727-3481fef4-00e5-4cf0-bb03-27fb880d993c.png" alt="Firefox add-ons" />
-        <p align="center">Firefox Add-ons</p>
-      </a>
-    </td>
-  </tr>
-</table>
+Este projeto é uma versão personalizada do [Automa](https://github.com/AutomaApp/automa), mantida em [techcompedro/automacao-web-pro](https://github.com/techcompedro/automacao-web-pro). O Web Flow tem nome e identidade visual próprios e preserva os créditos e as licenças do projeto original.
 
-## Marketplace
-Browse the Automa marketplace where you can share and download workflows with others. [Go to the marketplace &#187;](https://extension.automa.site/marketplace)
+## Recursos
 
-## Automa Chrome Extension Builder
-Automa Chrome Extension Builder (Automa CEB for short) allows you to generate a standalone chrome extension based on Automa workflows. [Go to the documentation &#187;](https://docs.extension.automa.site/extension-builder)
+- Editor visual de fluxos, com condições, laços e variáveis.
+- Gravação de ações no navegador e seleção de elementos da página.
+- Preenchimento de formulários, coleta de dados e exportação em JSON ou CSV.
+- Agendamento, registros de execução e armazenamento local.
+- Integrações herdadas com Google Sheets, Google Drive e serviços externos.
 
+O idioma padrão é português do Brasil. As configurações permitem escolher outros idiomas; as traduções desses idiomas foram preservadas. Os nomes técnicos de APIs, os formatos de arquivo e as chaves internas permanecem compatíveis com os fluxos do Automa.
 
-## Project setup
-Before running the `yarn dev` or `yarn build` script, you need to create the `getPassKey.js` file in the `src/utils` directory.  Inside the file write
+## Preparar o ambiente
+
+Use Node.js 20.11.1 (versão indicada pelo projeto) e pnpm. Clone este repositório e instale as dependências:
+
+```bash
+git clone https://github.com/techcompedro/automacao-web-pro.git
+cd automacao-web-pro
+pnpm install --frozen-lockfile
+```
+
+O código original exige um arquivo local `src/utils/getPassKey.js`, ignorado pelo Git. Crie esse arquivo antes de compilar:
 
 ```js
-export default function() {
-  return 'anything-you-want';
+// Use uma chave local estável; não envie sua chave ao repositório.
+export default function getPassKey() {
+  return 'substitua-por-uma-chave-local-exclusiva';
 }
 ```
 
-```bash
-# Install dependencies
-pnpm install
+Guarde essa chave: ela é usada pelos recursos herdados de proteção de fluxos e credenciais. Alterá-la pode impedir a leitura de dados protegidos anteriormente.
 
-# Compiles and hot-reloads for development for the chrome browser
-pnpm dev
+## Desenvolver e compilar
 
-# Compiles and minifies for production for the chrome browser
-pnpm build
+| Comando                             | Resultado                                       |
+| ----------------------------------- | ----------------------------------------------- |
+| `pnpm dev`                          | Desenvolvimento no Chrome com recarregamento    |
+| `pnpm dev:firefox`                  | Desenvolvimento no Firefox                      |
+| `pnpm build`                        | Compilação de produção para Chrome em `build/`  |
+| `pnpm build:firefox`                | Compilação de produção para Firefox em `build/` |
+| `pnpm build:zip`                    | Arquivo ZIP da compilação atual                 |
+| `pnpm lint`                         | Verificação do código                           |
+| `node utils/check-localization.cjs` | Verificação dos catálogos, nomes e ícones       |
 
-# Create a zip file from the build folder
-pnpm build:zip
+Cada compilação usa a mesma pasta `build/`. Gere o ZIP de um navegador antes de compilar para o outro.
 
-# Compiles and hot-reloads for development for the firefox browser
-pnpm dev:firefox
+## Instalar localmente
 
-# Compiles and minifies for production for the firefox browser
-pnpm build:firefox
+### Chrome e navegadores compatíveis
 
-# Lints and fixes files
-pnpm lint
-```
-
-### Icon Preview
-v-remixicon/icons: https://preview-v-remixicon.vercel.app/
-
-### Install Locally
-#### Chrome
-1. Open chrome and navigate to extensions page using this URL: chrome://extensions.
-2. Enable the "Developer mode".
-3. Click "Load unpacked extension" button, browse the `automa/build` directory and select it.
-
-![Install in chrome](https://user-images.githubusercontent.com/22908993/166417152-f870bfbd-1770-4c28-b69d-a7303aebc9a6.png)
+1. Execute `pnpm build`.
+2. Abra `chrome://extensions`.
+3. Ative o **Modo do desenvolvedor**.
+4. Clique em **Carregar sem compactação** e selecione a pasta `build/`.
+5. Procure a extensão **Web Flow**, com o ícone em azul e verde.
 
 ### Firefox
-1. Open firefox and navigate to `about:debugging#/runtime/this-firefox`.
-2. Click the "Load Temporary Add-on" button.
-3. Browse the `automa/build` directory and select the `manifest.json` file.
 
-![Install in firefox](https://user-images.githubusercontent.com/22908993/166417727-3481fef4-00e5-4cf0-bb03-27fb880d993c.png)
+1. Execute `pnpm build:firefox`.
+2. Abra `about:debugging#/runtime/this-firefox`.
+3. Clique em **Carregar extensão temporária**.
+4. Selecione `build/manifest.json`.
 
-## Contributors
-Thanks to everyone who has submitted issues, made suggestions, and generally helped make this a better project.
+As páginas do Automa nas lojas publicam a extensão original. Esta versão Web Flow deve ser instalada a partir da sua própria compilação até que tenha uma publicação própria.
 
-<a href="https://github.com/AutomaApp/automa/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=AutomaApp/automa" />
-</a>
+## Usar a extensão
 
-## License
-Source code in this repository is variously licensed under the GNU Affero General Public License (AGPL), or the [Automa Commercial License](https://extension.automa.site/license/commercial/).
+Abra o ícone do Web Flow e acesse o painel. Crie um fluxo pelo editor ou grave uma sequência de ações. Conecte os blocos ao gatilho inicial, salve e execute. Use os registros do painel para acompanhar os resultados.
 
-See [LICENSE.txt](./LICENSE.txt) for details.
+As permissões solicitadas dependem dos blocos utilizados. Serviços externos herdados continuam usando seus endereços originais e podem exigir conta, autorização ou configuração adicional. A troca de marca não cria serviços próprios de nuvem, galeria, IA ou Google OAuth.
+
+## Logo e identidade
+
+O símbolo representa um W formado por um fluxo e três nós conectados. O fundo azul-escuro, o azul-claro e o verde distinguem a nova identidade. O arquivo vetorial editável está em `src/assets/svg/web-flow.svg`; as versões usadas no painel, no Firefox e nos ícones PNG são derivadas desse mesmo desenho.
+
+## Documentação e colaboração
+
+- [Documentação técnica do Automa, projeto original](https://docs.extension.automa.site)
+- [Relatar problema ou sugerir melhoria no Web Flow](https://github.com/techcompedro/automacao-web-pro/issues)
+- [Código e colaboradores do Automa](https://github.com/AutomaApp/automa)
+
+## Licença e créditos
+
+O Web Flow deriva do Automa. Os avisos de licença e os créditos originais foram preservados. Conforme o arquivo original [LICENSE.txt](LICENSE.txt), o código fora de `business/` usa GNU Affero General Public License (AGPL); o conteúdo de `business/` está sujeito à licença comercial do Automa, salvo indicação diferente. Consulte o texto original para os termos aplicáveis.
+
+O arquivo de licença original foi mantido no idioma e na redação de origem para preservar seus termos.

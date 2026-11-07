@@ -8,11 +8,11 @@
     class="dark relative z-10 px-5 pt-8 text-white placeholder:text-black"
   >
     <div class="mb-4 flex items-center">
-      <h1 class="text-xl font-semibold text-white">Automa</h1>
+      <h1 class="text-xl font-semibold text-white">Web Flow</h1>
       <div class="grow"></div>
       <ui-button
         v-tooltip.group="
-          'Start recording by opening the dashboard. Click to learn more'
+          'Abra o painel para iniciar a gravação. Clique para saber mais'
         "
         icon
         class="mr-2"
@@ -61,7 +61,9 @@
       <ui-tab v-if="hostedWorkflowStore.toArray.length > 0" value="host">
         {{ t(`home.workflow.type.host`) }}
       </ui-tab>
-      <ui-tab v-if="userStore.user?.teams?.length" value="team"> Teams </ui-tab>
+      <ui-tab v-if="userStore.user?.teams?.length" value="team">
+        Equipes
+      </ui-tab>
     </ui-tabs>
   </div>
   <home-team-workflows
@@ -87,7 +89,7 @@
     <div v-if="pinnedWorkflows.length > 0" class="mt-1 mb-4 border-b pb-4">
       <div class="mb-1 flex items-center text-gray-300">
         <v-remixicon name="riPushpin2Line" size="20" class="mr-2" />
-        <span>Pinned workflows</span>
+        <span>Fluxos fixados</span>
       </div>
       <home-workflow-card
         v-for="workflow in pinnedWorkflows"
@@ -109,7 +111,7 @@
       class="flex items-center"
     >
       <ui-select v-model="state.activeFolder" class="flex-1">
-        <option value="">Folder (all)</option>
+        <option value="">Pasta (todas)</option>
         <option
           v-for="folder in folderStore.items"
           :key="folder.id"
@@ -122,13 +124,17 @@
         <template #trigger>
           <ui-button>
             <v-remixicon name="riSortDesc" class="mr-2 -ml-1" />
-            <span>Sort</span>
+            <span>Ordenar</span>
           </ui-button>
         </template>
         <div class="w-48">
-          <ui-select v-model="sortState.order" block placeholder="Sort order">
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+          <ui-select
+            v-model="sortState.order"
+            block
+            placeholder="Ordem de classificação"
+          >
+            <option value="asc">Crescente</option>
+            <option value="desc">Decrescente</option>
           </ui-select>
           <ui-select
             v-model="sortState.by"
@@ -161,14 +167,14 @@
       class="fixed bottom-5 left-0 m-4 rounded-lg bg-accent p-4 text-white shadow-md dark:text-black z-10"
     >
       <p class="text-sm leading-tight">
-        If the workflow runs for less than 5 minutes, set it to run in the
-        background in the
+        Se o fluxo levar menos de 5 minutos, configure a execução em segundo
+        plano nas
         <a
           href="https://docs.extension.automa.site/workflow/settings.html#workflow-execution"
           class="font-semibold underline"
           target="_blank"
         >
-          workflow settings.
+          configurações do fluxo.
         </a>
       </p>
       <v-remixicon

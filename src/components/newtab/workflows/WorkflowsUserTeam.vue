@@ -2,14 +2,14 @@
   <p v-if="!userStore.user" class="my-4 text-center">
     <ui-spinner v-if="!userStore.retrieved" color="text-accent" />
     <template v-else>
-      You must
+      Você precisa
       <a
         href="https://extension.automa.site/auth"
         class="underline"
         target="_blank"
-        >login</a
+        >entrar</a
       >
-      to use these workflows
+      para usar estes fluxos
     </template>
   </p>
   <div
@@ -17,9 +17,9 @@
     class="text-center"
   >
     <img src="@/assets/svg/files-and-folder.svg" class="mx-auto w-96" />
-    <p class="text-lg font-semibold">Nothing to see here</p>
+    <p class="text-lg font-semibold">Nada para exibir</p>
     <p class="text-gray-600 dark:text-gray-200">
-      Browse workflows that been shared by your team
+      Explore os fluxos compartilhados pela sua equipe
     </p>
     <ui-button
       :href="`http://extension.automa.site/workflows?teamId=${teamId}&workflowsBy=team`"
@@ -28,7 +28,7 @@
       variant="accent"
       class="mt-8 inline-block"
     >
-      Browse workflows
+      Explorar fluxos
     </ui-button>
   </div>
   <div v-else class="workflows-container">
@@ -98,7 +98,7 @@ const menu = [
   },
   {
     id: 'delete-team',
-    name: 'Delete from team',
+    name: 'Excluir da equipe',
     icon: 'riDeleteBin7Line',
     permissions: ['owner', 'create'],
     attrs: {
@@ -165,9 +165,9 @@ function onMenuSelected({ id, data }) {
   } else if (id === 'delete-team') {
     dialog.confirm({
       async: true,
-      title: 'Delete workflow from team',
+      title: 'Excluir fluxo da equipe',
       okVariant: 'danger',
-      body: `Are you sure want to delete the "${data.name}" workflow from this team?`,
+      body: `Deseja excluir o fluxo "${data.name}" desta equipe?`,
       onConfirm: async () => {
         try {
           const response = await fetchApi(
@@ -183,7 +183,7 @@ function onMenuSelected({ id, data }) {
 
           return true;
         } catch (error) {
-          toast.error('Something went wrong');
+          toast.error('Algo deu errado');
           console.error(error);
           return false;
         }

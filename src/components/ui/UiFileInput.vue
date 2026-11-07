@@ -28,7 +28,7 @@
         @click="fileInput.click()"
       >
         <v-remixicon name="riUploadLine" class="mr-2 -ml-1" />
-        Choose File
+        Escolher arquivo
       </ui-button>
       <p
         class="mt-1 text-sm text-center text-gray-500 dark:text-gray-400"
@@ -92,7 +92,7 @@ const tooltipContent = computed(() => ({
 
 const statusText = computed(() => {
   if (uploading.value) return 'Uploading...';
-  if (hasError.value) return 'Upload failed. Please try again.';
+  if (hasError.value) return 'Falha no envio. Tente novamente.';
   return fileName.value || 'No file selected.';
 });
 
@@ -136,17 +136,17 @@ const handleFileChange = async (event) => {
   fileName.value = file.name;
 
   if (!isFileTypeValid(file)) {
-    handleError('Invalid file type.');
+    handleError('Tipo de arquivo inválido.');
     return;
   }
 
   if (file.size > props.maxSize * 1024 * 1024) {
-    handleError(`File size should not exceed ${props.maxSize}MB`);
+    handleError(`O tamanho do arquivo não pode exceder ${props.maxSize} MB`);
     return;
   }
 
   if (!props.onUpload) {
-    handleError('onUpload function is not provided');
+    handleError('A função onUpload não foi informada');
     return;
   }
 
@@ -159,9 +159,9 @@ const handleFileChange = async (event) => {
     emit('change', value);
     fileName.value = file.name; // Keep filename on success
   } catch (error) {
-    console.error('Upload error:', error);
-    toast.error(error.message || 'An error occurred during file upload.');
-    handleError(error.message || 'An error occurred during file upload.');
+    console.error('Erro no envio:', error);
+    toast.error(error.message || 'Ocorreu um erro ao enviar o arquivo.');
+    handleError(error.message || 'Ocorreu um erro ao enviar o arquivo.');
   } finally {
     uploading.value = false;
   }

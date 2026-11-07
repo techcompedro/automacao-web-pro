@@ -40,7 +40,7 @@ export function registerContextMenu(triggerId, data) {
                 documentUrlPatterns,
                 contexts: ['all'],
                 id: 'automaContextMenu',
-                title: 'Run Automa workflow',
+                title: 'Executar fluxo do Web Flow',
               },
               () => {
                 registerContextMenu(workflowId, data)

@@ -36,16 +36,16 @@ import browser from 'webextension-polyfill';
 
 const modalTypes = {
   testimonial: {
-    title: 'Hi There 👋',
-    body: 'Thank you for using Automa, and if you have a great experience. Would you like to give us a testimonial?',
-    button: 'Give Testimonial',
-    url: 'https://testimonial.to/automa',
+    title: 'Olá! 👋',
+    body: 'Obrigado por usar o Web Flow. Compartilhe sua experiência e sugestões no repositório do projeto.',
+    button: 'Enviar comentário',
+    url: 'https://github.com/techcompedro/automacao-web-pro/issues',
   },
   survey: {
-    title: "How do you think we're doing?",
-    body: 'To help us make Automa as best it can be, we need a few minutes of your time to get your feedback.',
-    button: 'Take Survey',
-    url: 'https://extension.automa.site/survey',
+    title: 'Como podemos melhorar?',
+    body: 'Conte como podemos melhorar o Web Flow. Envie suas sugestões no repositório do projeto.',
+    button: 'Enviar sugestão',
+    url: 'https://github.com/techcompedro/automacao-web-pro/issues',
   },
 };
 

@@ -96,7 +96,7 @@
                 :src="pkg.icon"
                 class="overflow-hidden rounded-lg"
                 style="height: 40px; width: 40px"
-                alt="Can not display"
+                alt="Não é possível exibir"
               />
               <span v-else class="bg-box-transparent rounded-lg p-2">
                 <v-remixicon :name="pkg.icon || 'mdiPackageVariantClosed'" />
@@ -119,7 +119,7 @@
                     class="cursor-pointer"
                   >
                     <v-remixicon name="riExternalLinkLine" class="mr-2 -ml-1" />
-                    <span>Open package page</span>
+                    <span>Abrir página do pacote</span>
                   </ui-list-item>
                   <template v-else>
                     <ui-list-item
@@ -168,7 +168,7 @@
             >
               <p>{{ dayjs(pkg.createdAt).fromNow() }}</p>
               <p v-if="pkg.author" class="text-overflow ml-4 flex-1 text-right">
-                By {{ pkg.author }}
+                Por {{ pkg.author }}
               </p>
             </div>
           </ui-card>
@@ -296,8 +296,8 @@ function exportPackage(pkg) {
 }
 function deletePackage({ id, name }) {
   dialog.confirm({
-    title: 'Delete package',
-    body: `Are you sure want to delete "${name}" package?`,
+    title: 'Excluir pacote',
+    body: `Deseja excluir o pacote "${name}"?`,
     okVariant: 'danger',
     okText: 'Delete',
     onConfirm: () => {

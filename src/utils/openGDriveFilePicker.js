@@ -26,7 +26,10 @@ export default async function fetchGDriveSheets() {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    if (!res.ok) throw new Error('Failed to fetch Google Sheets list');
+    if (!res.ok)
+      throw new Error(
+        'Não foi possível carregar a lista de planilhas do Google'
+      );
     const data = await res.json();
     return data.files || [];
   } catch (e) {

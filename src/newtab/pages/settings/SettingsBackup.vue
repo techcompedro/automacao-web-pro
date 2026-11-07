@@ -56,15 +56,15 @@
         </ui-button>
       </div>
       <!-- <p v-if="false">
-        Upgrade to the
+        Faça a atualização para o
         <a
           href="https://extension.automa.site/pricing"
           target="_blank"
           class="text-yellow-500 underline dark:text-yellow-300"
         >
-          pro plan
+          plano Pro do serviço original
         </a>
-        to start back up your workflows to the cloud
+        para começar a salvar cópias dos seus fluxos na nuvem
       </p> -->
     </ui-card>
     <h2 class="mb-2 font-semibold">
@@ -95,7 +95,7 @@
               <p class="mb-2 font-semibold">
                 {{ t('settings.backupWorkflows.backup.settings') }}
               </p>
-              <p>Also backup</p>
+              <p>Incluir na cópia</p>
               <div class="flex mt-1 flex-col gap-2">
                 <ui-checkbox
                   v-for="item in BACKUP_ITEMS_INCLUDES"
@@ -120,14 +120,14 @@
               </p>
               <template v-if="!downloadPermission.has.downloads">
                 <p class="text-gray-600 dark:text-gray-300 mt-1">
-                  Automa requires the "Downloads" permission for the schedule
-                  backup to work
+                  O Web Flow precisa da permissão de downloads para agendar
+                  cópias de segurança
                 </p>
                 <ui-button
                   class="mt-2 w-full"
                   @click="downloadPermission.request()"
                 >
-                  Allow "Downloads" permission
+                  Permitir downloads
                 </ui-button>
               </template>
               <template v-else>
@@ -135,7 +135,7 @@
                   v-model="localBackupSchedule.schedule"
                   class="w-full mt-2"
                 >
-                  <option value="">Never</option>
+                  <option value="">Nunca</option>
                   <option
                     v-for="(value, key) in BACKUP_SCHEDULES"
                     :key="key"
@@ -143,12 +143,12 @@
                   >
                     {{ value }}
                   </option>
-                  <option value="custom">Custom</option>
+                  <option value="custom">Personalizado</option>
                 </ui-select>
                 <template v-if="localBackupSchedule.schedule === 'custom'">
                   <ui-input
                     v-model="localBackupSchedule.customSchedule"
-                    label="Cron Expression"
+                    label="Expressão cron"
                     class="w-full mt-2"
                     placeholder="0 8 * * *"
                   />
@@ -159,7 +159,7 @@
                 <ui-input
                   v-if="localBackupSchedule.schedule !== ''"
                   v-model="localBackupSchedule.folderName"
-                  label="Folder name"
+                  label="Nome da pasta"
                   class="w-full mt-2"
                   placeholder="backup-folder"
                 />
@@ -167,7 +167,7 @@
                   v-if="localBackupSchedule.lastBackup"
                   class="text-gray-600 dark:text-gray-300 text-sm mt-4"
                 >
-                  Last backup:
+                  Última cópia:
                   {{ dayjs(localBackupSchedule.lastBackup).fromNow() }}
                 </p>
               </template>
@@ -229,8 +229,8 @@ const BACKUP_SCHEDULES = {
   '0 8 * * 0': 'Every week',
 };
 const BACKUP_ITEMS_INCLUDES = [
-  { id: 'storage:table', name: 'Storage tables' },
-  { id: 'storage:variables', name: 'Storage variables' },
+  { id: 'storage:table', name: 'Tabelas de armazenamento' },
+  { id: 'storage:variables', name: 'Variáveis de armazenamento' },
 ];
 
 const { t } = useI18n();

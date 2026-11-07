@@ -42,7 +42,7 @@
           <ui-input
             v-model="header.value"
             :title="header.value"
-            placeholder="Value"
+            placeholder="Valor"
             type="text"
             class="col-span-3"
           />

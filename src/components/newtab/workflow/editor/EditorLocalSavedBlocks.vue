@@ -67,14 +67,14 @@
             class="flex items-center space-x-3 px-4 pb-4 text-gray-600 dark:text-gray-200"
           >
             <span v-if="item.author" class="text-overflow">
-              By {{ item.author }}
+              Por {{ item.author }}
             </span>
             <div class="grow" />
             <a
               v-if="item.isExternal"
               :href="`https://extension.automa.site/packages/${item.id}`"
               target="_blank"
-              title="Open package page"
+              title="Abrir página do pacote"
             >
               <v-remixicon name="riExternalLinkLine" size="18" />
             </a>
@@ -92,11 +92,9 @@
                   class="cursor-pointer"
                   @click="updatePackages(item)"
                 >
-                  Update packages
+                  Atualizar pacotes
                   <v-remixicon
-                    v-tooltip="
-                      'Update the current package inside the workflow.'
-                    "
+                    v-tooltip="'Atualizar o pacote atual dentro do fluxo.'"
                     class="ml-2 -mr-1"
                     name="riInformationLine"
                     size="20"
@@ -148,8 +146,8 @@ const items = computed(() => {
 
 function deleteItem({ id, name }) {
   dialog.confirm({
-    title: 'Delete package',
-    body: `Are you sure want to delete "${name}" package?`,
+    title: 'Excluir pacote',
+    body: `Deseja excluir o pacote "${name}"?`,
     okText: 'Delete',
     okVariant: 'danger',
     onConfirm: () => {

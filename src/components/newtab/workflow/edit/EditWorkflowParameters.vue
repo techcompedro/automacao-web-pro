@@ -7,14 +7,14 @@
       v-if="state.parameters.length === 0"
       class="my-4 text-center text-gray-600 dark:text-gray-200"
     >
-      No parameters
+      Nenhum parâmetro
     </p>
     <section v-else class="w-full">
       <div class="grid grid-cols-12 space-x-2 text-sm">
-        <div class="col-span-3" style="padding-left: 28px">Name</div>
-        <div class="col-span-2">Type</div>
-        <div class="col-span-3">Placeholder</div>
-        <div class="col-span-4">Default Value</div>
+        <div class="col-span-3" style="padding-left: 28px">Nome</div>
+        <div class="col-span-2">Tipo</div>
+        <div class="col-span-3">Texto de exemplo</div>
+        <div class="col-span-4">Valor padrão</div>
       </div>
       <draggable
         v-model="state.parameters"
@@ -29,7 +29,7 @@
                 <v-remixicon name="mdiDrag" class="handle mr-2 cursor-move" />
                 <ui-input
                   :model-value="param.name"
-                  placeholder="Parameter name"
+                  placeholder="Nome do parâmetro"
                   @change="updateParam(index, $event)"
                 />
               </div>
@@ -50,7 +50,7 @@
               <div class="col-span-3">
                 <ui-input
                   v-model="param.placeholder"
-                  placeholder="A parameter"
+                  placeholder="Um parâmetro"
                 />
               </div>
               <div class="col-span-4 flex items-center">
@@ -89,14 +89,14 @@
                     name="riArrowLeftSLine"
                     class="mr-2 -ml-1 transition-transform"
                   />
-                  <span>Options</span>
+                  <span>Opções</span>
                 </template>
                 <div class="mt-2 mb-4 pl-[28px]">
                   <div class="mb-2 flex items-start">
                     <ui-textarea
                       v-model="param.description"
-                      placeholder="Description"
-                      title="Description"
+                      placeholder="Descrição"
+                      title="Descrição"
                       style="max-width: 400px"
                     />
                     <ui-checkbox
@@ -105,7 +105,7 @@
                       class="ml-6"
                       @change="param.data.required = $event"
                     >
-                      Parameter required
+                      Parâmetro obrigatório
                     </ui-checkbox>
                   </div>
                   <component
@@ -162,7 +162,7 @@ const customParameters = workflowParameters();
 const paramTypes = {
   string: {
     id: 'string',
-    name: 'Input (string)',
+    name: 'Entrada (texto)',
     options: ParameterInputOptions,
     valueComp: ParameterInputValue,
     data: {
@@ -174,14 +174,14 @@ const paramTypes = {
   },
   number: {
     id: 'number',
-    name: 'Input (number)',
+    name: 'Entrada (número)',
     data: {
       required: false,
     },
   },
   json: {
     id: 'json',
-    name: 'Input (JSON)',
+    name: 'Entrada (JSON)',
     valueComp: ParameterJsonValue,
     data: {
       required: false,
@@ -189,7 +189,7 @@ const paramTypes = {
   },
   checkbox: {
     id: 'checkbox',
-    name: 'Checkbox',
+    name: 'Caixa de seleção',
     valueComp: ParameterCheckboxValue,
     data: {
       required: false,
@@ -215,7 +215,7 @@ function addParameter() {
     type: 'string',
     description: '',
     defaultValue: '',
-    placeholder: 'Text',
+    placeholder: 'Texto',
     data: paramTypes.string.data,
   });
 }

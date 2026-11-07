@@ -9,7 +9,7 @@
     <ui-input
       :model-value="data.timeout"
       type="number"
-      label="Timeout (millisecond) (0 to disable)"
+      label="Tempo limite (milissegundos; 0 para desativar)"
       class="mt-2 w-full"
       @change="updateData({ timeout: +$event })"
     />
@@ -18,9 +18,9 @@
       variant="accent"
       @click="showModal = !showModal"
     >
-      Insert Parameters
+      Inserir parâmetros
     </ui-button>
-    <ui-modal v-model="showModal" title="Parameters" content-class="max-w-4xl">
+    <ui-modal v-model="showModal" title="Parâmetros" content-class="max-w-4xl">
       <edit-workflow-parameters
         :data="data.parameters"
         hide-prefer-tab

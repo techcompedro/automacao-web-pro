@@ -2,12 +2,12 @@
   <div>
     <div v-if="!store.integrations.googleDrive">
       <p>
-        You haven't
+        Você ainda não
         <a
           href="https://docs.extension.automa.site/integrations/google-drive.html"
           target="_blank"
           class="underline"
-          >connected Automa to Google Drive</a
+          >conectou o Web Flow ao Google Drive</a
         >.
       </p>
     </div>
@@ -38,17 +38,17 @@
               <ui-select
                 v-model="item.type"
                 class="grow mr-2"
-                placeholder="File location"
+                placeholder="Local do arquivo"
               >
                 <option value="url">URL</option>
                 <option value="local" :disabled="!hasFileAccess">
-                  Local computer
+                  Este computador
                 </option>
                 <option
                   value="downloadId"
                   :disabled="!permissions.has.downloads"
                 >
-                  Download id
+                  ID do download
                 </option>
               </ui-select>
               <ui-button icon @click="filePaths.splice(index, 1)">
@@ -58,7 +58,7 @@
             <edit-autocomplete>
               <ui-input
                 v-model="item.name"
-                placeholder="Filename (optional)"
+                placeholder="Nome do arquivo (opcional)"
                 class="w-full mt-2"
               />
             </edit-autocomplete>
@@ -66,14 +66,14 @@
               <ui-input
                 v-model="item.path"
                 :placeholder="placeholders[item.type]"
-                title="File location"
+                title="Local do arquivo"
                 class="w-full mt-2"
               />
             </edit-autocomplete>
           </li>
         </ul>
         <ui-button class="mt-4" variant="accent" @click="addFile">
-          Add file
+          Adicionar arquivo
         </ui-button>
       </div>
     </template>

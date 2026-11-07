@@ -1,7 +1,7 @@
 {
   "common": {
     "dashboard": "Painel",
-    "workflow": "Workflow | Workflows",
+    "workflow": "Fluxo | Fluxos",
     "collection": "Coleção | Coleções",
     "log": "Registro | Registros",
     "block": "Bloco | Blocos",
@@ -40,7 +40,7 @@
     "disable": "Desativar",
     "disabled": "Desativado",
     "enable": "Ativar",
-    "fallback": "Fallback",
+    "fallback": "Alternativa",
     "update": "Atualizar",
     "feature": "Recurso",
     "duplicate": "Duplicar",

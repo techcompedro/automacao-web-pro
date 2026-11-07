@@ -5,12 +5,12 @@
       <ui-input
         v-model.number="settings.minZoom"
         type="number"
-        label="Min zoom"
+        label="Zoom mínimo"
       />
       <ui-input
         v-model.number="settings.maxZoom"
         type="number"
-        label="Max zoom"
+        label="Zoom máximo"
       />
     </div>
     <ui-list class="mt-8 space-y-2">
@@ -45,12 +45,12 @@
           <ui-input
             v-model.number="settings.snapGrid[0]"
             type="number"
-            label="X Axis"
+            label="Eixo X"
           />
           <ui-input
             v-model.number="settings.snapGrid[1]"
             type="number"
-            label="Y Axis"
+            label="Eixo Y"
           />
         </div>
       </transition-expand>

@@ -63,7 +63,7 @@
                     <ui-input
                       :model-value="source.name"
                       class="flex-1"
-                      placeholder="Source property"
+                      placeholder="Propriedade de origem"
                       @blur="updateSource({ index, source, event: $event })"
                     />
                   </ui-autocomplete>
@@ -89,7 +89,7 @@
                     <ui-input
                       :model-value="destination.name"
                       class="flex-1"
-                      placeholder="Destination property"
+                      placeholder="Propriedade de destino"
                       @blur="
                         updateDestination({
                           index,

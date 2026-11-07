@@ -18,7 +18,7 @@ export async function validateTrigger(data) {
   const triggersValidation = {
     'cron-job': (triggerData) => {
       checkValue(triggerData.expression, {
-        name: 'Expression',
+        name: 'Expressão',
         location: 'Cron job trigger',
       });
     },
@@ -28,18 +28,18 @@ export async function validateTrigger(data) {
 
       if (!hasPermission) {
         errors.push(
-          "Doesn't have permission for the Context menu trigger (ignore if you already grant the permissions)"
+          'Sem permissão para o gatilho do menu de contexto (ignore se a permissão já foi concedida)'
         );
       } else {
         checkValue(triggerData.contextMenuName, {
-          name: 'Context menu name',
+          name: 'Nome no menu de contexto',
           location: 'Context menu trigger',
         });
       }
     },
     date: (triggerData) => {
       checkValue(triggerData.date, {
-        name: 'Date',
+        name: 'Data',
         location: 'On a specific date tigger',
       });
     },
@@ -51,7 +51,7 @@ export async function validateTrigger(data) {
     },
     'keyboard-shortcut': (triggerData) => {
       checkValue(triggerData.shortcut, {
-        name: 'Shortcut',
+        name: 'Atalho',
         location: 'Shortcut trigger',
       });
     },
@@ -77,7 +77,7 @@ export async function validateExecuteWorkflow(data) {
 }
 
 export async function validateNewTab(data) {
-  if (isEmptyStr(data.url)) return ['URL is empty'];
+  if (isEmptyStr(data.url)) return ['A URL está vazia'];
 
   return [];
 }
@@ -87,10 +87,10 @@ export async function validateSwitchTab(data) {
   const validateItems = {
     'match-patterns': () => {
       if (isEmptyStr(data.matchPattern))
-        errors.push('The Match patterns is empty');
+        errors.push('Os padrões de correspondência estão vazios');
     },
     'tab-title': () => {
-      if (isEmptyStr(data.tabTitle)) errors.push('The Tab title is empty');
+      if (isEmptyStr(data.tabTitle)) errors.push('O título da aba está vazio');
     },
   };
 
@@ -100,14 +100,14 @@ export async function validateSwitchTab(data) {
 }
 
 export async function validateProxy(data) {
-  if (isEmptyStr(data.host)) return ['The Host is empty'];
+  if (isEmptyStr(data.host)) return ['O endereço do servidor está vazio'];
 
   return [];
 }
 
 export async function validateCloseTab(data) {
   if (data.closeType === 'tab' && !data.activeTab && isEmptyStr(data.url)) {
-    return ['The Match patterns is empty'];
+    return ['Os padrões de correspondência estão vazios'];
   }
 
   return [];
@@ -115,14 +115,14 @@ export async function validateCloseTab(data) {
 
 export async function validateTakeScreenshot(data) {
   if (data.type === 'element' && isEmptyStr(data.selector)) {
-    return ['The CSS selector is empty'];
+    return ['O seletor CSS está vazio'];
   }
 
   return [];
 }
 
 export async function validateInteractionBasic(data) {
-  if (isEmptyStr(data.selector)) return ['The Selector is empty'];
+  if (isEmptyStr(data.selector)) return ['O seletor está vazio'];
 
   return [];
 }
@@ -133,13 +133,13 @@ export async function validateExportData(data) {
   const hasPermission = await checkPermissions(['downloads']);
   if (!hasPermission)
     errors.push(
-      "Don't have download permission (ignore if you already grant the permissions)"
+      'Sem permissão para downloads (ignore se a permissão já foi concedida)'
     );
 
   if (data.dataToExport === 'variable' && isEmptyStr(data.variableName)) {
-    errors.push('The Variable name is empty');
+    errors.push('O nome da variável está vazio');
   } else if (data.dataToExport === 'google-sheets' && isEmptyStr(data.refKey)) {
-    errors.push('The Reference key is empty');
+    errors.push('A chave de referência está vazia');
   }
 
   return errors;
@@ -148,9 +148,9 @@ export async function validateExportData(data) {
 export async function validateAttributeValue(data) {
   const errors = [];
 
-  if (isEmptyStr(data.selector)) errors.push('The Selector is empty');
+  if (isEmptyStr(data.selector)) errors.push('O seletor está vazio');
   if (isEmptyStr(data.attributeName))
-    errors.push('The Attribute name is empty');
+    errors.push('O nome do atributo está vazio');
 
   return errors;
 }
@@ -159,30 +159,30 @@ export async function validateGoogleSheets(data) {
   const errors = [];
 
   if (isEmptyStr(data.spreadsheetId))
-    errors.push('The Spreadsheet Id is empty');
-  if (isEmptyStr(data.range)) errors.push('The Range is empty');
+    errors.push('O ID da planilha está vazio');
+  if (isEmptyStr(data.range)) errors.push('O intervalo está vazio');
 
   return errors;
 }
 
 export async function validateWebhook(data) {
-  if (isEmptyStr(data.url)) return ['The URL is empty'];
+  if (isEmptyStr(data.url)) return ['A URL está vazia'];
 
   return [];
 }
 
 export async function validateLoopData(data) {
   const errors = [];
-  if (isEmptyStr(data.loopId)) errors.push('The Loop id is empty');
+  if (isEmptyStr(data.loopId)) errors.push('O ID do laço está vazio');
 
   const loopThroughItems = {
     'google-sheets': () => {
       if (isEmptyStr(data.referenceKey))
-        errors.push('The Reference key is empty');
+        errors.push('A chave de referência está vazia');
     },
     variable: () => {
       if (isEmptyStr(data.variableName))
-        errors.push('The Variable name is empty');
+        errors.push('O nome da variável está vazio');
     },
   };
   const validateItem = loopThroughItems[data.loopThrough];
@@ -193,14 +193,14 @@ export async function validateLoopData(data) {
 
 export async function validateLoopElements(data) {
   const errors = [];
-  if (isEmptyStr(data.loopId)) errors.push('The Loop id is empty');
-  if (isEmptyStr(data.selector)) errors.push('The Selector is empty');
+  if (isEmptyStr(data.loopId)) errors.push('O ID do laço está vazio');
+  if (isEmptyStr(data.selector)) errors.push('O seletor está vazio');
 
   if (
     ['click-element', 'click-link'].includes(data.loadMoreAction) &&
     isEmptyStr(data.actionElSelector)
   ) {
-    errors.push('The Selector for loading more elements is empty');
+    errors.push('O seletor para carregar mais elementos está vazio');
   }
 
   return errors;
@@ -214,7 +214,7 @@ export async function validateClipboard() {
 
   if (!hasPermission)
     return [
-      "Don't have permission to access the clipboard (ignore if you already grant the permissions)",
+      'Sem permissão para acessar a área de transferência (ignore se a permissão já foi concedida)',
     ];
 
   return [];
@@ -222,7 +222,7 @@ export async function validateClipboard() {
 
 export async function validateSwitchTo(data) {
   if (data.windowType === 'iframe' && isEmptyStr(data.selector)) {
-    return ['The Selector for Iframe is empty'];
+    return ['O seletor do iframe está vazio'];
   }
 
   return [];
@@ -231,10 +231,10 @@ export async function validateSwitchTo(data) {
 export async function validateUploadFile(data) {
   const errors = [];
 
-  if (isEmptyStr(data.selector)) errors.push('The Selector is empty');
+  if (isEmptyStr(data.selector)) errors.push('O seletor está vazio');
 
   const someInputsEmpty = data.filePaths.some((path) => isEmptyStr(path));
-  if (someInputsEmpty) errors.push('Some of the file paths is empty');
+  if (someInputsEmpty) errors.push('Um dos caminhos de arquivo está vazio');
 
   return errors;
 }
@@ -245,10 +245,10 @@ export async function validateSaveAssets(data) {
   const hasPermission = await checkPermissions(['downloads']);
   if (!hasPermission)
     errors.push(
-      "Don't have download permission (ignore if you already grant the permissions)"
+      'Sem permissão para downloads (ignore se a permissão já foi concedida)'
     );
   else if (isEmptyStr(data.selector) && data.type === 'element')
-    errors.push('The Selector is empty');
+    errors.push('O seletor está vazio');
 
   return errors;
 }
@@ -261,7 +261,7 @@ export async function validatePressKey(data) {
   const isMultipleKeysEmpty =
     data.action === 'multiple-keys' && isEmptyStr(data.keysToPress);
   if (isKeyEmpty || isMultipleKeysEmpty)
-    errors.push('The Keys to press is empty');
+    errors.push('As teclas a pressionar não foram informadas');
 
   return errors;
 }

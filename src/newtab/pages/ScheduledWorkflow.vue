@@ -16,7 +16,7 @@
         @click="scheduleState.showModal = true"
       >
         <v-remixicon name="riAddLine" class="-ml-1 mr-2" />
-        Schedule workflow
+        Agendar fluxo
       </ui-button>
     </div>
     <div class="scroll w-full overflow-x-auto">
@@ -65,7 +65,7 @@
     </div>
     <ui-modal
       v-model="scheduleState.showModal"
-      title="Workflow Triggers"
+      title="Gatilhos do fluxo"
       persist
       content-class="max-w-2xl"
     >
@@ -97,7 +97,7 @@
           v-model="scheduleState.selectedWorkflow.query"
           class="w-full"
           autocomplete="off"
-          placeholder="Search workflow"
+          placeholder="Pesquisar fluxo"
         />
       </ui-autocomplete>
       <template v-else>

@@ -28,7 +28,7 @@
     <input
       :value="data.loopId"
       class="bg-input w-full rounded-lg px-4 py-2"
-      placeholder="Loop ID"
+      placeholder="ID do laço"
       type="text"
       required
       @keydown.stop
@@ -39,7 +39,7 @@
       class="mt-2"
       @change="$emit('update', { clearLoop: $event })"
     >
-      Stop loop
+      Parar laço
     </ui-checkbox>
     <Handle :id="`${id}-output-1`" type="source" :position="Position.Right" />
   </block-base>

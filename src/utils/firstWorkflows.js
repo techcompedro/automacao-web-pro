@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 export default [
   {
     id: nanoid(),
-    name: 'Twitter Trends to Google Sheets',
+    name: 'Tendências do Twitter no Google Sheets',
     table: [
       { id: '6QbkU', name: 'text', type: 'string' },
       { id: 'Q-zII', name: 'tweets_count', type: 'integer' },
@@ -201,7 +201,7 @@ export default [
           initialized: true,
           data: {
             disableBlock: false,
-            description: 'Trending text',
+            description: 'Texto da tendência',
             findBy: 'cssSelector',
             waitForSelector: false,
             waitSelectorTimeout: 5000,
@@ -259,7 +259,7 @@ export default [
           initialized: true,
           data: {
             disableBlock: false,
-            description: 'Trending tweets count',
+            description: 'Quantidade de publicações sobre a tendência',
             findBy: 'cssSelector',
             waitForSelector: false,
             waitSelectorTimeout: 5000,
@@ -393,7 +393,7 @@ export default [
           initialized: true,
           data: {
             disableBlock: false,
-            note: 'Read the documentation about the Google Sheets block before running this workflow',
+            note: 'Leia a documentação do bloco Google Sheets antes de executar este fluxo',
             drawing: false,
             width: 280,
             height: 168,
@@ -506,11 +506,11 @@ export default [
       defaultColumnName: 'column',
     },
     globalData: '{\n\t"key": "value"\n}',
-    description: 'Import current twitter trends to Google Sheets',
+    description: 'Importar tendências atuais do Twitter para o Google Sheets',
   },
   {
     id: nanoid(),
-    name: 'Google search',
+    name: 'Pesquisa no Google',
     createdAt: Date.now(),
     drawflow: {
       nodes: [
@@ -609,13 +609,13 @@ export default [
           label: 'forms',
           position: { x: 641, y: 290 },
           data: {
-            description: 'Type query',
+            description: 'Digite a consulta',
             selector: "[name='q']",
             markEl: false,
             multiple: false,
             selected: true,
             type: 'text-field',
-            value: 'Automa Extension',
+            value: 'Extensão Web Flow',
             delay: '120',
             events: [],
           },
@@ -651,7 +651,7 @@ export default [
           label: 'event-click',
           position: { x: 929, y: 293 },
           data: {
-            description: 'Click search',
+            description: 'Clicar em pesquisar',
             selector: 'center:nth-child(1) > .gNO89b',
             markEl: false,
             multiple: false,
@@ -716,7 +716,7 @@ export default [
   },
   {
     id: nanoid(),
-    name: 'Generate lorem ipsum',
+    name: 'Gerar texto de exemplo',
     createdAt: Date.now(),
     drawflow: {
       nodes: [
@@ -906,7 +906,7 @@ export default [
           position: { x: 1148, y: 297 },
           data: {
             disableBlock: false,
-            description: 'Lipsum length',
+            description: 'Tamanho do texto de exemplo',
             findBy: 'cssSelector',
             waitForSelector: false,
             waitSelectorTimeout: 5000,
@@ -958,7 +958,7 @@ export default [
           position: { x: 1414, y: 299 },
           data: {
             disableBlock: false,
-            description: 'Generate button',
+            description: 'Gerar botão',
             findBy: 'cssSelector',
             waitForSelector: false,
             waitSelectorTimeout: 5000,
@@ -1031,7 +1031,7 @@ export default [
           position: { x: 1973, y: 307 },
           data: {
             disableBlock: false,
-            description: 'Get text result',
+            description: 'Obter texto do resultado',
             findBy: 'cssSelector',
             waitForSelector: false,
             waitSelectorTimeout: 5000,
@@ -1384,7 +1384,7 @@ export default [
   },
   {
     id: nanoid(),
-    name: 'Search in ProductHunt',
+    name: 'Pesquisar no ProductHunt',
     createdAt: Date.now(),
     drawflow: {
       nodes: [
@@ -1533,7 +1533,7 @@ export default [
   {
     id: nanoid(),
     createdAt: Date.now(),
-    name: 'Google Keyword Research',
+    name: 'Pesquisa de palavras-chave no Google',
     table: [
       {
         id: '25D2q',

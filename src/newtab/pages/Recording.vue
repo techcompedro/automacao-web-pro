@@ -20,7 +20,7 @@
         </p>
       </div>
     </div>
-    <p class="mt-6 mb-2 font-semibold">Flows</p>
+    <p class="mt-6 mb-2 font-semibold">Fluxos</p>
     <ui-list class="space-y-1">
       <ui-list-item
         v-for="(item, index) in state.flows"

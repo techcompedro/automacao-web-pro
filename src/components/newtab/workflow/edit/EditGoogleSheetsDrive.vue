@@ -1,12 +1,12 @@
 <template>
   <div v-if="!store.integrations.googleDrive">
     <p>
-      You haven't
+      Você ainda não
       <a
         href="https://docs.automa.site/integrations/google-drive.html"
         target="_blank"
         class="underline"
-        >connected Automa to Google Drive</a
+        >conectou o Web Flow ao Google Drive</a
       >.
     </p>
   </div>
@@ -26,8 +26,8 @@
       type="fill"
       @change="updateData({ inputSpreadsheetId: $event })"
     >
-      <ui-tab value="connected"> Connected </ui-tab>
-      <ui-tab value="manually"> Manually </ui-tab>
+      <ui-tab value="connected"> Conectado </ui-tab>
+      <ui-tab value="manually"> Manualmente </ui-tab>
     </ui-tabs>
     <div
       v-if="data.type !== 'create' && data.inputSpreadsheetId === 'connected'"
@@ -60,8 +60,8 @@
     <ui-input
       v-if="['create', 'add-sheet'].includes(data.type)"
       :model-value="data.sheetName"
-      label="Sheet name"
-      placeholder="A Spreadsheet"
+      label="Nome da aba"
+      placeholder="Uma planilha"
       class="w-full"
       @change="updateData({ sheetName: $event })"
     />
@@ -96,7 +96,7 @@ async function connectSheet() {
   // 1. 获取当前 access_token
   const { sessionToken } = await browser.storage.local.get('sessionToken');
   if (!sessionToken?.access) {
-    toast.error('未获取到 Google 授权');
+    toast.error('Não foi possível obter a autorização do Google');
     return;
   }
   try {
@@ -104,7 +104,7 @@ async function connectSheet() {
     const file = await openGDrivePickerPopup(sessionToken.access);
     if (!file) return;
     if (file.mimeType !== 'application/vnd.google-apps.spreadsheet') {
-      toast.error('File is not a google spreadsheet');
+      toast.error('O arquivo não é uma planilha do Google');
       return;
     }
     const sheetExists = store.connectedSheets.some(
@@ -114,14 +114,14 @@ async function connectSheet() {
     // 3. 加入已连接列表
     store.connectedSheets.push({ name: file.name, id: file.id });
   } catch (e) {
-    toast.error('未选择文件或授权失败');
+    toast.error('Nenhum arquivo selecionado ou falha na autorização');
   }
 }
 
 // function connectSheet() {
 //   openGDriveFilePicker().then((sheets) => {
 //     if (!Array.isArray(sheets) || sheets.length === 0) {
-//       toast.error('未获取到 Google Sheets 文件');
+//       toast.error('Não foi possível obter a planilha do Google Sheets');
 //       return;
 //     }
 //     // 弹窗/下拉选择，用户选择后加入 store.connectedSheets
@@ -132,7 +132,7 @@ async function connectSheet() {
 //     if (Number.isNaN(index) || !sheets[index]) return;
 //     const { name, id, mimeType } = sheets[index];
 //     if (mimeType !== 'application/vnd.google-apps.spreadsheet') {
-//       toast.error('File is not a google spreadsheet');
+//       toast.error('O arquivo não é uma planilha do Google');
 //       return;
 //     }
 //     const sheetExists = store.connectedSheets.some((sheet) => sheet.id === id);

@@ -12,7 +12,7 @@
       class="ml-4"
       @click="editState.show = true"
     >
-      Add variable
+      Adicionar variável
     </ui-button>
   </div>
   <ui-table
@@ -37,9 +37,9 @@
   </ui-table>
   <ui-modal
     v-model="editState.show"
-    :title="`${editState.type === 'edit' ? 'Edit' : 'Add'} variable`"
+    :title="`${editState.type === 'edit' ? 'Editar' : 'Adicionar'} variável`"
   >
-    <ui-input v-model="editState.name" placeholder="Name" class="w-full" />
+    <ui-input v-model="editState.name" placeholder="Nome" class="w-full" />
     <ui-textarea
       v-model="editState.value"
       placeholder="value"
@@ -130,7 +130,7 @@ function saveVariable() {
   );
 
   if (duplicateName) {
-    toast.error(`You alread add "${trimmedName}" variable`);
+    toast.error(`A variável "${trimmedName}" já foi adicionada`);
     return;
   }
 

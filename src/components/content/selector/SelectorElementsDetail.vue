@@ -6,9 +6,9 @@
     fill
     @change="$emit('update:activeTab', $event)"
   >
-    <ui-tab value="attributes"> Attributes </ui-tab>
-    <ui-tab v-if="selectElements.length > 0" value="options"> Options </ui-tab>
-    <ui-tab v-if="!hideBlocks" value="blocks"> Blocks </ui-tab>
+    <ui-tab value="attributes"> Atributos </ui-tab>
+    <ui-tab v-if="selectElements.length > 0" value="options"> Opções </ui-tab>
+    <ui-tab v-if="!hideBlocks" value="blocks"> Blocos </ui-tab>
   </ui-tabs>
   <ui-tab-panels
     :model-value="activeTab"
@@ -28,7 +28,7 @@
           >
             <p
               class="text-overflow text-sm leading-tight text-gray-600"
-              title="Attribute name"
+              title="Nome do atributo"
             >
               {{ name }}
             </p>
@@ -72,13 +72,13 @@
           >
             <p
               class="text-overflow text-sm leading-tight text-gray-600"
-              title="Option name"
+              title="Nome da opção"
             >
               {{ option.name }}
             </p>
             <input
               :value="option.value"
-              title="Option value"
+              title="Valor da opção"
               class="text-overflow w-full bg-transparent focus:ring-0"
               readonly
               @click="$event.target.select()"

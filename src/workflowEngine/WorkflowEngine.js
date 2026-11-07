@@ -521,7 +521,7 @@ class WorkflowEngine {
           });
 
           if (!response.ok) {
-            throw new Error(`API request failed: ${response.status}`);
+            throw new Error(`A requisição à API falhou: ${response.status}`);
           }
         } catch (err) {
           console.error('Failed to report workflow execution:', err);

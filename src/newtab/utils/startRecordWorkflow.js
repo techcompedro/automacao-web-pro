@@ -24,7 +24,7 @@ export default async function (options = {}) {
       isRecording: true,
       recording: {
         flows,
-        name: 'unnamed',
+        name: 'sem nome',
         activeTab: {
           id: activeTab?.id,
           url: activeTab?.url,
