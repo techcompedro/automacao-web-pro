@@ -3,6 +3,8 @@ process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 process.env.ASSET_PATH = '/';
 
+require('./prepare-build')();
+
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
 const path = require('path');

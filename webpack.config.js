@@ -157,6 +157,14 @@ const options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'LICENSE.txt',
+          to: path.join(__dirname, 'build', 'LICENSE.txt'),
+        },
+        {
+          from: 'INSTALAR.md',
+          to: path.join(__dirname, 'build', 'INSTALAR.md'),
+        },
+        {
           from:
             env.NODE_ENV === 'development' && env.BROWSER === 'chrome'
               ? `src/manifest.${env.BROWSER}.dev.json`

@@ -26,16 +26,13 @@ cd automacao-web-pro
 pnpm install --frozen-lockfile
 ```
 
-O código original exige um arquivo local `src/utils/getPassKey.js`, ignorado pelo Git. Crie esse arquivo antes de compilar:
+A primeira compilação cria automaticamente `src/utils/getPassKey.js` se o arquivo ainda não existir. A chave é local, não é enviada ao Git e nunca é substituída automaticamente. Preserve esse arquivo entre compilações para continuar lendo os dados protegidos anteriormente.
 
-```js
-// Use uma chave local estável; não envie sua chave ao repositório.
-export default function getPassKey() {
-  return 'substitua-por-uma-chave-local-exclusiva';
-}
-```
+## Instalação sem erro de manifesto
 
-Guarde essa chave: ela é usada pelos recursos herdados de proteção de fluxos e credenciais. Alterá-la pode impedir a leitura de dados protegidos anteriormente.
+O ZIP de **Code → Download ZIP** contém o código-fonte, que não pode ser carregado diretamente no Chrome. Execute `pnpm build:install` e carregue a pasta **`build/`**, ou extraia o ZIP gerado em `build-zip/` e selecione a pasta que contém **`manifest.json`**.
+
+Consulte o [guia de instalação](INSTALAR.md) para o passo a passo.
 
 ## Desenvolver e compilar
 

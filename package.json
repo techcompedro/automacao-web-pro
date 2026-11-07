@@ -1,6 +1,6 @@
 {
   "name": "web-flow",
-  "version": "1.30.00",
+  "version": "1.30.1",
   "description": "Extensão para automatizar o navegador conectando blocos visuais, em português do Brasil",
   "repository": {
     "type": "git",
@@ -16,7 +16,10 @@
     "dev": "node utils/webserver.js",
     "dev:firefox": "cross-env BROWSER=firefox npm run dev",
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "check:extension": "node utils/validate-extension.js",
+    "build:install": "npm run build && npm run build:zip",
+    "test:build": "node --test utils/build.test.cjs"
   },
   "engines": {
     "node": ">=14.18.1"
@@ -100,7 +103,7 @@
     "vuedraggable": "^4.1.0",
     "vuex": "^4.0.2",
     "webextension-polyfill": "^0.12.0",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.1/xlsx-0.19.1.tgz"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
