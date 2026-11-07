@@ -8,38 +8,57 @@ class BackgroundUtils {
     );
 
     try {
-      const [tab] = await browser.tabs.query({
-        url: browser.runtime.getURL('/newtab.html'),
+      const tabs = await browser.tabs.query({
+        url: `${browser.runtime.getURL('/newtab.html')}*`,
       });
+      // Prefer a dashboard already inside a normal browser window.
+      const windows = await browser.windows.getAll({ windowTypes: ['normal'] });
+      const normalIds = new Set(windows.map((window) => window.id));
+      const tab = tabs.find((item) => normalIds.has(item.windowId)) || tabs[0];
+      const targetWindow =
+        windows.find((window) => window.focused) || windows[0];
 
       if (tab) {
-        const tabOptions = { active: true };
-        if (updateTab) tabOptions.url = tabUrl;
-
-        await browser.tabs.update(tab.id, tabOptions);
-
-        if (updateTab) {
-          await browser.windows.update(tab.windowId, {
-            focused: true,
-            state: 'maximized',
-          });
+        let { windowId } = tab;
+        if (!normalIds.has(windowId)) {
+          // Move a legacy popup tab instead of leaving the user in the old window.
+          if (targetWindow) {
+            await browser.tabs.move(tab.id, {
+              windowId: targetWindow.id,
+              index: -1,
+            });
+            windowId = targetWindow.id;
+          } else {
+            const created = await browser.windows.create({
+              tabId: tab.id,
+              type: 'normal',
+              focused: updateTab,
+            });
+            windowId = created.id;
+          }
         }
-      } else {
-        const curWin = await browser.windows.getCurrent();
-        const windowOptions = {
-          top: 0,
-          left: 0,
-          width: Math.min(curWin.width, 715),
-          height: Math.min(curWin.height, 715),
+        if (updateTab) {
+          await browser.tabs.update(tab.id, { active: true, url: tabUrl });
+          await browser.windows.update(windowId, { focused: true });
+        }
+        return;
+      }
+
+      if (targetWindow) {
+        await browser.tabs.create({
           url: tabUrl,
-          type: 'popup',
-        };
-
-        if (updateTab) {
-          windowOptions.focused = true;
-        }
-
-        await browser.windows.create(windowOptions);
+          windowId: targetWindow.id,
+          active: updateTab,
+        });
+        if (updateTab)
+          await browser.windows.update(targetWindow.id, { focused: true });
+      } else {
+        // A normal window is only needed when no normal browser window exists.
+        await browser.windows.create({
+          url: tabUrl,
+          type: 'normal',
+          focused: updateTab,
+        });
       }
     } catch (error) {
       console.error(error);
