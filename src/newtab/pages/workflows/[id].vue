@@ -172,7 +172,8 @@
             v-if="state.workflowConverted"
             :id="route.params.id"
             :data="editorData"
-            :disabled="isTeamWorkflow && !haveEditAccess"
+            :is-package="isPackage"
+            :disabled="!haveEditAccess || (isPackage && workflow.isExternal)"
             :class="{ 'animate-blocks': state.animateBlocks }"
             class="workflow-editor focus:outline-none"
             style="height: calc(100vh - 40px)"
@@ -1006,7 +1007,7 @@ function onNodesChange(changes) {
     }
   });
 
-  if (state.isExecuteCommand) return;
+  if (state.isExecuteCommand || !editorCommands) return;
 
   let command = null;
 

@@ -1,6 +1,6 @@
 {
   "name": "web-flow",
-  "version": "1.30.5",
+  "version": "1.31.0",
   "description": "Extensão para automatizar o navegador conectando blocos visuais, em português do Brasil",
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
     "test:local": "node --test utils/no-login.test.cjs",
     "test:dashboard": "node --test utils/dashboard.test.cjs",
     "test:startup": "node --test utils/dashboard-startup.test.cjs",
-    "check:independence": "node utils/check-independence.cjs"
+    "check:independence": "node utils/check-independence.cjs",
+    "test:steps": "node --test utils/steps.test.cjs utils/steps-ui.test.cjs"
   },
   "engines": {
     "node": ">=14.18.1"

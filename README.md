@@ -6,6 +6,12 @@ Extensão de automação visual para navegadores, com interface em português do
 
 Este projeto é uma versão personalizada do Automa, mantida em [techcompedro/automacao-web-pro](https://github.com/techcompedro/automacao-web-pro). O Web Flow tem nome e identidade visual próprios e preserva os créditos e as licenças do projeto original.
 
+## Editor por passos
+
+O editor abre em uma lista numerada. Escolha a ferramenta e clique em **Adicionar passo**, ou use **+ Espera** para inserir um intervalo. **Configurar** abre o formulário da ferramenta; **Subir/Descer** alteram sequências lineares. Use os destinos de cada passo para condições, repetições e caminhos paralelos. Salve pelo botão já existente no editor.
+
+Os fluxos existentes preservam seus IDs, dados e conexões. O mapa avançado fica disponível como opção para estruturas especializadas. Consulte o [plano de implementação](PLANO_EDITOR_PASSOS.md).
+
 ## Painel em uma aba do navegador
 
 O painel e as configurações abrem em uma aba normal. A extensão reutiliza a aba existente, sem maximizar ou redimensionar o navegador. Painéis antigos abertos como janela separada são movidos para uma janela normal ao reabrir o painel.
