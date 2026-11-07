@@ -265,24 +265,8 @@ watch(
     );
     workflowStore.states = Object.values(workflowStates || {});
 
-    const tabs = await browser.tabs.query({
-      url: browser.runtime.getURL('/newtab.html'),
-    });
-
-    const currentWindow = await browser.windows.getCurrent();
-    if (currentWindow.type !== 'popup') {
-      await browser.tabs.remove([tabs[0].id]);
-      return;
-    }
-
-    if (tabs.length > 1) {
-      const firstTab = tabs.shift();
-      await browser.windows.update(firstTab.windowId, { focused: true });
-      await browser.tabs.update(firstTab.id, { active: true });
-
-      await browser.tabs.remove(tabs.map((tab) => tab.id));
-      return;
-    }
+    // Normal browser tabs are supported. Opening/reusing the dashboard is handled
+    // by BackgroundUtils; initialization must not close this or other tabs.
 
     const { isFirstTime } = await browser.storage.local.get('isFirstTime');
     isUpdated.value = !isFirstTime && compare(currentVersion, prevVersion, '>');

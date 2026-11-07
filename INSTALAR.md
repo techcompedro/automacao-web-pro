@@ -2,7 +2,7 @@
 
 ## Se você recebeu o ZIP instalável
 
-1. Extraia **todo** o conteúdo de `web-flow-chrome-v1.30.3.zip` para uma pasta permanente.
+1. Extraia **todo** o conteúdo de `web-flow-chrome-v1.30.4.zip` para uma pasta permanente.
 2. Confirme que essa pasta contém `manifest.json`, `popup.html` e os arquivos `.bundle.js`.
 3. Abra `chrome://extensions` e ative **Modo do desenvolvedor**.
 4. Clique em **Carregar sem compactação**.
@@ -22,7 +22,7 @@ pnpm build:install
 
 Você precisa de Node.js e pnpm instalados. O arquivo local `src/utils/getPassKey.js` é criado automaticamente se ainda não existir. Preserve esse arquivo entre compilações para continuar lendo os dados protegidos anteriormente.
 
-Depois, carregue **a pasta `build/`** em `chrome://extensions`. Se preferir distribuir a extensão, o ZIP instalável fica em `build-zip/1.30.3/` e já contém o manifesto na raiz.
+Depois, carregue **a pasta `build/`** em `chrome://extensions`. Se preferir distribuir a extensão, o ZIP instalável fica em `build-zip/1.30.4/` e já contém o manifesto na raiz.
 
 Para conferir os arquivos antes de instalar:
 
