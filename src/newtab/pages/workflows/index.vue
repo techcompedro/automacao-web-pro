@@ -47,11 +47,7 @@
           </ui-popover>
         </div>
         <ui-list class="mt-6 space-y-2">
-          <ui-list-item
-            tag="a"
-            href="https://extension.automa.site/workflows"
-            target="_blank"
-          >
+          <ui-list-item tag="a" href="/newtab.html#/help" target="_blank">
             <v-remixicon name="riCompass3Line" />
             <span class="ml-4 capitalize">
               {{ t('workflow.browse') }}
@@ -296,24 +292,15 @@
             <li>Clique em "Gravar fluxo" e execute sua tarefa repetitiva</li>
             <li>
               Precisa de ajuda? Participe da
-              <a
-                href="https://discord.gg/C6khwwTE84"
-                target="_blank"
-                rel="noreferer"
+              <a href="/newtab.html#/help" target="_blank" rel="noreferer"
                 >comunidade do projeto original</a
               >, ou envie um e-mail para
-              <a href="mailto:support@automa.site" target="_blank"
-                >support@automa.site</a
-              >
+              <a href="/newtab.html#/help" target="_blank">Ajuda local</a>
             </li>
           </ol>
           <p class="mt-4">
             Saiba mais sobre a gravação na
-            <a
-              href="https://docs.extension.automa.site/guide/quick-start.html#recording-actions"
-              target="_blank"
-              >documentação</a
-            >
+            <a href="/newtab.html#/help" target="_blank">documentação</a>
           </p>
         </ui-card>
       </div>

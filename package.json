@@ -1,6 +1,6 @@
 {
   "name": "web-flow",
-  "version": "1.30.4",
+  "version": "1.30.5",
   "description": "Extensão para automatizar o navegador conectando blocos visuais, em português do Brasil",
   "repository": {
     "type": "git",
@@ -18,11 +18,12 @@
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "check:extension": "node utils/validate-extension.js",
-    "build:install": "npm run build && npm run build:zip",
+    "build:install": "npm run build && npm run check:independence && npm run build:zip",
     "test:build": "node --test utils/build.test.cjs",
     "test:local": "node --test utils/no-login.test.cjs",
     "test:dashboard": "node --test utils/dashboard.test.cjs",
-    "test:startup": "node --test utils/dashboard-startup.test.cjs"
+    "test:startup": "node --test utils/dashboard-startup.test.cjs",
+    "check:independence": "node utils/check-independence.cjs"
   },
   "engines": {
     "node": ">=14.18.1"

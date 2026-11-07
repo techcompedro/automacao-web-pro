@@ -17,7 +17,7 @@
       Explore os fluxos compartilhados pela sua equipe
     </p>
     <ui-button
-      :href="`http://extension.automa.site/workflows?teamId=${teamId}&workflowsBy=team`"
+      :href="`/newtab.html#/help`"
       tag="a"
       target="_blank"
       variant="accent"

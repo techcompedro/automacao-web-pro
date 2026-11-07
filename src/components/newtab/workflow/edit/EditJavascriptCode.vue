@@ -103,7 +103,7 @@
               <a
                 v-for="func in availableFuncs"
                 :key="func.id"
-                :href="`https://docs.extension.automa.site/blocks/javascript-code.html#${func.id}`"
+                :href="`/newtab.html#/help`"
                 target="_blank"
                 rel="noopener"
                 class="inline-block"

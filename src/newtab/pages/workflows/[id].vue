@@ -104,7 +104,7 @@
           <ui-input
             v-tooltip="'URL do fluxo'"
             prepend-icon="riLinkM"
-            :model-value="`https://extension.automa.site/teams/${teamId}/workflows/${workflow.id}`"
+            :model-value="`/newtab.html#/help`"
             readonly
             @click="$event.target.select()"
           />
@@ -463,7 +463,7 @@ const workflowModals = {
     width: 'max-w-2xl',
     component: WorkflowDataTable,
     title: t('workflow.table.title'),
-    docs: 'https://docs.extension.automa.site/workflow/table.html',
+    docs: '/newtab.html#/help',
     events: {
       /* eslint-disable-next-line */
       connect: fetchConnectedTable,
@@ -515,7 +515,7 @@ const workflowModals = {
     icon: 'riDatabase2Line',
     component: WorkflowGlobalData,
     title: t('common.globalData'),
-    docs: 'https://docs.extension.automa.site/workflow/global-data.html',
+    docs: '/newtab.html#/help',
   },
   settings: {
     width: 'max-w-2xl',

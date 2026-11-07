@@ -33,7 +33,7 @@
         <transition-expand>
           <ui-input
             v-if="isPkgShared"
-            :model-value="`https://extension.automa.site/packages/${data.id}`"
+            :model-value="`/newtab.html#/help`"
             readonly
             title="URL"
             type="url"

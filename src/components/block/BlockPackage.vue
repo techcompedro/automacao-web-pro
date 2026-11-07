@@ -83,7 +83,7 @@
     >
       <p>Por {{ data.author }}</p>
       <a
-        :href="`https://extension.automa.site/packages/${data.id}`"
+        :href="`/newtab.html#/help`"
         target="_blank"
         title="Abrir página do pacote"
         class="ml-2"

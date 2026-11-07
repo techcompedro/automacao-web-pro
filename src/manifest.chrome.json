@@ -37,16 +37,6 @@
       "run_at": "document_start",
       "match_about_blank": true,
       "all_frames": true
-    },
-    {
-      "matches": [
-        "http://localhost/*",
-        "*://*.automa.site/*",
-        "*://automa.vercel.app/*"
-      ],
-      "js": ["webService.bundle.js"],
-      "run_at": "document_start",
-      "all_frames": false
     }
   ],
   "optional_permissions": [

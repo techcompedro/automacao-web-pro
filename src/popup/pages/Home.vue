@@ -170,7 +170,7 @@
         Se o fluxo levar menos de 5 minutos, configure a execução em segundo
         plano nas
         <a
-          href="https://docs.extension.automa.site/workflow/settings.html#workflow-execution"
+          href="/newtab.html#/help"
           class="font-semibold underline"
           target="_blank"
         >
@@ -297,10 +297,7 @@ const showTab = computed(
 );
 
 function openDocs() {
-  window.open(
-    'https://docs.extension.automa.site/guide/quick-start.html#recording-actions',
-    '_blank'
-  );
+  window.open('/newtab.html#/help', '_blank');
 }
 function closeSettingsPopup() {
   state.showSettingsPopup = false;

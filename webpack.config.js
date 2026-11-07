@@ -56,13 +56,6 @@ const options = {
       'recordWorkflow',
       'index.js'
     ),
-    webService: path.join(
-      __dirname,
-      'src',
-      'content',
-      'services',
-      'webService.js'
-    ),
     elementSelector: path.join(
       __dirname,
       'src',
@@ -74,13 +67,13 @@ const options = {
   chromeExtensionBoilerplate: {
     notHotReload: [
       'background',
-      'webService',
       'contentScript',
       'recordWorkflow',
       'elementSelector',
     ],
   },
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
     publicPath: ASSET_PATH,

@@ -1,25 +1,10 @@
 import BrowserAPIService from '@/service/browser-api/BrowserAPIService';
-import secrets from 'secrets';
 import { assertAccountFeaturesEnabled } from './accountPolicy';
 import { isObject, parseJSON } from './helper';
 
-export async function fetchApi(path, options = {}) {
-  const urlPath = path.startsWith('/') ? path : `/${path}`;
-  const headers = {
-    'Content-Type': 'application/json',
-    ...(options?.headers || {}),
-  };
-
-  if (options.auth || /^\/(me|teams)(\/|$)/.test(urlPath)) {
-    assertAccountFeaturesEnabled();
-  }
-
-  const url = `${secrets.baseApiUrl}${urlPath}`;
-
-  return fetch(url, {
-    ...options,
-    headers,
-  });
+export async function fetchApi() {
+  // This distribution does not connect to the original product backend.
+  assertAccountFeaturesEnabled();
 }
 
 export async function cacheApi(key, callback, useCache = true) {

@@ -43,25 +43,10 @@ export default async function fetchGDriveSheets() {
  * @param {string} accessToken
  * @returns {Promise<{id, name, mimeType}>}
  */
-export function openGDrivePickerPopup(accessToken) {
-  return new Promise((resolve, reject) => {
-    const pickerUrl = `https://extension.automa.site/picker?access_token=${accessToken}`;
-    const popup = window.open(pickerUrl, '_blank', 'width=600,height=600');
-    function handleMessage(event) {
-      if (!event.origin.startsWith('https://extension.automa.site')) return;
-      if (event.data && event.data.type === 'GDRIVE_PICKER_RESULT') {
-        window.removeEventListener('message', handleMessage);
-        popup.close();
-        resolve(event.data.file);
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    const timer = setInterval(() => {
-      if (popup.closed) {
-        clearInterval(timer);
-        window.removeEventListener('message', handleMessage);
-        reject(new Error('Picker window closed'));
-      }
-    }, 500);
-  });
+export function openGDrivePickerPopup() {
+  return Promise.reject(
+    new Error(
+      'O seletor hospedado foi removido. Informe o ID da planilha manualmente no bloco Google Sheets.'
+    )
+  );
 }

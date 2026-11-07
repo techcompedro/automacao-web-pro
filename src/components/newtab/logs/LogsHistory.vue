@@ -17,7 +17,7 @@
               {{ errorBlock.message }}
               <a
                 v-if="errorBlock.messageId"
-                :href="`https://docs.extension.automa.site/reference/workflow-common-errors.html#${errorBlock.messageId}`"
+                :href="`/newtab.html#/help`"
                 target="_blank"
                 title="Sobre o erro"
                 @click.stop
@@ -138,7 +138,7 @@
                 {{ item.message }}
                 <a
                   v-if="item.messageId"
-                  :href="`https://docs.extension.automa.site/reference/workflow-common-errors.html#${item.messageId}`"
+                  :href="`/newtab.html#/help`"
                   target="_blank"
                   title="Sobre o erro"
                   @click.stop

@@ -10,11 +10,7 @@
       </div>
       <p class="text-center">
         {{ t('auth.username') }}.
-        <a
-          class="underline"
-          href="https://extension.automa.site/profile?username=true"
-          target="_blank"
-        >
+        <a class="underline" href="/newtab.html#/help" target="_blank">
           {{ t('auth.clickHere') }}
         </a>
       </p>

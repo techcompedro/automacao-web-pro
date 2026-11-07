@@ -3,7 +3,7 @@
     <ui-input
       v-tooltip="t('workflow.share.url')"
       prepend-icon="riLinkM"
-      :model-value="`https://extension.automa.site/workflow/${workflow.id}`"
+      :model-value="`/newtab.html#/help`"
       readonly
       @click="$event.target.select()"
     />

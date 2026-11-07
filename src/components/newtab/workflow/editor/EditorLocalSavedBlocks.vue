@@ -72,7 +72,7 @@
             <div class="grow" />
             <a
               v-if="item.isExternal"
-              :href="`https://extension.automa.site/packages/${item.id}`"
+              :href="`/newtab.html#/help`"
               target="_blank"
               title="Abrir página do pacote"
             >

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { accountFeaturesEnabled } from '@/utils/accountPolicy';
 import Welcome from './pages/Welcome.vue';
+import Help from './pages/Help.vue';
 import Packages from './pages/Packages.vue';
 import Workflows from './pages/workflows/index.vue';
 import WorkflowContainer from './pages/Workflows.vue';
@@ -20,6 +21,7 @@ import SettingsBackup from './pages/settings/SettingsBackup.vue';
 import SettingsEditor from './pages/settings/SettingsEditor.vue';
 
 const routes = [
+  { path: '/help', name: 'help', component: Help },
   {
     name: 'home',
     path: '/',

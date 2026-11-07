@@ -36,7 +36,7 @@
         <p>
           Exporte seus fluxos como uma extensão independente usando o serviço original
           <a
-            href="https://docs.extension.automa.site/extension-builder/"
+            href="/newtab.html#/help"
             target="_blank"
             class="underline"
             >Automa Chrome Extension Builder (serviço original)</a

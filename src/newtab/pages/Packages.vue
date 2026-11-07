@@ -113,7 +113,7 @@
                   <ui-list-item
                     v-if="pkg.isExternal"
                     v-close-popover
-                    :href="`https://extension.automa.site/packages/${pkg.id}`"
+                    :href="`/newtab.html#/help`"
                     tag="a"
                     target="_blank"
                     class="cursor-pointer"

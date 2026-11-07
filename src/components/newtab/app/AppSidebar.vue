@@ -57,26 +57,9 @@
       <v-remixicon name="riFocus3Line" />
     </button>
     <div class="grow"></div>
-    <ui-popover trigger="mouseenter" placement="right" class="my-4">
-      <template #trigger>
-        <v-remixicon name="riGroupLine" />
-      </template>
-      <p class="mb-2">{{ t('home.communities') }}</p>
-      <ui-list class="w-40">
-        <ui-list-item
-          v-for="item in communities"
-          :key="item.name"
-          :href="item.url"
-          small
-          tag="a"
-          target="_blank"
-          rel="noopener"
-        >
-          <v-remixicon :name="item.icon" class="mr-2" />
-          {{ item.name }}
-        </ui-list-item>
-      </ui-list>
-    </ui-popover>
+    <router-link to="/help" title="Ajuda local" class="my-4">
+      <v-remixicon name="riBook3Line" />
+    </router-link>
     <router-link v-tooltip:right.group="t('settings.menu.about')" to="/about">
       <v-remixicon class="cursor-pointer" name="riInformationLine" />
     </router-link>
@@ -91,7 +74,6 @@ import browser from 'webextension-polyfill';
 import { useWorkflowStore } from '@/stores/workflow';
 import { useShortcut, getShortcut } from '@/composable/shortcut';
 import { useGroupTooltip } from '@/composable/groupTooltip';
-import { communities } from '@/utils/shared';
 import { initElementSelector } from '@/newtab/utils/elementSelector';
 import emitter from '@/lib/mitt';
 

@@ -3,10 +3,7 @@
     <div v-if="!store.integrations.googleDrive">
       <p>
         Você ainda não
-        <a
-          href="https://docs.extension.automa.site/integrations/google-drive.html"
-          target="_blank"
-          class="underline"
+        <a href="/newtab.html#/help" target="_blank" class="underline"
           >conectou o Web Flow ao Google Drive</a
         >.
       </p>

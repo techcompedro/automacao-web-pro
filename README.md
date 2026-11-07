@@ -4,7 +4,7 @@
 
 Extensão de automação visual para navegadores, com interface em português do Brasil. Conecte blocos para preencher formulários, repetir tarefas, extrair dados, capturar telas e agendar execuções.
 
-Este projeto é uma versão personalizada do [Automa](https://github.com/AutomaApp/automa), mantida em [techcompedro/automacao-web-pro](https://github.com/techcompedro/automacao-web-pro). O Web Flow tem nome e identidade visual próprios e preserva os créditos e as licenças do projeto original.
+Este projeto é uma versão personalizada do Automa, mantida em [techcompedro/automacao-web-pro](https://github.com/techcompedro/automacao-web-pro). O Web Flow tem nome e identidade visual próprios e preserva os créditos e as licenças do projeto original.
 
 ## Painel em uma aba do navegador
 
@@ -12,7 +12,7 @@ O painel e as configurações abrem em uma aba normal. A extensão reutiliza a a
 
 ## Uso sem login
 
-Esta versão funciona sem conta do Web Flow ou do Automa. O painel e o pop-up abrem diretamente nos fluxos locais. Perfil, equipes, publicação autenticada e backup na nuvem estão desativados. Nenhum usuário ou privilégio remoto é simulado. Importação, exportação e backup local continuam disponíveis; dados locais existentes são preservados. Integrações externas podem ter autorizações próprias.
+Esta versão funciona sem conta do Web Flow ou do Automa. O painel e o pop-up abrem diretamente nos fluxos locais. Perfil, equipes, publicação autenticada e backup na nuvem estão desativados. Nenhum usuário ou privilégio remoto é simulado. Importação, exportação e backup local continuam disponíveis; dados locais existentes são preservados. Integrações externas independentes podem ter autorizações próprias. A interface não oferece links para as comunidades, documentação ou galeria do projeto de origem.
 
 ## Recursos
 
@@ -20,7 +20,7 @@ Esta versão funciona sem conta do Web Flow ou do Automa. O painel e o pop-up ab
 - Gravação de ações no navegador e seleção de elementos da página.
 - Preenchimento de formulários, coleta de dados e exportação em JSON ou CSV.
 - Agendamento, registros de execução e armazenamento local.
-- Integrações herdadas com Google Sheets, Google Drive e serviços externos.
+- Importação e exportação de arquivos, com os serviços hospedados do projeto de origem desativados.
 
 O idioma padrão é português do Brasil. As configurações permitem escolher outros idiomas; as traduções desses idiomas foram preservadas. Os nomes técnicos de APIs, os formatos de arquivo e as chaves internas permanecem compatíveis com os fluxos do Automa.
 
@@ -73,13 +73,13 @@ Cada compilação usa a mesma pasta `build/`. Gere o ZIP de um navegador antes d
 3. Clique em **Carregar extensão temporária**.
 4. Selecione `build/manifest.json`.
 
-As páginas do Automa nas lojas publicam a extensão original. Esta versão Web Flow deve ser instalada a partir da sua própria compilação até que tenha uma publicação própria.
+Esta versão deve ser instalada a partir da sua própria compilação ou do ZIP instalável do Web Flow.
 
 ## Usar a extensão
 
 Abra o ícone do Web Flow e acesse o painel. Crie um fluxo pelo editor ou grave uma sequência de ações. Conecte os blocos ao gatilho inicial, salve e execute. Use os registros do painel para acompanhar os resultados.
 
-As permissões solicitadas dependem dos blocos utilizados. Serviços externos herdados continuam usando seus endereços originais e podem exigir conta, autorização ou configuração adicional. A troca de marca não cria serviços próprios de nuvem, galeria, IA ou Google OAuth.
+As permissões solicitadas dependem dos blocos utilizados. Os serviços hospedados do projeto de origem foram desativados, e o conector com seu site foi removido. Integrações independentes, quando aplicáveis, exigem suas próprias autorizações. A ajuda é fornecida dentro da extensão.
 
 ## Logo e identidade
 
@@ -87,9 +87,9 @@ O símbolo representa um W formado por um fluxo e três nós conectados. O fundo
 
 ## Documentação e colaboração
 
-- [Documentação técnica do Automa, projeto original](https://docs.extension.automa.site)
+- Ajuda local: abra **Ajuda local** no painel do Web Flow.
 - [Relatar problema ou sugerir melhoria no Web Flow](https://github.com/techcompedro/automacao-web-pro/issues)
-- [Código e colaboradores do Automa](https://github.com/AutomaApp/automa)
+- Os créditos do projeto de origem são preservados nos avisos de licença.
 
 ## Licença e créditos
 

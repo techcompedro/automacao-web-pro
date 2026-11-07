@@ -52,7 +52,7 @@ export const tasks = {
   'ai-workflow': {
     name: 'Fluxo com IA',
     description: 'Um fluxo criado pelo AI Power',
-    icon: 'https://winrobot-pub-a-1302949341.cos.ap-shanghai.myqcloud.com/image/20250717194249/10e0c06a7b243d15ac9a9385b07ce4e2.svg',
+    icon: 'riFlashlightLine',
     tag: 'AI',
     component: 'BlockBasic',
     editComponent: 'EditAiWorkflow',
@@ -1617,28 +1617,7 @@ export const supportLocales = [
   { id: 'pt-BR', name: 'Português (Brasil)' },
 ];
 
-export const communities = [
-  {
-    name: 'GitHub',
-    icon: 'riGithubFill',
-    url: 'https://github.com/techcompedro/automacao-web-pro',
-  },
-  {
-    name: 'Twitter',
-    icon: 'riTwitterLine',
-    url: 'https://twitter.com/AutomaApp',
-  },
-  {
-    name: 'Discord',
-    icon: 'riDiscordLine',
-    url: 'https://discord.gg/C6khwwTE84',
-  },
-  {
-    name: 'YouTube',
-    icon: 'riYoutubeLine',
-    url: 'https://www.youtube.com/channel/UCL3qU64hW0fsIj2vOayOQUQ',
-  },
-];
+export const communities = [];
 
 export const elementsHighlightData = {
   selectedElements: {

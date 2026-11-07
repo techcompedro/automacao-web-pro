@@ -96,6 +96,48 @@ test('requisições de conta são bloqueadas antes de ler sessão ou acessar a r
   }
   assert.equal(storageReads, 0);
   assert.equal(networkRequests, 0);
-  assert.equal((await api.fetchApi('/public')).ok, true);
-  assert.equal(networkRequests, 1);
+  await assert.rejects(api.fetchApi('/public'), {
+    code: 'ACCOUNT_FEATURES_DISABLED',
+  });
+  assert.equal(networkRequests, 0);
+});
+
+test('serviço de IA e seletor hospedado não fazem requisições nem abrem sites', async () => {
+  const policy = load('src/utils/accountPolicy.js');
+  let requests = 0;
+  const api = load(
+    'src/utils/getAIPoweredInfo.js',
+    {
+      secrets: { apApiUrl: 'https://example.invalid' },
+      './accountPolicy': policy,
+    },
+    {
+      fetch: async () => {
+        requests += 1;
+      },
+    }
+  );
+  for (const call of Object.values(api)) {
+    await assert.rejects(call({}, 'token'), {
+      code: 'ACCOUNT_FEATURES_DISABLED',
+    });
+  }
+  const picker = load(
+    'src/utils/openGDriveFilePicker.js',
+    {
+      'webextension-polyfill': {},
+    },
+    {
+      window: {
+        open: () => {
+          requests += 1;
+        },
+      },
+    }
+  );
+  await assert.rejects(
+    picker.openGDrivePickerPopup('token'),
+    /seletor hospedado foi removido/
+  );
+  assert.equal(requests, 0);
 });

@@ -30,7 +30,7 @@
           </p>
           <a
             :title="t('common.docs')"
-            href="https://docs.extension.automa.site/workflow/sharing-workflow.html#host-workflow"
+            href="/newtab.html#/help"
             target="_blank"
             class="ml-1"
           >

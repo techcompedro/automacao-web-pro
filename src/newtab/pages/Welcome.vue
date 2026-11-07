@@ -1,91 +1,21 @@
 <template>
-  <div class="mx-auto max-w-xl py-16">
-    <h1 class="mb-8 text-3xl font-semibold">
-      {{ t('welcome.title') }}
-    </h1>
-    <p>
-      Comece lendo a documentação ou explorando os fluxos na galeria do Automa
-      (projeto original). <br />
-      Para aprender os recursos herdados do Automa, consulte os tutoriais do
-      projeto original.
+  <div class="mx-auto max-w-2xl py-16">
+    <img src="@/assets/svg/logo.svg" alt="Web Flow" class="mb-6 w-16" />
+    <h1 class="mb-4 text-3xl font-semibold">Bem-vindo ao Web Flow</h1>
+    <p class="text-gray-600 dark:text-gray-300">
+      Crie automações com blocos visuais, grave ações e organize seus fluxos
+      neste navegador, sem conta.
     </p>
-    <div class="mt-8 flex items-center space-x-2">
-      <a
-        v-for="link in links"
-        :key="link.name"
-        :href="link.url"
-        target="_blank"
-        rel="noopener"
-        class="hoverable w-40 flex-1 rounded-lg border-2 p-4 transition"
+    <div class="mt-8 flex flex-wrap gap-4">
+      <router-link to="/workflows" class="hoverable rounded-lg border-2 p-4"
+        >Meus fluxos</router-link
       >
-        <v-remixicon size="28" :name="link.icon" />
-        <p class="mt-2">
-          {{ link.name }}
-        </p>
-      </a>
-    </div>
-    <div class="mt-8">
-      <p>{{ t('home.communities') }}</p>
-      <div class="mt-2 flex items-center space-x-2">
-        <a
-          v-for="link in communities"
-          :key="link.name"
-          :href="link.url"
-          target="_blank"
-          rel="noopener"
-          class="hoverable w-40 rounded-lg border-2 p-4 transition"
-        >
-          <v-remixicon size="28" :name="link.icon" />
-          <p class="mt-2">
-            {{ link.name }}
-          </p>
-        </a>
-      </div>
+      <router-link to="/help" class="hoverable rounded-lg border-2 p-4"
+        >Ajuda local</router-link
+      >
+      <router-link to="/backup" class="hoverable rounded-lg border-2 p-4"
+        >Backup em arquivo</router-link
+      >
     </div>
   </div>
 </template>
-<script setup>
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
-
-const communities = [
-  {
-    name: 'GitHub',
-    icon: 'riGithubFill',
-    url: 'https://github.com/techcompedro/automacao-web-pro',
-  },
-  {
-    name: 'Twitter',
-    icon: 'riTwitterLine',
-    url: 'https://twitter.com/AutomaApp',
-  },
-  {
-    name: 'Discord',
-    icon: 'riDiscordLine',
-    url: 'https://discord.gg/C6khwwTE84',
-  },
-];
-const links = [
-  {
-    name: t('common.docs'),
-    icon: 'riBook3Line',
-    url: 'https://docs.extension.automa.site',
-  },
-  {
-    name: t('welcome.marketplace'),
-    icon: 'riCompass3Line',
-    url: 'https://extension.automa.site/workflows',
-  },
-  {
-    name: 'YouTube',
-    icon: 'riYoutubeLine',
-    url: 'https://youtube.com/channel/UCL3qU64hW0fsIj2vOayOQUQ',
-  },
-  {
-    name: 'Blog',
-    icon: 'riArticleLine',
-    url: 'https://blog.automa.site',
-  },
-];
-</script>

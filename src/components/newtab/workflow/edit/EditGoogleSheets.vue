@@ -31,7 +31,7 @@
         <template #label>
           {{ t('workflow.blocks.google-sheets.spreadsheetId.label') }}*
           <a
-            href="https://docs.extension.automa.site/blocks/google-sheets.html#spreadsheet-id"
+            href="/newtab.html#/help"
             target="_blank"
             rel="noopener"
             :title="t('workflow.blocks.google-sheets.spreadsheetId.link')"
@@ -43,17 +43,13 @@
     </edit-autocomplete>
     <a
       v-if="!state.havePermission"
-      href="https://docs.extension.automa.site/blocks/google-sheets.html#access-to-spreadsheet"
+      href="/newtab.html#/help"
       target="_blank"
       rel="noopener"
       class="ml-1 inline-block text-sm leading-tight"
     >
       O Web Flow não tem acesso à planilha.
-      <a
-        href="https://docs.extension.automa.site/blocks/google-sheets.html#access-to-spreadsheet"
-        target="_blank"
-        rel="noopener"
-      >
+      <a href="/newtab.html#/help" target="_blank" rel="noopener">
         Clique aqui para saber mais.
         <v-remixicon name="riInformationLine" size="18" class="inline" />
       </a>
@@ -72,7 +68,7 @@
         <template #label>
           {{ t('workflow.blocks.google-sheets.range.label') }}*
           <a
-            href="https://docs.extension.automa.site/blocks/google-sheets.html#range"
+            href="/newtab.html#/help"
             target="_blank"
             rel="noopener"
             :title="t('workflow.blocks.google-sheets.range.link')"

@@ -88,7 +88,7 @@
 
       <span class="text-sm text-gray-500 block text-center mt-10"
         >Web Flow, baseado no Automa
-        <a href="https://aipower.automa.site/">AI Power</a></span
+        <a href="/newtab.html#/help">AI Power</a></span
       >
     </template>
 
@@ -169,7 +169,7 @@ import {
   postUploadFile,
 } from '@/utils/getAIPoweredInfo';
 import cloneDeep from 'lodash.clonedeep';
-import secrets from 'secrets';
+import { accountFeatureMessage } from '@/utils/accountPolicy';
 import {
   computed,
   defineEmits,
@@ -179,7 +179,6 @@ import {
 } from 'vue';
 import { useRoute } from 'vue-router';
 import { useToast } from 'vue-toastification';
-import browser from 'webextension-polyfill';
 import InsertWorkflowData from './InsertWorkflowData.vue';
 
 const toast = useToast();
@@ -234,9 +233,7 @@ const handleUploadFile = async (file) => {
 };
 
 const createNewWorkflow = () => {
-  browser.tabs.create({
-    url: secrets.apCreateWorkflowUrl,
-  });
+  toast.error(accountFeatureMessage);
 };
 
 const clearInputsAndOutputs = () => {
@@ -271,9 +268,7 @@ const loadWorkflows = async ({ query, page }) => {
   }
 };
 const goToAIPowerSettings = () => {
-  const url = `${secrets.apHomeUrl}/authorization`;
-
-  window.open(url, '_blank');
+  toast.error(accountFeatureMessage);
 };
 
 const updateAIPowerToken = (value) => {

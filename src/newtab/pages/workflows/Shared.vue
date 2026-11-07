@@ -33,7 +33,7 @@
         <ui-input
           v-tooltip="t('workflow.share.url')"
           prepend-icon="riLinkM"
-          :model-value="`https://extension.automa.site/workflow/${workflow.id}`"
+          :model-value="`/newtab.html#/help`"
           readonly
           @click="copyLink"
         />
@@ -358,9 +358,7 @@ function onEditorInit(instance) {
 
 function copyLink(e) {
   e.target.select();
-  navigator.clipboard.writeText(
-    `https://extension.automa.site/workflow/${workflow.value.id}`
-  );
+  navigator.clipboard.writeText(`/newtab.html#/help`);
   toast.success(t('workflow.share.linkCopied'));
 }
 

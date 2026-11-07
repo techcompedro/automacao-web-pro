@@ -1,4 +1,5 @@
 import secrets from 'secrets';
+import { assertAccountFeaturesEnabled } from './accountPolicy';
 
 const BASE_URL = secrets.apApiUrl;
 
@@ -35,6 +36,7 @@ const BASE_URL = secrets.apApiUrl;
  * @returns {Promise<APIDetailResponse>} The API response containing the workflow details.
  */
 export const getAPWorkflowDetail = async (flowUuid, token) => {
+  assertAccountFeaturesEnabled();
   const url = new URL(`${BASE_URL}/oapi/power/v1/flow/detail`);
   url.searchParams.append('flowUuid', flowUuid);
 
@@ -95,6 +97,7 @@ export const getAPWorkflowDetail = async (flowUuid, token) => {
  * @returns {Promise<APIListResponse>} The API response containing the list of workflows.
  */
 export const getAPFlowList = async (params, token) => {
+  assertAccountFeaturesEnabled();
   const { page, size, name } = params;
   const url = new URL(`${BASE_URL}/oapi/power/v1/flow/page`);
   url.searchParams.append('page', String(page));
@@ -146,6 +149,7 @@ export const getAPFlowList = async (params, token) => {
  * @returns {Promise<APIStatusResponse>} The API response containing the execution status.
  */
 export const getAPFlowStatus = async (runRecordId, token) => {
+  assertAccountFeaturesEnabled();
   const url = new URL(`${BASE_URL}/oapi/power/v1/rest/flow/execute/result`);
   url.searchParams.append('runRecordId', String(runRecordId));
 
@@ -197,6 +201,7 @@ export const getAPFlowStatus = async (runRecordId, token) => {
  * @returns {Promise<APIExecuteResponse>} The API response containing the execution result.
  */
 export const postRunAPWorkflow = async ({ flowUuid, input }, token) => {
+  assertAccountFeaturesEnabled();
   const url = `${BASE_URL}/oapi/power/v1/rest/flow/${flowUuid}/execute`;
 
   const response = await fetch(url, {
@@ -245,6 +250,7 @@ export const postRunAPWorkflow = async ({ flowUuid, input }, token) => {
  * @returns {Promise<APIUploadResponse>} The API response containing the upload result.
  */
 export const postUploadFile = async (file, token) => {
+  assertAccountFeaturesEnabled();
   const url = `${BASE_URL}/oapi/power/v1/file/upload`;
 
   const formData = new FormData();

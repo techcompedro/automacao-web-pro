@@ -12,7 +12,7 @@
       <div class="grow"></div>
       <a
         :title="t('common.docs')"
-        :href="`https://docs.extension.automa.site/blocks/${data.id}.html`"
+        :href="`/newtab.html#/help`"
         rel="noopener"
         target="_blank"
         class="text-gray-600 dark:text-gray-200"

@@ -141,7 +141,7 @@
       />
       <div class="mt-3">
         <a
-          href="https://docs.extension.automa.site/workflow/expressions.html"
+          href="/newtab.html#/help"
           rel="noopener"
           class="border-b text-primary"
           target="_blank"
