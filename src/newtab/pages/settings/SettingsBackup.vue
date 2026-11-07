@@ -1,72 +1,9 @@
 <template>
   <div class="max-w-xl">
-    <ui-card class="mb-12">
-      <h2 class="mb-2 font-semibold">
-        {{ t('settings.backupWorkflows.cloud.title') }}
-      </h2>
-      <template v-if="userStore.user">
-        <div
-          class="flex items-center rounded-lg border p-4 dark:border-gray-700"
-        >
-          <span class="bg-box-transparent inline-block rounded-full p-2">
-            <v-remixicon name="riUploadLine" />
-          </span>
-          <div class="ml-4 flex-1 leading-tight">
-            <p class="text-sm text-gray-600 dark:text-gray-200">
-              {{ t('settings.backupWorkflows.cloud.lastBackup') }}
-            </p>
-            <p>{{ formatDate(state.lastBackup) }}</p>
-          </div>
-          <ui-button
-            :loading="backupState.loading"
-            @click="backupState.modal = true"
-          >
-            {{ t('settings.backupWorkflows.backup.button') }}
-          </ui-button>
-        </div>
-        <div
-          class="mt-2 flex items-center rounded-lg border p-4 dark:border-gray-700"
-        >
-          <span class="bg-box-transparent inline-block rounded-full p-2">
-            <v-remixicon name="riDownloadLine" />
-          </span>
-          <p class="ml-4 flex-1">
-            {{ t('settings.backupWorkflows.cloud.sync') }}
-          </p>
-          <ui-button
-            :loading="state.loadingSync"
-            class="ml-2"
-            @click="syncBackupWorkflows"
-          >
-            {{ t('settings.backupWorkflows.cloud.sync') }}
-          </ui-button>
-        </div>
-      </template>
-      <div v-else class="py-4 text-center">
-        <p>
-          {{ t('settings.backupWorkflows.needSignin') }}
-        </p>
-        <ui-button
-          tag="a"
-          href="https://extension.automa.site/auth"
-          target="_blank"
-          class="mt-4 inline-block w-44"
-        >
-          {{ t('auth.signIn') }}
-        </ui-button>
-      </div>
-      <!-- <p v-if="false">
-        Faça a atualização para o
-        <a
-          href="https://extension.automa.site/pricing"
-          target="_blank"
-          class="text-yellow-500 underline dark:text-yellow-300"
-        >
-          plano Pro do serviço original
-        </a>
-        para começar a salvar cópias dos seus fluxos na nuvem
-      </p> -->
-    </ui-card>
+    <p class="mb-6 text-gray-600 dark:text-gray-300">
+      O Web Flow funciona sem conta. Salve e restaure seus dados por arquivo
+      neste dispositivo.
+    </p>
     <h2 class="mb-2 font-semibold">
       {{ t('settings.backupWorkflows.title') }}
     </h2>
@@ -193,26 +130,13 @@
       </div>
     </div>
   </div>
-  <ui-modal
-    v-model="backupState.modal"
-    :title="t('settings.backupWorkflows.cloud.title')"
-    content-class="max-w-5xl"
-  >
-    <settings-cloud-backup
-      v-model:ids="backupState.ids"
-      @close="backupState.modal = false"
-    />
-  </ui-modal>
 </template>
 <script setup>
-import SettingsCloudBackup from '@/components/newtab/settings/SettingsCloudBackup.vue';
 import { useDialog } from '@/composable/dialog';
 import { useHasPermissions } from '@/composable/hasPermissions';
 import dbStorage from '@/db/storage';
 import { readableCron } from '@/lib/cronstrue';
-import { useUserStore } from '@/stores/user';
 import { useWorkflowStore } from '@/stores/workflow';
-import { getUserWorkflows } from '@/utils/api';
 import { fileSaver, openFilePicker, parseJSON } from '@/utils/helper';
 import cronParser from 'cron-parser';
 import AES from 'crypto-js/aes';
@@ -236,21 +160,12 @@ const BACKUP_ITEMS_INCLUDES = [
 const { t } = useI18n();
 const toast = useToast();
 const dialog = useDialog();
-const userStore = useUserStore();
 const workflowStore = useWorkflowStore();
 const downloadPermission = useHasPermissions(['downloads']);
 
 const state = reactive({
-  lastSync: null,
   encrypt: false,
-  lastBackup: null,
-  loadingSync: false,
   updateIfExists: false,
-});
-const backupState = reactive({
-  ids: [],
-  modal: false,
-  loading: false,
 });
 const localBackupSchedule = reactive({
   schedule: '',
@@ -291,34 +206,6 @@ function getBackupScheduleCron() {
     return `${readableCron(expression)}`;
   } catch (error) {
     return error.message;
-  }
-}
-function formatDate(date) {
-  if (!date) return 'null';
-
-  return dayjs(date).format('DD MMMM YYYY, hh:mm A');
-}
-async function syncBackupWorkflows() {
-  try {
-    state.loadingSync = true;
-    const { backup, hosted } = await getUserWorkflows(false);
-    const backupIds = backup.map(({ id }) => id);
-
-    userStore.backupIds = backupIds;
-    userStore.hostedWorkflows = hosted;
-
-    await browser.storage.local.set({
-      backupIds,
-      lastBackup: new Date().toISOString(),
-    });
-
-    await workflowStore.insertOrUpdate(backup, { checkUpdateDate: true });
-
-    state.loadingSync = false;
-  } catch (error) {
-    console.error(error);
-    toast.error(t('message.somethingWrong'));
-    state.loadingSync = false;
   }
 }
 async function backupWorkflows() {
@@ -478,16 +365,10 @@ async function restoreWorkflows() {
 }
 
 onMounted(async () => {
-  const { lastBackup, lastSync, localBackupSettings } =
-    await browser.storage.local.get([
-      'lastSync',
-      'lastBackup',
-      'localBackupSettings',
-    ]);
+  const { localBackupSettings } = await browser.storage.local.get(
+    'localBackupSettings'
+  );
 
   Object.assign(localBackupSchedule, localBackupSettings || {});
-
-  state.lastSync = lastSync;
-  state.lastBackup = lastBackup;
 });
 </script>

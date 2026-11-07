@@ -36,6 +36,7 @@
                 {{ t('home.record.title') }}
               </ui-list-item>
               <ui-list-item
+                v-if="accountFeaturesEnabled"
                 v-close-popover
                 class="cursor-pointer"
                 @click="addHostedWorkflow"
@@ -119,7 +120,7 @@
                 </span>
               </ui-list-item>
               <ui-list-item
-                v-if="hostedWorkflows?.length > 0"
+                v-if="accountFeaturesEnabled && hostedWorkflows?.length > 0"
                 :active="state.activeTab === 'host'"
                 color="bg-box-transparent font-semibold"
                 tag="button"
@@ -241,7 +242,10 @@
               <option v-if="userStore.user" value="shared">
                 {{ t('workflow.type.shared') }}
               </option>
-              <option v-if="hostedWorkflows?.length > 0" value="host">
+              <option
+                v-if="accountFeaturesEnabled && hostedWorkflows?.length > 0"
+                value="host"
+              >
                 {{ t('workflow.type.host') }}
               </option>
             </ui-select>
@@ -364,6 +368,7 @@
   </div>
 </template>
 <script setup>
+import { accountFeaturesEnabled } from '@/utils/accountPolicy';
 import SharedPermissionsModal from '@/components/newtab/shared/SharedPermissionsModal.vue';
 import WorkflowsFolder from '@/components/newtab/workflows/WorkflowsFolder.vue';
 import WorkflowsHosted from '@/components/newtab/workflows/WorkflowsHosted.vue';
@@ -409,7 +414,7 @@ const state = shallowReactive({
   teams: [],
   query: '',
   activeFolder: '',
-  activeTab: routeActive || 'local',
+  activeTab: accountFeaturesEnabled ? routeActive || 'local' : 'local',
   teamId: validTeamId ? teamId : '',
   perPage: savedSorts.perPage || 18,
   sortBy: savedSorts.sortBy || 'createdAt',
@@ -449,6 +454,7 @@ function startRecordWorkflow() {
   });
 }
 async function updateActiveTab(data = {}) {
+  if (!accountFeaturesEnabled) data.activeTab = 'local';
   if (data.activeTab !== 'team') {
     data.teamId = '';
   }
@@ -598,7 +604,7 @@ watch(
     const newState = {};
 
     if (query.active && query.active !== state.activeTab) {
-      newState.activeTab = query.active;
+      newState.activeTab = accountFeaturesEnabled ? query.active : 'local';
     }
 
     if (query.teamId !== undefined) {

@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { accountFeaturesEnabled } from '@/utils/accountPolicy';
 import Welcome from './pages/Welcome.vue';
 import Packages from './pages/Packages.vue';
 import Workflows from './pages/workflows/index.vue';
@@ -14,7 +15,6 @@ import Recording from './pages/Recording.vue';
 import Settings from './pages/Settings.vue';
 import SettingsIndex from './pages/settings/SettingsIndex.vue';
 import SettingsAbout from './pages/settings/SettingsAbout.vue';
-import SettingsProfile from './pages/settings/SettingsProfile.vue';
 import SettingsShortcuts from './pages/settings/SettingsShortcuts.vue';
 import SettingsBackup from './pages/settings/SettingsBackup.vue';
 import SettingsEditor from './pages/settings/SettingsEditor.vue';
@@ -62,16 +62,19 @@ const routes = [
       },
       {
         name: 'team-workflows',
+        meta: { requiresAccount: true },
         path: '/teams/:teamId/workflows/:id',
         component: WorkflowDetails,
       },
       {
         name: 'workflow-host',
+        meta: { requiresAccount: true },
         path: '/workflows/:id/host',
         component: WorkflowHost,
       },
       {
         name: 'workflow-shared',
+        meta: { requiresAccount: true },
         path: '/workflows/:id/shared',
         component: WorkflowShared,
       },
@@ -102,7 +105,7 @@ const routes = [
     component: Settings,
     children: [
       { path: '', component: SettingsIndex },
-      { path: '/profile', component: SettingsProfile },
+      { path: '/profile', redirect: '/settings' },
       { path: '/about', component: SettingsAbout },
       { path: '/backup', component: SettingsBackup },
       { path: '/editor', component: SettingsEditor },
@@ -111,7 +114,19 @@ const routes = [
   },
 ];
 
-export default createRouter({
+const router = createRouter({
   routes,
   history: createWebHashHistory(),
 });
+
+router.beforeEach((to) => {
+  if (
+    !accountFeaturesEnabled &&
+    to.matched.some((record) => record.meta.requiresAccount)
+  ) {
+    return '/workflows';
+  }
+  return true;
+});
+
+export default router;

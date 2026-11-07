@@ -2,14 +2,9 @@
   <p v-if="!userStore.user" class="my-4 text-center">
     <ui-spinner v-if="!userStore.retrieved" color="text-accent" />
     <template v-else>
-      Você precisa
-      <a
-        href="https://extension.automa.site/auth"
-        class="underline"
-        target="_blank"
-        >entrar</a
+      <span
+        >Os recursos de equipe não estão disponíveis nesta versão local.</span
       >
-      para usar estes fluxos
     </template>
   </p>
   <div

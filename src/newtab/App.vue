@@ -5,24 +5,7 @@
       <router-view />
     </main>
     <app-logs />
-    <ui-dialog>
-      <template #auth>
-        <div class="text-center">
-          <p class="text-xl font-semibold">Ops! 😬</p>
-          <p class="mt-2 text-gray-600 dark:text-gray-200">
-            {{ t('auth.text') }}
-          </p>
-          <ui-button
-            tag="a"
-            href="https://extension.automa.site/auth"
-            class="mt-6 block w-full"
-            variant="accent"
-          >
-            {{ t('auth.signIn') }}
-          </ui-button>
-        </div>
-      </template>
-    </ui-dialog>
+    <ui-dialog />
     <div
       v-if="isUpdated"
       class="fixed bottom-8 left-1/2 z-50 max-w-xl -translate-x-1/2 text-white dark:text-gray-900"
@@ -85,11 +68,9 @@ import { useFolderStore } from '@/stores/folder';
 import { useHostedWorkflowStore } from '@/stores/hostedWorkflow';
 import { useStore } from '@/stores/main';
 import { usePackageStore } from '@/stores/package';
-import { useSharedWorkflowStore } from '@/stores/sharedWorkflow';
 import { useTeamWorkflowStore } from '@/stores/teamWorkflow';
 import { useUserStore } from '@/stores/user';
 import { useWorkflowStore } from '@/stores/workflow';
-import { getUserWorkflows } from '@/utils/api';
 import dataMigration from '@/utils/dataMigration';
 import { MessageListener } from '@/utils/message';
 import { getWorkflowPermissions } from '@/utils/workflowData';
@@ -119,7 +100,6 @@ const folderStore = useFolderStore();
 const packageStore = usePackageStore();
 const workflowStore = useWorkflowStore();
 const teamWorkflowStore = useTeamWorkflowStore();
-const sharedWorkflowStore = useSharedWorkflowStore();
 const hostedWorkflowStore = useHostedWorkflowStore();
 
 theme.init();
@@ -134,33 +114,6 @@ const permissionState = reactive({
 const currentVersion = browser.runtime.getManifest().version;
 const prevVersion = localStorage.getItem('ext-version') || '0.0.0';
 
-async function fetchUserData() {
-  try {
-    if (!userStore.user) return;
-
-    const { backup, hosted } = await getUserWorkflows();
-    userStore.hostedWorkflows = hosted || {};
-
-    if (backup && backup.length > 0) {
-      const { lastBackup } = browser.storage.local.get('lastBackup');
-      if (!lastBackup) {
-        const backupIds = backup.map(({ id }) => id);
-
-        userStore.backupIds = backupIds;
-        await browser.storage.local.set({
-          backupIds,
-          lastBackup: new Date().toISOString(),
-        });
-      }
-
-      await workflowStore.insertOrUpdate(backup, { checkUpdateDate: true });
-    }
-
-    userStore.retrieved = true;
-  } catch (error) {
-    console.error(error);
-  }
-}
 /* eslint-disable-next-line */
 function autoDeleteLogs() {
   const deleteAfter = store.settings.deleteLogAfter;
@@ -189,22 +142,6 @@ function autoDeleteLogs() {
 
       localStorage.setItem('checkDeleteLogs', Date.now());
     });
-}
-async function syncHostedWorkflows() {
-  const hostIds = [];
-  const userHosted = userStore.getHostedWorkflows;
-  const hostedWorkflows = hostedWorkflowStore.workflows;
-
-  Object.keys(hostedWorkflows).forEach((hostId) => {
-    const isItsOwn = userHosted.find((item) => item.hostId === hostId);
-    if (isItsOwn) return;
-
-    hostIds.push({ hostId, updatedAt: hostedWorkflows[hostId].updatedAt });
-  });
-
-  if (hostIds.length === 0) return;
-
-  await hostedWorkflowStore.fetchWorkflows(hostIds);
 }
 function stopRecording() {
   if (!window.stopRecording) return;
@@ -368,12 +305,6 @@ watch(
     await automa('app');
 
     retrieved.value = true;
-
-    await Promise.allSettled([
-      sharedWorkflowStore.fetchWorkflows(),
-      fetchUserData(),
-      syncHostedWorkflows(),
-    ]);
 
     const { isRecording } = await browser.storage.local.get('isRecording');
     if (isRecording) {

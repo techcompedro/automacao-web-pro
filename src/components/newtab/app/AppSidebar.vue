@@ -57,20 +57,6 @@
       <v-remixicon name="riFocus3Line" />
     </button>
     <div class="grow"></div>
-    <router-link
-      v-if="userStore.user"
-      v-tooltip:right.group="t('settings.menu.profile')"
-      to="/profile"
-      class="bg-box-transparent inline-block rounded-full p-1 transition-transform hover:scale-110"
-    >
-      <img
-        :src="userStore.user.avatar_url"
-        height="32"
-        width="32"
-        class="rounded-full"
-        alt="Foto do usuário"
-      />
-    </router-link>
     <ui-popover trigger="mouseenter" placement="right" class="my-4">
       <template #trigger>
         <v-remixicon name="riGroupLine" />
@@ -102,7 +88,6 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import browser from 'webextension-polyfill';
-import { useUserStore } from '@/stores/user';
 import { useWorkflowStore } from '@/stores/workflow';
 import { useShortcut, getShortcut } from '@/composable/shortcut';
 import { useGroupTooltip } from '@/composable/groupTooltip';
@@ -115,7 +100,6 @@ useGroupTooltip();
 const { t } = useI18n();
 const toast = useToast();
 const router = useRouter();
-const userStore = useUserStore();
 const workflowStore = useWorkflowStore();
 
 const extensionVersion = browser.runtime.getManifest().version;

@@ -187,6 +187,7 @@
   </div>
 </template>
 <script setup>
+import { accountFeaturesEnabled } from '@/utils/accountPolicy';
 import BackgroundUtils from '@/background/BackgroundUtils';
 import HomeTeamWorkflows from '@/components/popup/home/HomeTeamWorkflows.vue';
 import HomeWorkflowCard from '@/components/popup/home/HomeWorkflowCard.vue';
@@ -290,7 +291,9 @@ const workflows = computed(() =>
 );
 const showTab = computed(
   () =>
-    hostedWorkflowStore.toArray.length > 0 || userStore.user?.teams?.length > 0
+    accountFeaturesEnabled &&
+    (hostedWorkflowStore.toArray.length > 0 ||
+      userStore.user?.teams?.length > 0)
 );
 
 function openDocs() {
@@ -405,7 +408,9 @@ onMounted(async () => {
   await userStore.loadUser({ storage: localStorage, ttl: 1000 * 60 * 5 });
   await teamWorkflowStore.loadData();
 
-  let activeTab = localStorage.getItem('popup-tab') || 'local';
+  let activeTab = accountFeaturesEnabled
+    ? localStorage.getItem('popup-tab') || 'local'
+    : 'local';
 
   await automa('app');
 

@@ -7,7 +7,7 @@
     {{ workflow.tag }}
   </span>
   <ui-card
-    v-if="!isTeam"
+    v-if="accountFeaturesEnabled && !isTeam"
     padding="p-1"
     class="pointer-events-auto ml-4 flex items-center"
   >
@@ -326,6 +326,7 @@
   </ui-modal>
 </template>
 <script setup>
+import { accountFeaturesEnabled } from '@/utils/accountPolicy';
 import WorkflowShareTeam from '@/components/newtab/workflow/WorkflowShareTeam.vue';
 import { useDialog } from '@/composable/dialog';
 import { useGroupTooltip } from '@/composable/groupTooltip';
